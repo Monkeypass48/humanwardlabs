@@ -10,7 +10,7 @@ Cloudflare Pages build settings:
 
 - Framework preset: None
 - Build command: (leave blank)
-- Build output directory: `/`
+- Deployed as a Cloudflare Worker with static assets: `wrangler.jsonc` serves the `public/` folder
 - Production branch: `main`
 
 ## Files
