@@ -14,7 +14,6 @@
 <meta property="og:image" content="https://humanwardlabs.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/bust.jpg" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -86,6 +85,11 @@ form{display:grid;gap:18px;margin-top:28px}
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.03)}}
 @keyframes up{from{transform:translateY(100%)}to{transform:none}}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.words{list-style:none;margin:0;padding:0;justify-self:end;text-align:right;font-weight:500;font-size:clamp(36px,5.4vw,92px);line-height:.98;letter-spacing:-.045em}
+.words li{opacity:0;transform:translateY(18px);animation:wordIn 1.1s cubic-bezier(.16,.84,.2,1) forwards,wordCycle 12s ease-in-out infinite;animation-delay:calc(1.1s + var(--i) * 140ms),calc(3s + var(--i) * 2.4s)}
+@keyframes wordIn{to{opacity:.32;transform:none}}
+@keyframes wordCycle{0%{opacity:.32}5%,17%{opacity:1}24%,100%{opacity:.32}}
+@media (max-width:860px){.words{justify-self:start;text-align:left;font-size:clamp(34px,10vw,56px)}}
 .skip{position:absolute;left:16px;top:-100px;z-index:10;background:#FFF;color:#0A0504;padding:12px 18px;border-radius:8px;font:500 16px 'Host Grotesk',Arial,sans-serif;text-decoration:none}
 .skip:focus{top:16px}
 #main{display:contents}
@@ -115,18 +119,6 @@ h1{order:3}
 <body>
 <a class="skip" href="#start">Skip to content</a>
 <div class="page" id="top" style="position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#0A0504;color:#FFFFFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;display:flex;flex-direction:column;padding:24px clamp(20px,4.2vw,72px) 0">
-  <div class="scrim" aria-hidden="true"></div>
-  <div class="scene" aria-hidden="true">
-    <div class="tilt">
-      <div class="figure">
-        <div class="breathe">
-          <img src="/assets/bust.jpg" alt="" width="1024" height="1536">
-          <canvas id="bust"></canvas>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <header class="rise" style="animation-delay:150ms">
     <a class="brand" href="/" aria-label="Humanward Labs home"><b>Humanward</b><small>Labs</small></a>
     <p class="meta"><span>Product &amp; Experience Design</span><span>Richmond, VA</span></p>
@@ -142,6 +134,13 @@ h1{order:3}
       <p>Product and experience design, built around the people who use it.</p>
       <a class="pill" href="mailto:info@humanwardlabs.com" aria-haspopup="dialog">Start a project</a>
     </div>
+    <ul class="words depth" aria-label="Design principles">
+      <li style="--i:0">Intuitive</li>
+      <li style="--i:1">Usable</li>
+      <li style="--i:2">Useful</li>
+      <li style="--i:3">Understandable</li>
+      <li style="--i:4">Accessible</li>
+    </ul>
   </div>
   </main>
 
@@ -219,130 +218,16 @@ h1{order:3}
 
 <script>
 (function () {
-  var root = document.documentElement;
-  var main = document.querySelector('.page');
-  var canvas = document.getElementById('bust');
-  var reduce = false;
-  
-  var ptr = null, cur = { x: 0, y: 0 }, varRaf = 0;
-
+  var root = document.documentElement, page = document.querySelector('.page'), raf = 0;
   function setVars(px, py) {
-    if (varRaf) cancelAnimationFrame(varRaf);
-    varRaf = requestAnimationFrame(function () {
-      varRaf = 0;
-      root.style.setProperty('--px', px.toFixed(3));
-      root.style.setProperty('--py', py.toFixed(3));
-    });
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function () { raf = 0; root.style.setProperty('--px', px.toFixed(3)); root.style.setProperty('--py', py.toFixed(3)); });
   }
-  main.addEventListener('pointermove', function (e) {
-    var r = main.getBoundingClientRect();
-    if (!r.width || !r.height) return;
-    var px = ((e.clientX - r.left) / r.width) * 2 - 1;
-    var py = ((e.clientY - r.top) / r.height) * 2 - 1;
-    ptr = { x: Math.max(-1, Math.min(1, px)), y: Math.max(-1, Math.min(1, py)) };
-    setVars(px, py);
+  page.addEventListener('pointermove', function (e) {
+    var r = page.getBoundingClientRect(); if (!r.width) return;
+    setVars(((e.clientX - r.left) / r.width) * 2 - 1, ((e.clientY - r.top) / r.height) * 2 - 1);
   });
-  main.addEventListener('pointerleave', function () { ptr = null; setVars(0, 0); });
-
-  var gl = null;
-  try { gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false }); } catch (e) {}
-  if (!gl) return;
-
-  var vs = 'attribute vec2 p;varying vec2 uv;void main(){uv=vec2(p.x*0.5+0.5,0.5-p.y*0.5);gl_Position=vec4(p,0.0,1.0);}';
-  var fs = [
-    'precision mediump float;',
-    'uniform sampler2D uImg;uniform sampler2D uDep;uniform vec2 uLight;uniform float uAmt;varying vec2 uv;',
-    'float lum(vec2 p){vec3 c=texture2D(uImg,p).rgb;return dot(c,vec3(0.299,0.587,0.114));}',
-    'void main(){',
-    '  vec4 c=texture2D(uImg,uv);',
-    '  float e=1.0/512.0;',
-    '  float dx=texture2D(uDep,uv+vec2(e,0.0)).r-texture2D(uDep,uv-vec2(e,0.0)).r;',
-    '  float dy=texture2D(uDep,uv+vec2(0.0,e)).r-texture2D(uDep,uv-vec2(0.0,e)).r;',
-    '  vec2 t=vec2(1.0/1024.0,1.0/1536.0)*1.5;',
-    '  float lx=lum(uv+vec2(t.x,0.0))-lum(uv-vec2(t.x,0.0));',
-    '  float ly=lum(uv+vec2(0.0,t.y))-lum(uv-vec2(0.0,t.y));',
-    '  vec3 n=normalize(vec3(-(dx*4.0+lx*1.6),-(dy*4.0+ly*1.6),1.0));',
-    '  vec3 L=normalize(vec3(uLight.x,uLight.y,0.95));',
-    '  float lam=max(dot(n,L),0.0);',
-    '  vec3 H=normalize(L+vec3(0.0,0.0,1.0));',
-    '  float sp=pow(max(dot(n,H),0.0),24.0);',
-    '  float m=smoothstep(0.04,0.3,texture2D(uDep,uv).r);',
-    '  vec3 lit=c.rgb*(0.66+0.5*lam)+vec3(1.0,0.78,0.6)*sp*0.12*c.g*3.0;',
-    '  gl_FragColor=vec4(mix(c.rgb,lit,m*uAmt),1.0);',
-    '}'
-  ].join('\n');
-
-  function sh(type, src) {
-    var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
-    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
-    return s;
-  }
-  var prog, u;
-  try {
-    prog = gl.createProgram();
-    gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
-    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
-    var loc = gl.getAttribLocation(prog, 'p');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    u = { img: gl.getUniformLocation(prog, 'uImg'), dep: gl.getUniformLocation(prog, 'uDep'), light: gl.getUniformLocation(prog, 'uLight'), amt: gl.getUniformLocation(prog, 'uAmt') };
-  } catch (e) { return; }
-
-  function load(src) {
-    return new Promise(function (resolve, reject) {
-      var im = new Image();
-      im.onload = function () {
-        var t = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, t);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        resolve(t);
-      };
-      im.onerror = reject;
-      im.src = src;
-    });
-  }
-  function resize() {
-    var r = canvas.getBoundingClientRect();
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var w = Math.max(1, Math.round(r.width * dpr)), h = Math.max(1, Math.round(r.height * dpr));
-    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
-  }
-  var tex = null, frame = 0;
-  function draw() {
-    if (frame % 30 === 0) resize();
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.useProgram(prog);
-    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex.img); gl.uniform1i(u.img, 0);
-    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tex.dep); gl.uniform1i(u.dep, 1);
-    gl.uniform2f(u.light, cur.x * 1.1, cur.y * 0.8);
-    gl.uniform1f(u.amt, 0.8);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-  }
-  function tick(now) {
-    requestAnimationFrame(tick);
-    var t = now / 1000, tx = 0, ty = 0;
-    if (ptr) { tx = ptr.x; ty = ptr.y; }
-    else if (!reduce) { tx = Math.sin(t * 0.33) * 0.38; ty = Math.sin(t * 0.21 + 1.2) * 0.16; }
-    var k = ptr ? 0.06 : 0.025;
-    cur.x += (tx - cur.x) * k; cur.y += (ty - cur.y) * k;
-    frame++;
-    draw();
-  }
-  Promise.all([load('/assets/bust.jpg'), load('/assets/bust-depth.jpg')]).then(function (t) {
-    tex = { img: t[0], dep: t[1] };
-    resize(); draw();
-    canvas.style.opacity = '1';
-    requestAnimationFrame(tick);
-  }).catch(function () {});
+  page.addEventListener('pointerleave', function () { setVars(0, 0); });
 })();
 </script>
 </body>

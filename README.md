@@ -15,9 +15,7 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page (HTML, CSS and a small WebGL script for the moving light on the bust)
-- `assets/bust.jpg` — hero image
-- `assets/bust-depth.jpg` — depth map used for the lighting effect
+- `index.html` — the page
 - `assets/og.jpg` — social share preview
 - `favicon.svg` — browser tab icon
 
