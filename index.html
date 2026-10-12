@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Humanward Labs | Product &amp; Experience Design</title>
+<meta name="description" content="Humanward Labs is a human-centered product and experience design studio in Richmond, VA. Designing the future of brands.">
+<meta name="theme-color" content="#0A0504">
+<link rel="canonical" href="https://humanwardlabs.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://humanwardlabs.com/">
+<meta property="og:title" content="Humanward Labs">
+<meta property="og:description" content="Human-centered product and experience design. Designing the future of brands.">
+<meta property="og:image" content="https://humanwardlabs.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/bust.jpg" as="image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Humanward Labs","url":"https://humanwardlabs.com/","email":"info@humanwardlabs.com","description":"Human-centered product and experience design studio.","address":{"@type":"PostalAddress","addressLocality":"Richmond","addressRegion":"VA","addressCountry":"US"}}
+</script>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#0A0504}
+a{color:#FFFFFF}
+a:focus-visible{outline:2px solid #FF7A45;outline-offset:4px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+main{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#0A0504;color:#FFFFFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;display:flex;flex-direction:column;padding:24px clamp(20px,4.2vw,72px) 0}
+.scene{position:absolute;left:50%;bottom:-6vh;height:min(112vh,150vw);aspect-ratio:1024/1536;transform:translateX(-50%);perspective:1500px;pointer-events:none}
+.tilt{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(calc(var(--px,0) * 4deg)) rotateX(calc(var(--py,0) * -3deg)) translate3d(calc(var(--px,0) * 6px),calc(var(--py,0) * 4px),0);transition:transform 1400ms cubic-bezier(.2,.7,.2,1)}
+.figure{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:radial-gradient(ellipse 62% 66% at 50% 44%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 62% 66% at 50% 44%,#000 62%,transparent 100%);animation:reveal 2.8s .2s cubic-bezier(.16,.84,.2,1) both}
+.breathe{position:absolute;inset:0;animation:breathe 16s 3s ease-in-out infinite alternate;transform-origin:52% 40%}
+.figure img,.figure canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.figure img{object-fit:cover}
+.figure canvas{opacity:0;transition:opacity .5s ease}
+.depth{transform:translate3d(calc(var(--px,0) * -14px),calc(var(--py,0) * -8px),0);transition:transform 1300ms cubic-bezier(.2,.7,.2,1)}
+header{position:relative;z-index:4;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.brand{display:inline-flex;gap:4px;min-height:44px;align-items:center;text-decoration:none}
+.brand b{font-weight:600;font-size:22px;letter-spacing:-.04em}
+.brand small{font-weight:400;font-size:12px;align-self:flex-start;margin-top:8px}
+.meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px;font-size:15px}
+.meta span+span{font-size:13px}
+.link{display:inline-flex;align-items:center;min-height:44px;padding:0 2px;font-size:14px;text-decoration:none;background-image:linear-gradient(#FFF,#FFF);background-size:100% 1px;background-position:0 72%;background-repeat:no-repeat;transition:background-size .3s ease}
+.link:hover{background-size:0% 1px;background-position:100% 72%}
+.mid{position:relative;z-index:3;flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:32px}
+.intro{max-width:23em}
+.intro p{margin:0;font-size:clamp(17px,1.45vw,21px);line-height:1.5;font-weight:300;letter-spacing:-.01em}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:28px;padding:0 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:17px;letter-spacing:-.01em;background:#C9461F;color:#FFF;transition:background-color .18s ease}
+.pill:hover{background:#DD552B}
+.tag{margin:0;justify-self:end;align-self:end;text-align:right;font-size:clamp(26px,2.7vw,42px);line-height:1.12;font-weight:300;letter-spacing:-.035em}
+h1{position:relative;z-index:3;margin:6px 0 0;font-weight:500;font-size:clamp(62px,16.4vw,290px);letter-spacing:-.065em;line-height:.8;white-space:nowrap}
+.mark{display:block;overflow:hidden;line-height:.8;padding-top:.06em}
+.mark-in{display:flex;align-items:flex-start;animation:up 1.5s .7s cubic-bezier(.16,.84,.2,1) both}
+.mark-in span:first-child{padding-right:.04em}
+.mark-in span+span{font-size:.17em;letter-spacing:-.03em;line-height:1;margin-top:.18em;margin-left:.06em}
+.rise{animation:rise 1.2s cubic-bezier(.16,.84,.2,1) both}
+@media (max-width:860px){.mid{grid-template-columns:minmax(0,1fr);align-content:end;padding-bottom:24px}.tag{text-align:left;justify-self:start}.scene{height:86vh;bottom:8vh}}
+@keyframes reveal{from{opacity:0;filter:brightness(.15);transform:scale(1.06)}to{opacity:1;filter:brightness(1);transform:none}}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.03)}}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.figure,.breathe,.mark-in,.rise{animation:none}.tilt,.depth{transition:none}}
+</style>
+</head>
+<body>
+<main id="top">
+  <div class="scene" aria-hidden="true">
+    <div class="tilt">
+      <div class="figure">
+        <div class="breathe">
+          <img src="/assets/bust.jpg" alt="" width="1024" height="1536">
+          <canvas id="bust"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="rise" style="animation-delay:150ms">
+    <a class="brand" href="/" aria-label="Humanward Labs home"><b>Humanward</b><small>Labs</small></a>
+    <p class="meta"><span>Product &amp; Experience Design</span><span>Richmond, VA</span></p>
+    <a class="link" href="mailto:info@humanwardlabs.com" aria-label="Contact Humanward Labs at info@humanwardlabs.com">Contact</a>
+  </header>
+
+  <div class="mid">
+    <div class="intro rise depth" style="animation-delay:1500ms">
+      <p>Human-centered product and experience design. We turn what people need into brands, products and experiences they choose.</p>
+      <a class="pill" href="mailto:info@humanwardlabs.com">Start a project</a>
+    </div>
+    <p class="tag rise depth" style="animation-delay:1800ms">Designing the future<br>of brands.</p>
+  </div>
+
+  <h1 class="depth">
+    <span class="sr">Humanward Labs</span>
+    <span class="mark" aria-hidden="true"><span class="mark-in"><span>Humanward</span><span>Labs</span></span></span>
+  </h1>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var main = document.querySelector('main');
+  var canvas = document.getElementById('bust');
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  var ptr = null, cur = { x: 0, y: 0 }, varRaf = 0;
+
+  function setVars(px, py) {
+    if (varRaf) cancelAnimationFrame(varRaf);
+    varRaf = requestAnimationFrame(function () {
+      varRaf = 0;
+      root.style.setProperty('--px', px.toFixed(3));
+      root.style.setProperty('--py', py.toFixed(3));
+    });
+  }
+  main.addEventListener('pointermove', function (e) {
+    var r = main.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = ((e.clientX - r.left) / r.width) * 2 - 1;
+    var py = ((e.clientY - r.top) / r.height) * 2 - 1;
+    ptr = { x: Math.max(-1, Math.min(1, px)), y: Math.max(-1, Math.min(1, py)) };
+    setVars(px, py);
+  });
+  main.addEventListener('pointerleave', function () { ptr = null; setVars(0, 0); });
+
+  var gl = null;
+  try { gl = canvas.getContext('webgl', { alpha: true, antialias: false, premultipliedAlpha: false }); } catch (e) {}
+  if (!gl) return;
+
+  var vs = 'attribute vec2 p;varying vec2 uv;void main(){uv=vec2(p.x*0.5+0.5,0.5-p.y*0.5);gl_Position=vec4(p,0.0,1.0);}';
+  var fs = [
+    'precision mediump float;',
+    'uniform sampler2D uImg;uniform sampler2D uDep;uniform vec2 uLight;uniform float uAmt;varying vec2 uv;',
+    'float lum(vec2 p){vec3 c=texture2D(uImg,p).rgb;return dot(c,vec3(0.299,0.587,0.114));}',
+    'void main(){',
+    '  vec4 c=texture2D(uImg,uv);',
+    '  float e=1.0/512.0;',
+    '  float dx=texture2D(uDep,uv+vec2(e,0.0)).r-texture2D(uDep,uv-vec2(e,0.0)).r;',
+    '  float dy=texture2D(uDep,uv+vec2(0.0,e)).r-texture2D(uDep,uv-vec2(0.0,e)).r;',
+    '  vec2 t=vec2(1.0/1024.0,1.0/1536.0)*1.5;',
+    '  float lx=lum(uv+vec2(t.x,0.0))-lum(uv-vec2(t.x,0.0));',
+    '  float ly=lum(uv+vec2(0.0,t.y))-lum(uv-vec2(0.0,t.y));',
+    '  vec3 n=normalize(vec3(-(dx*4.0+lx*1.6),-(dy*4.0+ly*1.6),1.0));',
+    '  vec3 L=normalize(vec3(uLight.x,uLight.y,0.95));',
+    '  float lam=max(dot(n,L),0.0);',
+    '  vec3 H=normalize(L+vec3(0.0,0.0,1.0));',
+    '  float sp=pow(max(dot(n,H),0.0),24.0);',
+    '  float m=smoothstep(0.04,0.3,texture2D(uDep,uv).r);',
+    '  vec3 lit=c.rgb*(0.66+0.5*lam)+vec3(1.0,0.78,0.6)*sp*0.12*c.g*3.0;',
+    '  gl_FragColor=vec4(mix(c.rgb,lit,m*uAmt),1.0);',
+    '}'
+  ].join('\n');
+
+  function sh(type, src) {
+    var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+    return s;
+  }
+  var prog, u;
+  try {
+    prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    var loc = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    u = { img: gl.getUniformLocation(prog, 'uImg'), dep: gl.getUniformLocation(prog, 'uDep'), light: gl.getUniformLocation(prog, 'uLight'), amt: gl.getUniformLocation(prog, 'uAmt') };
+  } catch (e) { return; }
+
+  function load(src) {
+    return new Promise(function (resolve, reject) {
+      var im = new Image();
+      im.onload = function () {
+        var t = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, t);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, im);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        resolve(t);
+      };
+      im.onerror = reject;
+      im.src = src;
+    });
+  }
+  function resize() {
+    var r = canvas.getBoundingClientRect();
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = Math.max(1, Math.round(r.width * dpr)), h = Math.max(1, Math.round(r.height * dpr));
+    if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; }
+  }
+  var tex = null, frame = 0;
+  function draw() {
+    if (frame % 30 === 0) resize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.useProgram(prog);
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tex.img); gl.uniform1i(u.img, 0);
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tex.dep); gl.uniform1i(u.dep, 1);
+    gl.uniform2f(u.light, cur.x * 1.1, cur.y * 0.8);
+    gl.uniform1f(u.amt, 0.8);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  function tick(now) {
+    requestAnimationFrame(tick);
+    var t = now / 1000, tx = 0, ty = 0;
+    if (ptr) { tx = ptr.x; ty = ptr.y; }
+    else if (!reduce) { tx = Math.sin(t * 0.33) * 0.38; ty = Math.sin(t * 0.21 + 1.2) * 0.16; }
+    var k = ptr ? 0.06 : 0.025;
+    cur.x += (tx - cur.x) * k; cur.y += (ty - cur.y) * k;
+    frame++;
+    draw();
+  }
+  Promise.all([load('/assets/bust.jpg'), load('/assets/bust-depth.jpg')]).then(function (t) {
+    tex = { img: t[0], dep: t[1] };
+    resize(); draw();
+    canvas.style.opacity = '1';
+    requestAnimationFrame(tick);
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>
