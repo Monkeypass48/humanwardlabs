@@ -290,7 +290,7 @@ a{color:inherit}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
 /* Tablet sequence: a field of dots resolves into the Humanward mark as you scroll */
-.seq{position:relative;height:460vh;background:var(--black);--mw:min(100vw,172svh)}
+.seq{position:relative;height:420vh;background:var(--black);--mw:min(100vw,172svh)}
 .seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
 .seq-media{position:absolute;left:50%;top:52%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
@@ -301,7 +301,8 @@ a{color:inherit}
 .seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
 .seq-intro p{margin:16px 0 0;max-width:40em;font-size:var(--fs-body);line-height:1.5;font-weight:300;color:#CFCFCF}
 @media (min-width:761px) and (max-aspect-ratio:1/1){.seq{--mw:130vw}}
-@media (max-width:760px){.seq{--mw:165vw;height:420vh}}
+@media (max-width:760px){.seq{--mw:165vw;height:380vh}}
+.seq-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(to bottom,rgba(255,255,255,0),#FFF 85%);opacity:var(--fo,0);pointer-events:none}
 
 /* Impact */
 .impact{background:var(--white);color:var(--black);padding:var(--sp) 0}
@@ -516,7 +517,7 @@ form{display:grid;gap:16px;margin-top:22px}
                 </svg>
               </div>
               <div class="txt">
-                <h3 class="card-title" id="t1">Product<br>Design</h3>
+                <h3 class="card-title" id="t1">Product <br>Design</h3>
                 <div class="foot">
                   <span class="lock">Humanward<small>Labs</small></span>
                   <span class="cue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Turn over</span>
@@ -570,7 +571,7 @@ form{display:grid;gap:16px;margin-top:22px}
                 </svg>
               </div>
               <div class="txt">
-                <h3 class="card-title" id="t2">Experience<br>Design</h3>
+                <h3 class="card-title" id="t2">Experience <br>Design</h3>
                 <div class="foot">
                   <span class="lock">Humanward<small>Labs</small></span>
                   <span class="cue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Turn over</span>
@@ -634,7 +635,7 @@ form{display:grid;gap:16px;margin-top:22px}
                 </svg>
               </div>
               <div class="txt">
-                <h3 class="card-title" id="t3">Design<br>Strategy</h3>
+                <h3 class="card-title" id="t3">Design <br>Strategy</h3>
                 <div class="foot">
                   <span class="lock">Humanward<small>Labs</small></span>
                   <span class="cue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.2L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16"/><path d="M3 21v-5h5"/></svg>Turn over</span>
@@ -724,7 +725,7 @@ form{display:grid;gap:16px;margin-top:22px}
     <div class="wrap">
       <h2 class="h2 reveal" id="closing-title">Let&rsquo;s build what people choose.</h2>
       <div class="invite">
-        <p>Tell me what you&rsquo;re building. I read every message and reply personally.</p>
+        <p>Tell us what you&rsquo;re building. Every message gets a personal reply.</p>
         <a class="talk magnetic" href="mailto:info@humanwardlabs.com" data-contact aria-haspopup="dialog">Let&rsquo;s talk.</a>
       </div>
     </div>
@@ -749,7 +750,7 @@ form{display:grid;gap:16px;margin-top:22px}
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
     <h2 id="contact-title">Let&rsquo;s talk.</h2>
-    <p class="lede">Tell me what you&rsquo;re building. I reply personally.</p>
+    <p class="lede">Tell us what you&rsquo;re building. Every message gets a personal reply.</p>
     <form id="contact-form" novalidate>
       <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="f-status"></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="f-status"></div>
@@ -759,7 +760,7 @@ form{display:grid;gap:16px;margin-top:22px}
       <p class="status" id="f-status" role="status" aria-live="polite"></p>
     </form>
     <div class="done">
-      <p id="f-done" tabindex="-1">Thanks. I&rsquo;ll be in touch.</p>
+      <p id="f-done" tabindex="-1">Thanks. We&rsquo;ll be in touch.</p>
       <button class="send" type="button" data-close style="margin-top:20px">Close</button>
     </div>
   </div>
@@ -1018,6 +1019,7 @@ form{display:grid;gap:16px;margin-top:22px}
       var tp = cl(p / (START * .5));
       seq.style.setProperty('--to', (1 - tp).toFixed(3));
       seq.style.setProperty('--ty', (-40 * tp).toFixed(1) + 'px');
+      st.style.setProperty('--fo', pr(p, .9, 1).toFixed(3));
       size();
       paint(cl((p - START) / (1 - START - .04)), ((now || performance.now()) - t0) / 1000);
       if (live) raf = requestAnimationFrame(frame);
