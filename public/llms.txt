@@ -1,6 +1,6 @@
 # Humanward Labs
 
-> Humanward Labs is a human-centered design studio in Richmond, Virginia. Human-centered design in the age of AI: product design, experience design and design strategy. Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One.
+> Humanward Labs is a human-centered design studio in Richmond, Virginia. Human-centered design in the age of AI: product design, experience design and design strategy. Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal created the #2 most-used GPT app.
 
 ## Services
 
@@ -13,6 +13,8 @@
 Great experiences are useful, usable, desirable, findable, accessible, credible and valuable.
 
 ## Contact
+
+- Principal: https://www.linkedin.com/in/mikebenjamin/
 
 - Website: https://humanwardlabs.com/
 - Email: info@humanwardlabs.com

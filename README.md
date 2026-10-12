@@ -15,7 +15,9 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page (hero, impact, services flip cards, FAQ, contact dialog)
+- `index.html` — the page (hero with scroll cue, tablet scroll sequence with reel video, impact, services flip cards, FAQ, contact dialog)
+- `assets/tablet-*.webp` — tablet photo at three widths
+- `assets/reel.mp4`, `assets/reel.webm`, `assets/reel-poster.webp` — 12-second design reel shown on the tablet
 - `fonts/` — self-hosted Host Grotesk (OFL)
 - `robots.txt`, `sitemap.xml`, `llms.txt` — search and AI-answer discovery
 - `_headers`, `404.html`, `site.webmanifest`, icons

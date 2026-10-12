@@ -35,7 +35,7 @@
       "image": "https://humanwardlabs.com/assets/og.jpg",
       "email": "info@humanwardlabs.com",
       "slogan": "Human-centered design in the age of AI.",
-      "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy. Its work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One.",
+      "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy. Its work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created the #2 most-used GPT app.",
       "address": { "@type": "PostalAddress", "addressLocality": "Richmond", "addressRegion": "VA", "addressCountry": "US" },
       "knowsAbout": ["Human-centered design", "Product design", "Experience design", "Design strategy", "UX research", "Journey mapping", "Design systems", "AI product design", "Accessibility"],
       "hasOfferCatalog": {
@@ -62,7 +62,7 @@
         { "@type": "Question", "name": "What does Humanward Labs do?", "acceptedAnswer": { "@type": "Answer", "text": "Humanward Labs is a human-centered design studio in Richmond, Virginia. We offer product design, experience design and design strategy for companies building digital products and services." } },
         { "@type": "Question", "name": "What is human-centered design?", "acceptedAnswer": { "@type": "Answer", "text": "Human-centered design starts with the people who will use a product. Research, prototyping and testing with real users shape every decision, so the result is useful, usable and trusted." } },
         { "@type": "Question", "name": "How does Humanward Labs design for AI?", "acceptedAnswer": { "@type": "Answer", "text": "We design AI-powered products around the people who rely on them: clear interfaces, honest explanations of what the AI is doing, and controls people trust." } },
-        { "@type": "Question", "name": "Which brands has Humanward Labs worked with?", "acceptedAnswer": { "@type": "Answer", "text": "Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One." } }
+        { "@type": "Question", "name": "Which brands has Humanward Labs worked with?", "acceptedAnswer": { "@type": "Answer", "text": "Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created the #2 most-used GPT app." } }
       ]
     }
   ]
@@ -112,11 +112,46 @@ a{color:inherit}
 @keyframes hIn{to{opacity:.45}}
 @keyframes hCycle{0%{opacity:.45}4%,13%{opacity:1}18%,100%{opacity:.45}}
 
+/* Scroll cue */
+.hero{grid-template-rows:1fr auto auto}
+.cue-wrap{display:flex;justify-content:flex-end;padding-bottom:clamp(14px,2vh,24px)}
+.scroll-cue{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0 2px;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.01em;color:var(--white)}
+.scroll-cue .track{position:relative;width:1px;height:44px;background:rgba(255,255,255,.35);overflow:visible}
+.scroll-cue .track::after{content:"";position:absolute;left:-3px;top:0;width:7px;height:7px;border-radius:50%;background:var(--white);animation:cue 2.2s cubic-bezier(.65,0,.35,1) 2.4s infinite both}
+.scroll-cue:hover .track{background:rgba(255,255,255,.7)}
+@keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
+
+/* Sequence */
+.seq{position:relative;height:320vh;background:var(--black)}
+.seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
+.seq-media{position:absolute;left:50%;top:50%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
+.seq-media img{position:absolute;inset:0;width:100%;height:100%;display:block;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
+.seq-screen{position:absolute;left:23.68%;top:12.65%;width:52.81%;height:61.42%;overflow:hidden;border-radius:1.6% / 2.5%;background:#FFF}
+.seq-screen video,.seq-screen .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.seq{--mw:min(100vw,172svh)}
+@media (max-width:760px){.seq{--mw:150vw;height:280vh}.seq-lines{text-align:left;right:calc(var(--pad) + 56px)}}
+.seq-title{position:absolute;left:var(--pad);right:var(--pad);top:clamp(72px,9svh,96px);margin:0;color:var(--white);font-weight:700;font-size:clamp(30px,4.2vw,64px);line-height:.95;letter-spacing:-.05em;max-width:16em;opacity:var(--to,1);transform:translateY(var(--ty,0px))}
+.seq-lines{list-style:none;margin:0;padding:0;position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,7svh,64px);text-align:center;color:var(--black);font-weight:700;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.04em;line-height:1.05}
+.seq-lines li{position:absolute;left:0;right:0;bottom:0;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .7s var(--ease)}
+.seq-lines li.on{opacity:1;transform:none}
+.seq-toggle{position:absolute;right:var(--pad);bottom:clamp(28px,7svh,64px);z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--black);color:var(--white);display:grid;place-items:center;cursor:pointer;opacity:var(--bo,1);transition:background-color .2s ease}
+.seq-toggle:hover{background:#333}
+.seq-toggle:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+.seq-toggle .i-play{display:none}
+.seq-toggle[aria-pressed="true"] .i-play{display:block}
+.seq-toggle[aria-pressed="true"] .i-pause{display:none}
+.no-js-hide{display:none}
+
 /* Impact */
 .impact{background:var(--white);color:var(--black);padding:clamp(88px,12vw,168px) 0 clamp(72px,9vw,128px)}
 .impact-head{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:16px clamp(24px,4vw,64px)}
 .fig{font-weight:700;font-size:clamp(96px,17vw,264px);line-height:.8;letter-spacing:-.065em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .fig-sub{font-weight:500;font-size:clamp(24px,3vw,44px);line-height:1.05;letter-spacing:-.035em;max-width:13em;padding-bottom:.18em}
+.proof2{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:16px clamp(24px,4vw,64px);margin-top:clamp(56px,8vw,112px)}
+.fig2{margin:0;font-weight:700;font-size:clamp(72px,11vw,168px);line-height:.8;letter-spacing:-.06em}
+.fig2-sub{margin:0;font-weight:500;font-size:clamp(22px,2.6vw,38px);line-height:1.08;letter-spacing:-.035em;max-width:15em;padding-bottom:.12em}
+@media (max-width:760px){.proof2{grid-template-columns:1fr}}
 .clients{list-style:none;margin:clamp(56px,8vw,112px) 0 0;padding:clamp(18px,2vw,26px) 0 0;border-top:1px solid var(--black);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-weight:600;font-size:clamp(20px,2.4vw,36px);letter-spacing:-.035em}
 @media (max-width:760px){.impact-head{grid-template-columns:1fr}.clients{justify-content:flex-start;column-gap:28px}}
 
@@ -185,6 +220,8 @@ a{color:inherit}
 .site-footer .brand{color:var(--white)}
 .site-footer a{text-decoration:none}
 .site-footer a:hover{color:var(--white)}
+.foot-meta a{display:inline-flex;align-items:center;gap:5px;min-height:44px}
+.foot-meta li{display:inline-flex;align-items:center}
 .foot-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin:0;padding:0;list-style:none}
 
 /* Contact dialog */
@@ -241,6 +278,7 @@ form{display:grid;gap:16px;margin-top:22px}
         <a class="talk magnetic" href="mailto:info@humanwardlabs.com" data-contact aria-haspopup="dialog">Let&rsquo;s talk.</a>
       </div>
     </div>
+    <div class="cue-wrap rise" style="animation-delay:1600ms"><a class="scroll-cue" href="#reel"><span>Scroll</span><span class="track" aria-hidden="true"></span><span class="sr">to see how we work</span></a></div>
     <ul class="honey" aria-label="What great experiences are">
       <li style="--i:0">Useful</li>
       <li style="--i:1">Usable</li>
@@ -250,6 +288,32 @@ form{display:grid;gap:16px;margin-top:22px}
       <li style="--i:5">Credible</li>
       <li style="--i:6">Valuable</li>
     </ul>
+  </section>
+
+  <section class="seq" id="reel" aria-labelledby="seq-title">
+    <div class="seq-sticky">
+      <div class="seq-stage">
+        <div class="seq-media">
+          <img src="/assets/tablet-1280.webp" srcset="/assets/tablet-828.webp 828w, /assets/tablet-1280.webp 1280w, /assets/tablet-1672.webp 1672w" sizes="(max-width: 760px) 150vw, min(100vw, 172vh)" width="1672" height="941" alt="Two hands holding a tablet that plays a Humanward Labs design reel." decoding="async" loading="lazy">
+          <div class="seq-screen">
+            <video id="reel-video" muted loop playsinline preload="none" poster="/assets/reel-poster.webp" aria-label="Design reel: interface pieces assemble into a finished screen, a tangled journey becomes one clear path, and scattered options converge on a person.">
+              <source src="/assets/reel.mp4" type="video/mp4">
+              <source src="/assets/reel.webm" type="video/webm">
+            </video>
+          </div>
+        </div>
+        <ul class="seq-lines" aria-label="How we work">
+          <li>Fitted to how people think.</li>
+          <li>Tested in real hands.</li>
+          <li>Made for the age of AI.</li>
+        </ul>
+        <button class="seq-toggle" id="reel-toggle" type="button" aria-pressed="false" aria-label="Pause the design reel">
+          <svg class="i-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+          <svg class="i-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <h2 class="seq-title" id="seq-title">Tailored to the people who use it.</h2>
+    </div>
   </section>
 
   <section class="impact" id="impact" aria-labelledby="impact-title">
@@ -266,6 +330,10 @@ form{display:grid;gap:16px;margin-top:22px}
         <li>Intersections</li>
         <li>Capital One</li>
       </ul>
+      <div class="proof2">
+        <p class="fig2" aria-hidden="true">#2</p>
+        <p class="fig2-sub">Our principal created the #2 most-used GPT app.</p>
+      </div>
     </div>
   </section>
 
@@ -488,7 +556,7 @@ form{display:grid;gap:16px;margin-top:22px}
         </details>
         <details>
           <summary>Which brands has Humanward Labs worked with?</summary>
-          <p>Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One.</p>
+          <p>Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created the #2 most-used GPT app.</p>
         </details>
       </div>
     </div>
@@ -509,6 +577,7 @@ form{display:grid;gap:16px;margin-top:22px}
   <div class="wrap"><div class="foot-row">
     <a class="brand" href="/" aria-label="Humanward Labs home"><b>Humanward</b><small>Labs</small></a>
     <ul class="foot-meta">
+      <li><a href="https://www.linkedin.com/in/mikebenjamin/" target="_blank" rel="noopener">Principal<svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span class="sr"> on LinkedIn (opens in a new tab)</span></a></li>
       <li>Richmond, Virginia</li>
       <li><a href="mailto:info@humanwardlabs.com">info@humanwardlabs.com</a></li>
       <li>&copy; 2026 Humanward Labs</li>
@@ -630,6 +699,56 @@ form{display:grid;gap:16px;margin-top:22px}
       btn.setAttribute('aria-label', name + (on ? ': turn back to the front' : ': turn over to see what we build'));
     });
   });
+
+  // Scroll sequence
+  var seq = document.querySelector('.seq'), st = seq && seq.querySelector('.seq-stage');
+  var lines = seq ? seq.querySelectorAll('.seq-lines li') : [];
+  var vid = document.getElementById('reel-video'), tog = document.getElementById('reel-toggle');
+  var userPaused = false, seqRaf = 0, lastLine = -1;
+  function ez(v) { return v >= 1 ? 1 : 1 - Math.pow(2, -10 * v); }
+  function clamp(v) { return Math.max(0, Math.min(1, v)); }
+  function frame() {
+    seqRaf = 0;
+    var r = seq.getBoundingClientRect(), vh = window.innerHeight;
+    var p = clamp(-r.top / (r.height - vh));
+    var o0 = clamp(p / 0.4), open = o0 * o0 * (3 - 2 * o0);
+    var mob = window.innerWidth <= 760;
+    st.style.setProperty('--ct', ((1 - open) * vh * (mob ? 0.30 : 0.26)).toFixed(1) + 'px');
+    st.style.setProperty('--cb', ((1 - open) * vh * 0.07).toFixed(1) + 'px');
+    st.style.setProperty('--cx', ((1 - open) * window.innerWidth * (mob ? 0.05 : 0.09)).toFixed(1) + 'px');
+    st.style.setProperty('--cr', ((1 - open) * 28).toFixed(1) + 'px');
+    var push = clamp((p - 0.42) / 0.58);
+    seq.style.setProperty('--ms', (1.08 - 0.08 * open + (mob ? 0.05 : 0.16) * push * push * (3 - 2 * push)).toFixed(4));
+    var tp = clamp(p / 0.2);
+    seq.style.setProperty('--to', (1 - tp).toFixed(3));
+    seq.style.setProperty('--ty', (-48 * tp).toFixed(1) + 'px');
+    st.style.setProperty('--bo', open.toFixed(3));
+    var li = p < 0.36 ? -1 : (p < 0.6 ? 0 : (p < 0.8 ? 1 : 2));
+    if (li !== lastLine) { lines.forEach(function (l, i) { l.classList.toggle('on', i === li); }); lastLine = li; }
+  }
+  if (seq) {
+    seq.classList.add('js');
+    window.addEventListener('scroll', function () { if (!seqRaf) seqRaf = requestAnimationFrame(frame); }, { passive: true });
+    window.addEventListener('resize', function () { if (!seqRaf) seqRaf = requestAnimationFrame(frame); });
+    frame();
+  }
+  if (vid && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      if (e.isIntersecting) {
+        if (vid.preload !== 'auto') { vid.preload = 'auto'; vid.load(); }
+        if (!userPaused) { var pp = vid.play(); if (pp && pp.catch) pp.catch(function () {}); }
+      } else { vid.pause(); }
+    }, { rootMargin: '200px 0px' }).observe(seq);
+  }
+  if (tog && vid) {
+    tog.addEventListener('click', function () {
+      userPaused = !userPaused;
+      if (userPaused) vid.pause(); else { var pp = vid.play(); if (pp && pp.catch) pp.catch(function () {}); }
+      tog.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+      tog.setAttribute('aria-label', userPaused ? 'Play the design reel' : 'Pause the design reel');
+    });
+  }
 
   // One-time cues when sections scroll into view
   if ('IntersectionObserver' in window) {
