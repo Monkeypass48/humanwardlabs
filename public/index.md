@@ -8,18 +8,9 @@ updated: 2026-10-12
 
 Humanward Labs is a human-centered product and experience design studio in Richmond, Virginia. We design products people find useful, usable, desirable, findable, accessible, credible and valuable.
 
-## People don't decide the way spreadsheets assume
+## Designed for how people actually decide
 
-Behavioral economics shows that real decisions run on shortcuts, habits and emotion. We design for how people actually decide, so the right choice feels like the easy one.
-
-Six principles we design with:
-
-- **Defaults:** Most people keep what's pre-selected. We make the default the best choice.
-- **Loss aversion:** Losses loom larger than gains. We frame value around what people keep.
-- **Choice overload:** Too many options stall a decision. We design fewer, clearer paths.
-- **Anchoring:** The first number sets the frame. We order information with intent.
-- **Social proof:** People look to people. We show evidence at the moment of doubt.
-- **Friction:** Every extra step costs action. We remove the steps that don't earn their place.
+Behavioral economics and decision science shape every product and experience we design.
 
 ## Impact
 
@@ -47,10 +38,6 @@ Human-centered design starts with the people who will use a product. Research, p
 ### How does behavioral economics shape your design?
 
 Behavioral economics studies how people actually make decisions: through shortcuts, habits and emotion, not pure logic. We use it to design defaults, choices and moments of commitment, so the right decision is the easy one.
-
-### Which behavioral principles do you design with?
-
-Six principles shape most of our work: defaults, loss aversion, choice overload, anchoring, social proof and friction. We make the best option the default, frame value around what people keep, cut choices to a few clear paths, order information with intent, show evidence at the moment of doubt, and remove steps that don't earn their place.
 
 ### How does Humanward Labs design for AI?
 
