@@ -96,7 +96,6 @@ h1{order:3}
 .status{color:#FFD2C2}
 @media (max-width:860px){.scrim{background:linear-gradient(180deg,rgba(10,5,4,.55) 0,rgba(10,5,4,0) 90px),linear-gradient(0deg,rgba(10,5,4,.85) 0,rgba(10,5,4,.5) 45%,rgba(10,5,4,0) 70%)}}
 @media (prefers-contrast:more){.scrim{background:rgba(10,5,4,.55)}.field input,.field textarea{border-bottom-color:#FFF}}
-@media (prefers-reduced-motion:reduce){.figure,.breathe,.mark-in,.rise{animation:none}dialog[open]{animation:none}.tilt,.depth{transition:none;transform:none}}
 </style>
 </head>
 <body>
@@ -213,7 +212,7 @@ h1{order:3}
   var main = document.querySelector('.page');
   var canvas = document.getElementById('bust');
   var reduce = false;
-  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  
   var ptr = null, cur = { x: 0, y: 0 }, varRaf = 0;
 
   function setVars(px, py) {
