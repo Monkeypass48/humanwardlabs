@@ -939,37 +939,46 @@ form{display:grid;gap:16px;margin-top:22px}
       var open = eio(pr(q, .3, .5)), grow = eio(pr(q, .56, .8)), line = eio(pr(q, .76, .9));
       var pass = lerp(.56, 1, open), shut = 1 - open;
 
-      // Gates: a pair of bars per step, leaving a narrow opening
+      // Gates: heavy bars per step, leaving a narrow opening
       if (shut > 0) for (var k = 0; k < GATES.length; k++) {
-        var gx = GATES[k], h = 74 * shut;
-        cx.globalAlpha = shut; cx.fillStyle = '#111';
-        cx.beginPath(); cx.roundRect(gx - 7, LY - 22 - h, 14, h, 7); cx.fill();
-        cx.beginPath(); cx.roundRect(gx - 7, LY + 22, 14, h, 7); cx.fill();
+        var gx = GATES[k], h = 96 * shut;
+        cx.globalAlpha = shut; cx.fillStyle = '#000';
+        cx.beginPath(); cx.roundRect(gx - 10, LY - 20 - h, 20, h, 10); cx.fill();
+        cx.beginPath(); cx.roundRect(gx - 10, LY + 20, 20, h, 10); cx.fill();
       }
 
-      // The stream of people, computed from time so it scrubs cleanly
-      var first = Math.floor((time - (TIP - X0 + 400) / SPEED) / EVERY), last = Math.floor(time / EVERY);
-      for (var i = Math.max(0, first); i <= last; i++) {
-        var age = time - i * EVERY, x = X0 + age * SPEED, off = (hash(i) - .5) * 96, a = .55 + hash(i + .5) * .35;
+      // The stream of people, computed from time so it scrubs cleanly. Flow doubles the volume.
+      var first = Math.floor((time - 9) / EVERY), last = Math.floor(time / EVERY);
+      for (var j = Math.max(0, first) * 2; j <= last * 2; j++) {
+        var half = j % 2, i = j / 2;
+        if (half && open <= 0) continue;
+        var age = time - i * EVERY, x = X0 + age * SPEED, off = (hash(i) - .5) * 96, a = (.55 + hash(i + .25) * .35) * (half ? open : 1);
         var stopAt = -1;
-        for (var k2 = 0; k2 < GATES.length; k2++) if (hash(i * 7 + k2 * 13.3) > pass && x > GATES[k2] - 16) { stopAt = k2; break; }
-        var y, alpha = a;
+        if (!half) for (var k2 = 0; k2 < GATES.length; k2++) if (hash(i * 7 + k2 * 13.3) > pass && x > GATES[k2] - 18) { stopAt = k2; break; }
+        var y, alpha = a, streak = 0;
         if (stopAt >= 0) {
-          var gx2 = GATES[stopAt], wait = (x - (gx2 - 16)) / SPEED;
-          x = gx2 - 16 - hash(i + 3) * 26; y = LY + off * .5;
-          if (wait > .35) { var f = wait - .35; y += 260 * f * f; alpha *= cl(1 - f / 1.1); }
+          // Lost: stalls at the gate, then falls into a pile beneath it
+          var gx2 = GATES[stopAt], wait = (x - (gx2 - 18)) / SPEED, hx = hash(i + 3), hy = hash(i + 5);
+          var restX = gx2 - 6 + (hx - .5) * 90 * (1 - hy * .6), restY = 768 - hy * hy * 64;
+          if (wait < .3) { x = gx2 - 18 - hx * 22; y = LY + off * .45; }
+          else { var f = eio(cl((wait - .3) / .7)); x = lerp(gx2 - 18 - hx * 22, restX, f); y = lerp(LY + off * .45, restY, f * f); }
+          alpha *= .5 + .5 * cl(1 - (wait - .3) / .8);
+          if (wait > 7) alpha *= cl(1 - (wait - 7));
           alpha *= 1 - grow;
         } else {
+          if (x > 1300) continue;
           var near = 0; for (var g = 0; g < GATES.length; g++) near = Math.max(near, Math.exp(-Math.pow((x - GATES[g]) / 46, 2)));
-          y = LY + off * (1 - .78 * near * shut);
+          y = LY + off * (1 - .8 * near * shut);
           y = lerp(y, curveY(x) + off * .18, grow);
           if (x > TIP) alpha *= lerp(1, cl(1 - (x - TIP) / 40), grow);
+          streak = open * (1 - grow);
         }
         alpha *= lerp(1, .32, line);
         if (alpha <= 0.01 || x > 1260) continue;
-        var gr = Math.round(lerp(120, 30, open));
-        cx.globalAlpha = alpha; cx.fillStyle = 'rgb(' + gr + ',' + gr + ',' + gr + ')';
-        cx.beginPath(); cx.arc(x, y, 5.5, 0, 6.2832); cx.fill();
+        var gr = Math.round(lerp(120, 25, open));
+        cx.globalAlpha = alpha; cx.fillStyle = cx.strokeStyle = 'rgb(' + gr + ',' + gr + ',' + gr + ')';
+        if (streak > 0) { cx.globalAlpha = alpha * .35 * streak; cx.lineWidth = 6; cx.lineCap = 'round'; cx.beginPath(); cx.moveTo(x - 46 * streak, y); cx.lineTo(x, y); cx.stroke(); cx.globalAlpha = alpha; }
+        cx.beginPath(); cx.arc(x, y, 6, 0, 6.2832); cx.fill();
       }
 
       // The growth line: the Humanward mark, angled up
@@ -982,8 +991,8 @@ form{display:grid;gap:16px;margin-top:22px}
 
       // The person: stuck at a gate, released, carried to the top
       var go = eio(pr(q, .38, .8)), stuck = 1 - pr(q, .34, .4);
-      var px = lerp(GATES[1] - 20, TIP, go) + Math.sin(time * 13) * 3 * stuck, py = lerp(LY, curveY(px), grow);
-      var rad = lerp(11, 40, eio(pr(q, .8, .92)));
+      var px = lerp(GATES[1] - 20, TIP, go) + Math.sin(time * 13) * 5 * stuck, py = lerp(LY, curveY(px), grow);
+      var rad = lerp(15, 40, eio(pr(q, .8, .92)));
       cx.globalAlpha = 1; cx.fillStyle = SIG; cx.beginPath(); cx.arc(px, py, rad, 0, 6.2832); cx.fill();
       if (q > .9) {
         var ring = (time * .45) % 1;
