@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Humanward Labs | Human-Centered Design in the Age of AI</title>
 <meta name="description" content="Humanward Labs. Human-centered design in the age of AI. Useful, usable, desirable, findable, accessible, credible, valuable.">
-<meta name="theme-color" content="#0A0504">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://humanwardlabs.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://humanwardlabs.com/">
@@ -22,9 +22,9 @@
 </script>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;background:#0A0504}
+html,body{margin:0;background:#000000}
 a{color:#FFFFFF}
-a:focus-visible{outline:2px solid #FF7A45;outline-offset:4px;border-radius:4px}
+a:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px;border-radius:4px}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .scene{position:absolute;left:50%;bottom:-6vh;height:min(112vh,150vw);aspect-ratio:1024/1536;transform:translateX(-50%);perspective:1500px;pointer-events:none}
@@ -46,8 +46,8 @@ header{position:relative;z-index:4;display:flex;flex-wrap:wrap;align-items:cente
 .mid{position:relative;z-index:3;flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:32px}
 .intro{max-width:23em}
 .intro p{margin:0;font-size:clamp(17px,1.45vw,21px);line-height:1.5;font-weight:300;letter-spacing:-.01em}
-.pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:28px;padding:0 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:17px;letter-spacing:-.01em;background:#C9461F;color:#FFF;transition:background-color .18s ease}
-.pill:hover{background:#DD552B}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:28px;padding:0 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:17px;letter-spacing:-.01em;background:#FFF;color:#000;transition:background-color .18s ease}
+.pill:hover{background:#D9D9D9}
 .tag{margin:0;justify-self:end;align-self:end;text-align:right;font-size:clamp(26px,2.7vw,42px);line-height:1.12;font-weight:300;letter-spacing:-.035em}
 h1{position:relative;z-index:3;margin:6px 0 0;font-weight:500;font-size:clamp(62px,16.4vw,290px);letter-spacing:-.065em;line-height:.8;white-space:nowrap}
 .mark{display:block;overflow:hidden;line-height:.8;padding-top:.06em}
@@ -55,15 +55,15 @@ h1{position:relative;z-index:3;margin:6px 0 0;font-weight:500;font-size:clamp(62
 .mark-in span:first-child{padding-right:.04em}
 .mark-in span+span{font-size:.17em;letter-spacing:-.03em;line-height:1;margin-top:.18em;margin-left:.06em}
 .rise{animation:rise 1.2s cubic-bezier(.16,.84,.2,1) both}
-dialog{width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(22,12,10,.92);color:#FFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;box-shadow:0 40px 120px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
-dialog::backdrop{background:rgba(5,2,2,.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog{width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(12,12,12,.92);color:#FFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;box-shadow:0 40px 120px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+dialog::backdrop{background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 dialog[open]{animation:pop .5s cubic-bezier(.16,.84,.2,1)}
 .dlg{padding:clamp(24px,4vw,40px)}
 .dlg h2{margin:0;font-weight:500;font-size:clamp(28px,3vw,36px);letter-spacing:-.035em;line-height:1.05}
 .dlg .lede{margin:10px 0 0;font-weight:300;font-size:16px;line-height:1.5}
 .close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:#FFF;cursor:pointer;display:grid;place-items:center}
 .close:hover{background:rgba(255,255,255,.08)}
-.close:focus-visible,.field input:focus-visible,.field textarea:focus-visible,.send:focus-visible{outline:2px solid #FF7A45;outline-offset:3px}
+.close:focus-visible,.field input:focus-visible,.field textarea:focus-visible,.send:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
 form{display:grid;gap:18px;margin-top:28px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:grid;gap:6px}
@@ -72,8 +72,8 @@ form{display:grid;gap:18px;margin-top:28px}
 .field input:focus,.field textarea:focus{border-bottom-color:#FFF}
 .field textarea{resize:vertical;min-height:110px}
 .trap{position:absolute;left:-9999px}
-.send{justify-self:start;margin-top:6px;border:0;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:500;font-size:17px;background:#C9461F;color:#FFF;transition:background-color .18s ease}
-.send:hover{background:#DD552B}
+.send{justify-self:start;margin-top:6px;border:0;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:500;font-size:17px;background:#FFF;color:#000;transition:background-color .18s ease}
+.send:hover{background:#D9D9D9}
 .send[disabled]{opacity:.6;cursor:progress}
 .status{min-height:1.4em;margin:0;font-size:15px}
 .done{display:none;padding:12px 0 4px}
@@ -90,25 +90,28 @@ form{display:grid;gap:18px;margin-top:28px}
 @keyframes wordIn{to{opacity:.32;transform:none}}
 @keyframes wordCycle{0%{opacity:.32}5%,17%{opacity:1}24%,100%{opacity:.32}}
 @media (max-width:860px){.words{justify-self:start;text-align:left;font-size:clamp(34px,10vw,56px)}}
-.page{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:#0A0504;color:#FFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(20px,3vw,40px) clamp(20px,4.2vw,72px)}
+.page{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:#000000;color:#FFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(20px,3vw,40px) clamp(20px,4.2vw,72px)}
 #main{display:flex !important;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px)}
 .head{order:0;white-space:normal;margin:0;font-weight:500;font-size:min(8.6vw,14.5vh);line-height:.92;letter-spacing:-.055em;max-width:12em}
 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .ln>span{display:block;transform:translateY(105%);animation:up 1.4s var(--d) cubic-bezier(.16,.84,.2,1) forwards}
-.talk{align-self:flex-start;font-size:clamp(24px,2.6vw,40px);font-weight:400;letter-spacing:-.03em;text-decoration:none;padding:6px 0;background-image:linear-gradient(#FFF,#FFF);background-size:100% 2px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .45s cubic-bezier(.65,0,.35,1)}
+.invite{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.invite p{margin:0;font-size:clamp(16px,1.35vw,20px);font-weight:300;letter-spacing:-.01em}
+.talk span{display:inline-block;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.talk{display:inline-block;transform:translate(var(--mx,0px),var(--my,0px));transition:transform .5s cubic-bezier(.2,.8,.2,1),background-size .45s cubic-bezier(.65,0,.35,1);align-self:flex-start;font-size:clamp(24px,2.6vw,40px);font-weight:400;letter-spacing:-.03em;text-decoration:none;padding:6px 0;background-image:linear-gradient(#FFF,#FFF);background-size:100% 2px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .45s cubic-bezier(.65,0,.35,1)}
 .talk:hover{background-size:0 2px;background-position:100% 100%}
 .honey{list-style:none;margin:0;padding:clamp(14px,2.2vh,22px) 0 0;border-top:1px solid rgba(255,255,255,.22);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:clamp(16px,1.6vw,26px);font-weight:400;letter-spacing:-.02em}
 .honey li{opacity:0;animation:hIn 1s calc(1.3s + var(--i) * 110ms) ease forwards,hCycle 14s calc(3.5s + var(--i) * 2s) ease-in-out infinite}
 @keyframes hIn{to{opacity:.4}}
 @keyframes hCycle{0%{opacity:.4}4%,13%{opacity:1}18%,100%{opacity:.4}}
-.skip{position:absolute;left:16px;top:-100px;z-index:10;background:#FFF;color:#0A0504;padding:12px 18px;border-radius:8px;font:500 16px 'Host Grotesk',Arial,sans-serif;text-decoration:none}
+.skip{position:absolute;left:16px;top:-100px;z-index:10;background:#FFF;color:#000000;padding:12px 18px;border-radius:8px;font:500 16px 'Host Grotesk',Arial,sans-serif;text-decoration:none}
 .skip:focus{top:16px}
 #main{display:contents}
 h1{order:3}
-.scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 34% 30% at 14% 50%,rgba(10,5,4,.72),rgba(10,5,4,0) 100%),radial-gradient(ellipse 30% 22% at 86% 70%,rgba(10,5,4,.72),rgba(10,5,4,0) 100%),linear-gradient(180deg,rgba(10,5,4,.55) 0,rgba(10,5,4,0) 90px)}
-.intro p,.tag,.meta{text-shadow:0 1px 18px rgba(10,5,4,.85),0 0 2px rgba(10,5,4,.9)}
-.field [aria-invalid="true"]{border-bottom-color:#FF9C7A}
-.status{color:#FFD2C2}
+.scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse 34% 30% at 14% 50%,rgba(0,0,0,.72),rgba(0,0,0,0) 100%),radial-gradient(ellipse 30% 22% at 86% 70%,rgba(0,0,0,.72),rgba(0,0,0,0) 100%),linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,0) 90px)}
+.intro p,.tag,.meta{text-shadow:0 1px 18px rgba(0,0,0,.85),0 0 2px rgba(0,0,0,.9)}
+.field [aria-invalid="true"]{border-bottom-color:#FFFFFF}
+.status{color:#FFFFFF}
 .proof{margin-top:16px !important;font-size:15px !important;font-weight:400 !important;letter-spacing:0 !important}
 .assure{margin:14px 0 0 !important;font-size:14px !important;font-weight:400 !important;letter-spacing:0 !important}
 .chips{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
@@ -117,14 +120,14 @@ h1{order:3}
 .chips label{position:relative;cursor:pointer}
 .chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
 .chips label span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-size:15px;transition:background-color .18s ease,border-color .18s ease,color .18s ease}
-.chips input:checked+span{background:#FFF;color:#0A0504;border-color:#FFF}
-.chips input:focus-visible+span{outline:2px solid #FF7A45;outline-offset:3px}
+.chips input:checked+span{background:#FFF;color:#000000;border-color:#FFF}
+.chips input:focus-visible+span{outline:2px solid #FFFFFF;outline-offset:3px}
 .field select{width:100%;font:inherit;font-size:17px;color:#FFF;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);border-radius:0;padding:10px 0;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#FFF 50%),linear-gradient(135deg,#FFF 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 6px) 55%;background-size:6px 6px;background-repeat:no-repeat;cursor:pointer}
-.field select option{color:#0A0504}
-.field select:focus-visible{outline:2px solid #FF7A45;outline-offset:3px}
+.field select option{color:#000000}
+.field select:focus-visible{outline:2px solid #FFFFFF;outline-offset:3px}
 .field textarea::placeholder{color:rgba(255,255,255,.55)}
-@media (max-width:860px){.scrim{background:linear-gradient(180deg,rgba(10,5,4,.55) 0,rgba(10,5,4,0) 90px),linear-gradient(0deg,rgba(10,5,4,.85) 0,rgba(10,5,4,.5) 45%,rgba(10,5,4,0) 70%)}}
-@media (prefers-contrast:more){.scrim{background:rgba(10,5,4,.55)}.field input,.field textarea{border-bottom-color:#FFF}}
+@media (max-width:860px){.scrim{background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,0) 90px),linear-gradient(0deg,rgba(0,0,0,.85) 0,rgba(0,0,0,.5) 45%,rgba(0,0,0,0) 70%)}}
+@media (prefers-contrast:more){.scrim{background:rgba(0,0,0,.55)}.field input,.field textarea{border-bottom-color:#FFF}}
 </style>
 </head>
 <body>
@@ -139,7 +142,10 @@ h1{order:3}
       <span class="ln"><span style="--d:300ms">Human-Centered Design</span></span>
       <span class="ln"><span style="--d:450ms">in the Age of AI.</span></span>
     </h1>
-    <a class="talk rise" href="mailto:info@humanwardlabs.com" aria-haspopup="dialog" style="animation-delay:1100ms">Let&rsquo;s talk.</a>
+    <div class="invite rise" style="animation-delay:1100ms">
+      <p>Building something people need to understand, trust and use?</p>
+      <a class="talk" id="talk" href="mailto:info@humanwardlabs.com" aria-haspopup="dialog"><span>Let&rsquo;s talk.</span></a>
+    </div>
   </main>
 
   <ul class="honey" aria-label="What great experiences are">
@@ -159,7 +165,7 @@ h1{order:3}
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
     <h2 id="contact-title">Let&rsquo;s talk.</h2>
-    <p class="lede">Tell me a little about your project.</p>
+    <p class="lede">Tell me what you&rsquo;re building. I read every message and reply personally.</p>
     <form id="contact-form" novalidate>
       <div class="row">
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="f-status"></div>
@@ -235,6 +241,19 @@ h1{order:3}
     setVars(((e.clientX - r.left) / r.width) * 2 - 1, ((e.clientY - r.top) / r.height) * 2 - 1);
   });
   page.addEventListener('pointerleave', function () { setVars(0, 0); });
+  var talk = document.getElementById('talk');
+  page.addEventListener('pointermove', function (e) {
+    var r = talk.getBoundingClientRect();
+    var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    var dx = e.clientX - cx, dy = e.clientY - cy, dist = Math.sqrt(dx * dx + dy * dy), reach = 220;
+    if (dist < reach) {
+      var k = (1 - dist / reach) * 0.35;
+      talk.style.setProperty('--mx', (dx * k).toFixed(1) + 'px');
+      talk.style.setProperty('--my', (dy * k).toFixed(1) + 'px');
+    } else {
+      talk.style.setProperty('--mx', '0px'); talk.style.setProperty('--my', '0px');
+    }
+  });
 })();
 </script>
 </body>
