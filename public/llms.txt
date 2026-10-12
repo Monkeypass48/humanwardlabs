@@ -8,6 +8,10 @@
 - Experience Design: journey maps and service blueprints that connect app, web, email and in-person touchpoints into one experience.
 - Design Strategy: customer research and insight, opportunity mapping and priorities, and roadmaps tied to business outcomes.
 
+## Approach: behavioral economics and decision-making
+
+People don't decide the way spreadsheets assume. Humanward Labs applies behavioral economics to product and experience design: defaults, loss aversion, choice overload, anchoring, social proof and friction. Every engagement starts with a decision map: where people hesitate, what they weigh, and what moves them to act.
+
 ## Principles
 
 Great experiences are useful, usable, desirable, findable, accessible, credible and valuable.
