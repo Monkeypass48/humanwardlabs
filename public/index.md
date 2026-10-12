@@ -14,12 +14,12 @@ Behavioral economics and decision science shape every product and experience we 
 
 ## Impact
 
-- Over **$1.3 billion** in impact created for the world's leading brands, including Circuit City, Microsoft, Allianz, Intersections and Capital One.
+- Over **$1.3 billion** in impact delivered by our principal for the world's leading brands, including Circuit City, Microsoft, Allianz, Intersections and Capital One.
 - Our principal created **Marketing Research and Competitive Analysis**, ranked **#2 in Research & Analysis** on the GPT Store: 1.28M+ conversations, 4.4 average rating from 25K+ ratings.
 
 ## What we do
 
-We turn complexity into clarity.
+Three ways we make the right choice the easy one.
 
 - **Product Design:** interface and interaction design, prototypes tested with real people, and design systems that scale.
 - **Experience Design:** journey maps and service blueprints that connect app, web, email and in-person touchpoints into one experience.
@@ -43,9 +43,9 @@ Behavioral economics studies how people actually make decisions: through shortcu
 
 We design AI-powered products around the people who rely on them: clear interfaces, honest explanations of what the AI is doing, and controls people trust.
 
-### Which brands has Humanward Labs worked with?
+### What's the track record behind Humanward Labs?
 
-Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.
+Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.
 
 ### How do I start a project with Humanward Labs?
 
