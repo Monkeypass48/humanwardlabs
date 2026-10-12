@@ -71,7 +71,7 @@
 </script>
 <style>
 @font-face{font-family:'Host Grotesk';font-style:normal;font-weight:300 800;font-display:swap;src:url(/fonts/host-grotesk-latin-wght-normal.woff2) format('woff2')}
-:root{--fs-h2:clamp(44px,6.2vw,96px);--fs-lead:clamp(22px,2.3vw,34px);--fs-body:clamp(17px,1.25vw,19px);--sp:clamp(96px,12vw,176px);--black:#000;--white:#FFF;--mist:#ECECEC;--stone:#BDBDBD;--ink-2:#5E5E5E;--night-2:#A6A6A6;--pad:clamp(20px,4.2vw,72px);--max:1320px;--ease:cubic-bezier(.16,.84,.2,1)}
+:root{--signal:#FF4A1C;--fs-h2:clamp(44px,6.2vw,96px);--fs-lead:clamp(22px,2.3vw,34px);--fs-body:clamp(17px,1.25vw,19px);--sp:clamp(96px,12vw,176px);--black:#000;--white:#FFF;--mist:#ECECEC;--stone:#BDBDBD;--ink-2:#5E5E5E;--night-2:#A6A6A6;--pad:clamp(20px,4.2vw,72px);--max:1320px;--ease:cubic-bezier(.16,.84,.2,1)}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
 body{margin:0;background:var(--black);color:var(--white);font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
@@ -92,7 +92,7 @@ a{color:inherit}
 .nav a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:500;letter-spacing:-.01em;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 72%/0 1px no-repeat;transition:background-size .35s var(--ease)}
 .nav a:hover{background-size:100% 1px}
 .nav .cta{padding:0 18px;border:1px solid rgba(255,255,255,.5);border-radius:999px;background:none;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
-.nav .cta:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.nav .cta:hover{background:var(--signal);color:var(--black);border-color:var(--signal)}
 @media (max-width:640px){.nav .opt{display:none}}
 
 .site-header.solid{background:rgba(0,0,0,.84);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:10px;padding-bottom:10px}
@@ -109,10 +109,11 @@ a{color:inherit}
 .hero h1{margin:0;font-weight:700;font-size:min(9.6vw,16vh);line-height:.9;letter-spacing:-.06em;white-space:nowrap;transform:translate3d(calc(var(--px,0) * -12px),calc(var(--py,0) * -7px),0);transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
 .ln{display:block;overflow:hidden;padding:.06em .08em .2em 0;margin:-.06em 0 -.2em}
 .ln>span{display:block;transform:translateY(105%);animation:up 1.4s var(--d) var(--ease) forwards}
+.hero h1 .dot{color:var(--signal)}
 .invite{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
 .invite p{margin:0;font-size:clamp(16px,1.35vw,20px);font-weight:300;letter-spacing:-.01em;max-width:32em}
-.talk{display:inline-block;font-weight:600;font-size:clamp(26px,2.8vw,42px);letter-spacing:-.035em;text-decoration:none;padding:6px 0;background:linear-gradient(currentColor,currentColor) 0 100%/100% 2px no-repeat;transform:translate(var(--mx,0px),var(--my,0px));transition:transform .5s cubic-bezier(.2,.8,.2,1),background-size .45s cubic-bezier(.65,0,.35,1)}
-.talk:hover{background-size:0 2px;background-position:100% 100%}
+.talk{display:inline-block;font-weight:600;font-size:clamp(26px,2.8vw,42px);letter-spacing:-.035em;text-decoration:none;padding:6px 0;background:linear-gradient(var(--signal),var(--signal)) 0 100%/100% 3px no-repeat;transform:translate(var(--mx,0px),var(--my,0px));transition:transform .5s cubic-bezier(.2,.8,.2,1),background-size .45s cubic-bezier(.65,0,.35,1)}
+.talk:hover{background-size:0 3px;background-position:100% 100%}
 .honey{list-style:none;margin:0;padding:clamp(14px,2.2vh,22px) 0 0;border-top:1px solid rgba(255,255,255,.24);display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;font-size:clamp(16px,1.7vw,28px);font-weight:600;letter-spacing:-.03em}
 .honey li{opacity:0;animation:hIn 1s calc(1.3s + var(--i) * 110ms) ease forwards,hCycle 14s calc(3.5s + var(--i) * 2s) ease-in-out infinite}
 .rise{animation:rise 1.2s var(--ease) both}
@@ -127,7 +128,7 @@ a{color:inherit}
 .cue-wrap{display:flex;justify-content:flex-end;padding-bottom:clamp(14px,2vh,24px)}
 .scroll-cue{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0 2px;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.01em;color:var(--white)}
 .scroll-cue .track{position:relative;width:1px;height:44px;background:rgba(255,255,255,.35);overflow:visible}
-.scroll-cue .track::after{content:"";position:absolute;left:-3px;top:0;width:7px;height:7px;border-radius:50%;background:var(--white);animation:cue 2.2s cubic-bezier(.65,0,.35,1) 2.4s infinite both}
+.scroll-cue .track::after{content:"";position:absolute;left:-3px;top:0;width:7px;height:7px;border-radius:50%;background:var(--signal);animation:cue 2.2s cubic-bezier(.65,0,.35,1) 2.4s infinite both}
 .scroll-cue:hover .track{background:rgba(255,255,255,.7)}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
@@ -219,6 +220,8 @@ a{color:inherit}
 .levers h3{margin:0;font-weight:700;font-size:clamp(30px,3.6vw,56px);line-height:.98;letter-spacing:-.045em;color:#6E6E6E;transition:color .6s ease}
 .levers p{margin:0;max-width:34em;font-size:var(--fs-body);line-height:1.5;color:var(--night-2)}
 .levers li.lit h3,.no-io .levers h3{color:var(--white)}
+.levers h3::after{content:"";display:inline-block;width:.22em;height:.22em;margin-left:.22em;border-radius:50%;background:var(--signal);vertical-align:.08em;opacity:0;transform:scale(.4);transition:opacity .5s ease,transform .6s var(--ease)}
+.levers li.lit h3::after{opacity:1;transform:none}
 @media (max-width:860px){.approach-grid{grid-template-columns:1fr}.approach-intro{position:static}}
 
 /* FAQ */
@@ -296,7 +299,7 @@ form{display:grid;gap:16px;margin-top:22px}
       <h1 id="start" tabindex="-1">
         <span class="ln"><span style="--d:250ms">Human-Centered</span></span>
         <span class="ln"><span style="--d:380ms">Design in the</span></span>
-        <span class="ln"><span style="--d:510ms">Age of AI.</span></span>
+        <span class="ln"><span style="--d:510ms">Age of AI<span class="dot">.</span></span></span>
       </h1>
       <div class="invite rise" style="animation-delay:1100ms">
         <p>Building something people need to understand, trust and use?</p>
@@ -405,7 +408,7 @@ form{display:grid;gap:16px;margin-top:22px}
                   <rect class="p" x="148" y="188" width="16" height="16" rx="4" fill="#000" style="--fx:-130px;--fy:20px;--fr:15deg"/>
                   <rect class="p" x="172" y="193" width="66" height="6" rx="3" fill="#8C8C8C" style="--fx:90px;--fy:80px;--fr:-12deg"/>
                   <rect class="p" x="148" y="222" width="104" height="32" rx="16" fill="#000" style="--fx:80px;--fy:-170px;--fr:-8deg"/>
-                  <circle class="p" cx="222" cy="238" r="6" fill="#FFF" stroke="#000" stroke-width="2" style="--fx:136px;--fy:-2px"/>
+                  <circle class="p" cx="222" cy="238" r="7" fill="#FF4A1C" style="--fx:136px;--fy:-2px"/>
                 </svg>
               </div>
               <div class="txt">
@@ -430,8 +433,8 @@ form{display:grid;gap:16px;margin-top:22px}
                   <rect class="p" x="148" y="188" width="16" height="16" rx="4" fill="#000" style="--fx:-130px;--fy:20px;--fr:15deg;--dl:240ms"/>
                   <rect class="p" x="172" y="193" width="66" height="6" rx="3" fill="#8C8C8C" style="--fx:90px;--fy:80px;--fr:-12deg;--dl:260ms"/>
                   <rect class="p" x="148" y="222" width="104" height="32" rx="16" fill="#000" style="--fx:80px;--fy:-170px;--fr:-8deg;--dl:300ms"/>
-                  <circle class="ring" cx="222" cy="238" r="7" fill="none" stroke="#FFF" stroke-width="2"/>
-                  <circle class="p" cx="222" cy="238" r="6" fill="#FFF" stroke="#000" stroke-width="2" style="--fx:136px;--fy:-2px;--dl:420ms"/>
+                  <circle class="ring" cx="222" cy="238" r="7" fill="none" stroke="#FF4A1C" stroke-width="2"/>
+                  <circle class="p" cx="222" cy="238" r="7" fill="#FF4A1C" style="--fx:136px;--fy:-2px;--dl:420ms"/>
                 </svg>
               </div>
               <div class="txt">
@@ -459,7 +462,7 @@ form{display:grid;gap:16px;margin-top:22px}
                   <circle class="p" cx="120" cy="176" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:160px;--fy:-120px"/>
                   <circle class="p" cx="206" cy="196" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:-150px;--fy:-140px"/>
                   <circle class="p" cx="286" cy="122" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:-40px;--fy:120px"/>
-                  <circle class="p" cx="362" cy="80" r="8" fill="#FFF" style="--fx:-200px;--fy:80px"/>
+                  <circle class="p" cx="362" cy="80" r="8" fill="#FF4A1C" style="--fx:-200px;--fy:80px"/>
                 </svg>
               </div>
               <div class="txt">
@@ -479,8 +482,8 @@ form{display:grid;gap:16px;margin-top:22px}
                   <circle class="p" cx="120" cy="176" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:160px;--fy:-120px;--dl:200ms"/>
                   <circle class="p" cx="206" cy="196" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:-150px;--fy:-140px;--dl:400ms"/>
                   <circle class="p" cx="286" cy="122" r="7" fill="#000" stroke="#FFF" stroke-width="2" style="--fx:-40px;--fy:120px;--dl:600ms"/>
-                  <circle class="ring" cx="362" cy="80" r="9" fill="none" stroke="#FFF" stroke-width="2"/>
-                  <circle class="p" cx="362" cy="80" r="8" fill="#FFF" style="--fx:-200px;--fy:80px;--dl:800ms"/>
+                  <circle class="ring" cx="362" cy="80" r="9" fill="none" stroke="#FF4A1C" stroke-width="2"/>
+                  <circle class="p" cx="362" cy="80" r="8" fill="#FF4A1C" style="--fx:-200px;--fy:80px;--dl:800ms"/>
                 </svg>
               </div>
               <div class="txt">
@@ -523,7 +526,7 @@ form{display:grid;gap:16px;margin-top:22px}
                   <circle class="p" cx="234" cy="192" r="6" fill="#4A4A4A" style="--fx:-49px;--fy:-99px"/>
                   <circle class="p" cx="290" cy="129" r="6" fill="#1A1A1A" style="--fx:87px;--fy:148px"/>
                   <circle class="p" cx="290" cy="171" r="6" fill="#1A1A1A" style="--fx:31px;--fy:32px"/>
-                  <circle class="p" cx="348" cy="150" r="8" fill="#000" style="--fx:-170px;--fy:60px"/>
+                  <circle class="p" cx="348" cy="150" r="8" fill="#FF4A1C" style="--fx:-170px;--fy:60px"/>
                 </svg>
               </div>
               <div class="txt">
@@ -558,8 +561,8 @@ form{display:grid;gap:16px;margin-top:22px}
                   <circle class="p" cx="234" cy="192" r="6" fill="#4A4A4A" style="--fx:-49px;--fy:-99px;--dl:330ms"/>
                   <circle class="p" cx="290" cy="129" r="6" fill="#1A1A1A" style="--fx:87px;--fy:148px;--dl:360ms"/>
                   <circle class="p" cx="290" cy="171" r="6" fill="#1A1A1A" style="--fx:31px;--fy:32px;--dl:390ms"/>
-                  <circle class="ring" cx="348" cy="150" r="9" fill="none" stroke="#000" stroke-width="2"/>
-                  <circle class="p" cx="348" cy="150" r="8" fill="#000" style="--fx:-170px;--fy:60px;--dl:480ms"/>
+                  <circle class="ring" cx="348" cy="150" r="9" fill="none" stroke="#FF4A1C" stroke-width="2"/>
+                  <circle class="p" cx="348" cy="150" r="8" fill="#FF4A1C" style="--fx:-170px;--fy:60px;--dl:480ms"/>
                 </svg>
               </div>
               <div class="txt">
