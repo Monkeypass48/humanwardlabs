@@ -15,7 +15,7 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page (hero with scroll cue, scroll sequence on the tablet, impact, services flip cards, FAQ, contact dialog). The tablet screen is a `<canvas>` that tells friction, flow, growth as you scroll: a stream of people hits gates and drops off, the gates retract, and the stream bends into a growth curve that ends in the Humanward dot.
+- `index.html` — the page (hero with scroll cue, tablet scroll sequence, services flip cards, FAQ, contact dialog). The tablet tells friction, flow, growth on a `<canvas>`, then the growth curve lands on the proof: $1.3B+ in impact with client names, then the #2 Research & Analysis GPT. The proof is real HTML layered over the screen, so it stays indexable and readable by screen readers.
 - `assets/tablet-*.webp` — tablet photo at three widths
 - `fonts/` — self-hosted Host Grotesk (OFL)
 - `robots.txt`, `sitemap.xml`, `llms.txt` — search and AI-answer discovery

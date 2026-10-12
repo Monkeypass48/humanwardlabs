@@ -15,7 +15,7 @@ Behavioral economics and decision science shape every product and experience we 
 ## Impact
 
 - Over **$1.3 billion** in impact created for the world's leading brands, including Circuit City, Microsoft, Allianz, Intersections and Capital One.
-- Our principal created the **#2 most-used GPT app**.
+- Our principal created **Marketing Research and Competitive Analysis**, ranked **#2 in Research & Analysis** on the GPT Store: 1.28M+ conversations, 4.4 average rating from 25K+ ratings.
 
 ## What we do
 
@@ -45,7 +45,7 @@ We design AI-powered products around the people who rely on them: clear interfac
 
 ### Which brands has Humanward Labs worked with?
 
-Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created the #2 most-used GPT app.
+Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.
 
 ### How do I start a project with Humanward Labs?
 

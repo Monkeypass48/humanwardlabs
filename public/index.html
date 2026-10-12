@@ -40,7 +40,7 @@
    "image": "https://humanwardlabs.com/assets/og.jpg",
    "email": "info@humanwardlabs.com",
    "slogan": "Human-centered design in the age of AI.",
-   "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy, grounded in behavioral economics and decision-making. Its work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created the #2 most-used GPT app.",
+   "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy, grounded in behavioral economics and decision-making. Its work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created Marketing Research and Competitive Analysis, a GPT ranked #2 in Research & Analysis on the GPT Store.",
    "address": {
     "@type": "PostalAddress",
     "addressLocality": "Richmond",
@@ -210,7 +210,7 @@
      "name": "Which brands has Humanward Labs worked with?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created the #2 most-used GPT app."
+      "text": "Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations."
      }
     },
     {
@@ -222,6 +222,17 @@
      }
     }
    ]
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://humanwardlabs.com/#gpt",
+   "name": "Marketing Research and Competitive Analysis",
+   "applicationCategory": "Research & Analysis",
+   "operatingSystem": "ChatGPT",
+   "description": "A custom GPT for marketing research and competitive analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.",
+   "creator": {
+    "@id": "https://humanwardlabs.com/#principal"
+   }
   }
  ]
 }
@@ -290,31 +301,36 @@ a{color:inherit}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
 /* Tablet sequence: a field of dots resolves into the Humanward mark as you scroll */
-.seq{position:relative;height:420vh;background:var(--black);--mw:min(100vw,172svh)}
+.seq{position:relative;height:560vh;background:var(--black);--mw:min(100vw,172svh)}
 .seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
 .seq-media{position:absolute;left:50%;top:52%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
 .seq-media img{position:absolute;inset:0;width:100%;height:100%;display:block;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
 .seq-screen{position:absolute;left:23.68%;top:12.65%;width:52.81%;height:61.42%;overflow:hidden;border-radius:1.6% / 2.5%;background:#FFF}
 .seq-screen canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.seq-screen{container-type:inline-size}
+.seq-screen canvas{opacity:var(--cvo,1)}
+.proof{position:absolute;inset:0;color:#000;opacity:var(--o,0);pointer-events:none}
+.proof p,.proof ul{margin:0}
+.p1 .p-fig{position:absolute;left:5.6cqw;top:13%;font-weight:700;font-size:13cqw;line-height:.82;letter-spacing:-.065em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.p1 .p-sub{position:absolute;left:5.8cqw;top:calc(13% + 13.4cqw);font-weight:500;font-size:max(12px,2.3cqw);line-height:1.15;letter-spacing:-.02em;max-width:15em}
+.p1 .p-clients{position:absolute;right:5.6cqw;bottom:7%;padding:0;list-style:none;text-align:right;font-weight:600;font-size:max(11px,2.1cqw);line-height:1.35;letter-spacing:-.02em}
+.p2{display:flex;flex-direction:column;justify-content:center;padding:0 7cqw}
+.p-kick{font-weight:500;font-size:max(11px,1.7cqw);color:#5E5E5E;margin-bottom:1.6cqw!important}
+.p-rank{font-weight:700;font-size:19cqw;line-height:.8;letter-spacing:-.07em}
+.p-name{font-weight:700;font-size:max(14px,3.4cqw);line-height:1.05;letter-spacing:-.035em;max-width:16em;margin-top:2.4cqw!important}
+.p-by{font-size:max(11px,1.7cqw);color:#5E5E5E;margin-top:1cqw!important}
+.p-stats{display:flex;gap:4cqw;margin-top:3cqw!important;padding:2cqw 0 0;border-top:1px solid #000;list-style:none;font-size:max(11px,1.7cqw);color:#5E5E5E;line-height:1.2}
+.p-stats b{display:block;color:#000;font-size:max(16px,3.6cqw);letter-spacing:-.04em;font-weight:700;line-height:1;margin-bottom:.5cqw}
+@media (max-width:760px){.p-by{display:none}}
 .seq-intro{position:absolute;left:var(--pad);right:var(--pad);top:clamp(76px,10svh,104px);color:var(--white);opacity:var(--to,1);transform:translateY(var(--ty,0px))}
 .seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
 .seq-intro p{margin:16px 0 0;max-width:40em;font-size:var(--fs-body);line-height:1.5;font-weight:300;color:#CFCFCF}
 @media (min-width:761px) and (max-aspect-ratio:1/1){.seq{--mw:130vw}}
-@media (max-width:760px){.seq{--mw:165vw;height:380vh}}
-.seq-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(to bottom,rgba(255,255,255,0),#FFF 85%);opacity:var(--fo,0);pointer-events:none}
+@media (max-width:760px){.seq{--mw:165vw;height:500vh}}
+.seq-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(to bottom,rgba(236,236,236,0),var(--mist) 85%);opacity:var(--fo,0);pointer-events:none}
 
 /* Impact */
-.impact{background:var(--white);color:var(--black);padding:var(--sp) 0}
-.impact-head{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:16px clamp(24px,4vw,64px)}
-.fig{font-weight:700;font-size:clamp(96px,17vw,264px);line-height:.8;letter-spacing:-.065em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.fig-sub{font-weight:500;font-size:var(--fs-lead);line-height:1.1;letter-spacing:-.035em;max-width:13em;padding-bottom:.18em}
-.proof2{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:end;gap:16px clamp(24px,4vw,64px);margin-top:clamp(56px,8vw,112px);padding-top:clamp(40px,5vw,72px);border-top:1px solid #D2D2D2}
-.fig2{margin:0;font-weight:700;font-size:clamp(72px,11vw,168px);line-height:.8;letter-spacing:-.06em}
-.fig2-sub{margin:0;font-weight:500;font-size:var(--fs-lead);line-height:1.1;letter-spacing:-.035em;max-width:15em;padding-bottom:.12em}
-@media (max-width:760px){.proof2{grid-template-columns:1fr}}
-.clients{list-style:none;margin:clamp(56px,8vw,112px) 0 0;padding:clamp(18px,2vw,26px) 0 0;border-top:1px solid var(--black);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-weight:600;font-size:clamp(20px,2.4vw,36px);letter-spacing:-.035em}
-@media (max-width:760px){.impact-head{grid-template-columns:1fr}.clients{justify-content:flex-start;column-gap:28px}}
 
 /* Services */
 .services{background:var(--mist);color:var(--black);padding:var(--sp) 0}
@@ -457,7 +473,20 @@ form{display:grid;gap:16px;margin-top:22px}
       <div class="seq-stage">
         <div class="seq-media">
           <img src="/assets/tablet-1280.webp" srcset="/assets/tablet-828.webp 828w, /assets/tablet-1280.webp 1280w, /assets/tablet-1672.webp 1672w" sizes="(max-width: 760px) 165vw, (max-aspect-ratio: 1/1) 130vw, min(100vw, 172vh)" width="1672" height="941" alt="" decoding="async" loading="lazy">
-          <div class="seq-screen"><canvas id="seq-canvas" aria-hidden="true"></canvas></div>
+          <div class="seq-screen"><canvas id="seq-canvas" aria-hidden="true"></canvas>
+            <div class="proof p1">
+              <p class="p-fig"><span class="sr">Over $1.3 billion in impact for the world&rsquo;s leading brands.</span><span id="fig" aria-hidden="true">$1.3B+</span></p>
+              <p class="p-sub" aria-hidden="true">in impact for the world&rsquo;s leading brands.</p>
+              <ul class="p-clients" aria-label="Selected clients"><li>Circuit City</li><li>Microsoft</li><li>Allianz</li><li>Intersections</li><li>Capital One</li></ul>
+            </div>
+            <div class="proof p2">
+              <p class="p-kick">GPT Store &middot; Research &amp; Analysis</p>
+              <p class="p-rank"><span class="sr">Ranked number </span>#2</p>
+              <p class="p-name">Marketing Research and Competitive Analysis</p>
+              <p class="p-by">A GPT created by our principal.</p>
+              <ul class="p-stats"><li><b>1.28M+</b> conversations</li><li><b>4.4</b> average rating</li><li><b>25K+</b> ratings</li></ul>
+            </div>
+          </div>
         </div>
       </div>
       <div class="seq-intro">
@@ -467,26 +496,6 @@ form{display:grid;gap:16px;margin-top:22px}
     </div>
   </section>
 
-  <section class="impact" id="impact" aria-labelledby="impact-title">
-    <div class="wrap">
-      <h2 class="impact-head" id="impact-title">
-        <span class="sr">Over $1.3 billion in impact for the world&rsquo;s leading brands</span>
-        <span class="fig" id="fig" aria-hidden="true">$1.3B+</span>
-        <span class="fig-sub" aria-hidden="true">in impact created for the world&rsquo;s leading brands.</span>
-      </h2>
-      <ul class="clients" aria-label="Selected clients">
-        <li>Circuit City</li>
-        <li>Microsoft</li>
-        <li>Allianz</li>
-        <li>Intersections</li>
-        <li>Capital One</li>
-      </ul>
-      <div class="proof2">
-        <p class="fig2" aria-hidden="true">#2</p>
-        <p class="fig2-sub"><span class="sr">Number 2: </span>most-used GPT app, created by our principal.</p>
-      </div>
-    </div>
-  </section>
 
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="wrap">
@@ -711,7 +720,7 @@ form{display:grid;gap:16px;margin-top:22px}
         </details>
         <details>
           <summary>Which brands has Humanward Labs worked with?</summary>
-          <p>Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created the #2 most-used GPT app.</p>
+          <p>Our work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research &amp; Analysis on the GPT Store with over 1.28 million conversations.</p>
         </details>
         <details>
           <summary>How do I start a project with Humanward Labs?</summary>
@@ -918,6 +927,7 @@ form{display:grid;gap:16px;margin-top:22px}
   var seq = document.querySelector('.seq');
   if (seq) (function () {
     var st = seq.querySelector('.seq-stage'), cv = document.getElementById('seq-canvas'), cx = cv.getContext('2d');
+    var p1 = seq.querySelector('.p1'), p2 = seq.querySelector('.p2'), fig = document.getElementById('fig');
     var LW = 1280, LH = 838, SIG = '#FF4A1C', START = 0.2, live = false, raf = 0, t0 = performance.now() - 12000;
     var FONT = "'Host Grotesk','Helvetica Neue',Arial,sans-serif";
     function cl(v) { return Math.max(0, Math.min(1, v)); }
@@ -1003,7 +1013,7 @@ form{display:grid;gap:16px;margin-top:22px}
 
       word('Friction', 1 - pr(q, .28, .34));
       word('Flow', pr(q, .36, .42) * (1 - pr(q, .58, .64)));
-      word('Growth', pr(q, .66, .72));
+      word('Growth', pr(q, .66, .72) * (1 - pr(q, .95, 1)));
       cx.globalAlpha = 1;
     }
     function frame(now) {
@@ -1021,7 +1031,14 @@ form{display:grid;gap:16px;margin-top:22px}
       seq.style.setProperty('--ty', (-40 * tp).toFixed(1) + 'px');
       st.style.setProperty('--fo', pr(p, .9, 1).toFixed(3));
       size();
-      paint(cl((p - START) / (1 - START - .04)), ((now || performance.now()) - t0) / 1000);
+      var q = cl((p - START) / (1 - START - .04));
+      paint(cl(q / .7), ((now || performance.now()) - t0) / 1000);
+      // Proof: the growth curve lands on the impact figure, then the GPT
+      var o1 = pr(q, .68, .74) * (1 - pr(q, .84, .88)), o2 = pr(q, .88, .94);
+      p1.style.setProperty('--o', o1.toFixed(3)); p2.style.setProperty('--o', o2.toFixed(3));
+      cv.style.setProperty('--cvo', (1 - pr(q, .84, .9)).toFixed(3));
+      var v = q >= .8 ? '$1.3B+' : '$' + (1.3 * eio(pr(q, .68, .8))).toFixed(1) + 'B+';
+      if (fig.textContent !== v) fig.textContent = v;
       if (live) raf = requestAnimationFrame(frame);
     }
     function req() { if (!raf) raf = requestAnimationFrame(frame); }
@@ -1058,19 +1075,6 @@ form{display:grid;gap:16px;margin-top:22px}
       });
     }, { threshold: 0.45 }).observe(grid);
 
-    var fig = document.getElementById('fig');
-    new IntersectionObserver(function (entries, obs) {
-      if (!entries[0].isIntersecting) return;
-      obs.disconnect();
-      var t0 = null, dur = 1400;
-      function step(t) {
-        if (!t0) t0 = t;
-        var p = Math.min(1, (t - t0) / dur), v = 1.3 * (1 - Math.pow(1 - p, 3));
-        fig.textContent = '$' + v.toFixed(1) + 'B+';
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }, { threshold: 0.6 }).observe(fig);
   }
 })();
 </script>
