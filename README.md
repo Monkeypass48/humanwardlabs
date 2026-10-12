@@ -15,7 +15,7 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page (hero with scroll cue, scroll sequence on the tablet, impact, services flip cards, FAQ, contact dialog). The tablet screen is a `<canvas>`: a scattered field of dots orders into a grid, folds into a line and resolves into the Humanward line-and-dot mark as you scroll.
+- `index.html` — the page (hero with scroll cue, scroll sequence on the tablet, impact, services flip cards, FAQ, contact dialog). The tablet screen is a `<canvas>` that tells friction, flow, growth as you scroll: a stream of people hits gates and drops off, the gates retract, and the stream bends into a growth curve that ends in the Humanward dot.
 - `assets/tablet-*.webp` — tablet photo at three widths
 - `fonts/` — self-hosted Host Grotesk (OFL)
 - `robots.txt`, `sitemap.xml`, `llms.txt` — search and AI-answer discovery

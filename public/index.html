@@ -290,7 +290,7 @@ a{color:inherit}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
 /* Tablet sequence: a field of dots resolves into the Humanward mark as you scroll */
-.seq{position:relative;height:380vh;background:var(--black);--mw:min(100vw,172svh)}
+.seq{position:relative;height:460vh;background:var(--black);--mw:min(100vw,172svh)}
 .seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
 .seq-media{position:absolute;left:50%;top:52%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
@@ -301,7 +301,7 @@ a{color:inherit}
 .seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
 .seq-intro p{margin:16px 0 0;max-width:40em;font-size:var(--fs-body);line-height:1.5;font-weight:300;color:#CFCFCF}
 @media (min-width:761px) and (max-aspect-ratio:1/1){.seq{--mw:130vw}}
-@media (max-width:760px){.seq{--mw:165vw;height:340vh}}
+@media (max-width:760px){.seq{--mw:165vw;height:420vh}}
 
 /* Impact */
 .impact{background:var(--white);color:var(--black);padding:var(--sp) 0}
@@ -912,32 +912,21 @@ form{display:grid;gap:16px;margin-top:22px}
     });
   });
 
-  // Tablet sequence: a scattered field of dots finds its order, then resolves into the Humanward mark
+  // Tablet sequence: friction, then flow, then growth. People stream through a journey,
+  // gates block most of them, design removes the gates, and the stream bends into a growth curve.
   var seq = document.querySelector('.seq');
   if (seq) (function () {
     var st = seq.querySelector('.seq-stage'), cv = document.getElementById('seq-canvas'), cx = cv.getContext('2d');
-    var LW = 1280, LH = 838, SIG = '#FF4A1C', START = 0.2, live = false, raf = 0, t0 = performance.now();
+    var LW = 1280, LH = 838, SIG = '#FF4A1C', START = 0.2, live = false, raf = 0, t0 = performance.now() - 12000;
+    var FONT = "'Host Grotesk','Helvetica Neue',Arial,sans-serif";
     function cl(v) { return Math.max(0, Math.min(1, v)); }
     function pr(t, a, b) { return cl((t - a) / (b - a)); }
     function eio(v) { return v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; }
     function lerp(a, b, k) { return a + (b - a) * k; }
-    var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-
-    // Grid of dots (order); one of them is the person
-    var COLS = 26, ROWS = 15, GX = 1280 / (COLS + 1), GY = 838 / (ROWS + 1), P = [];
-    // The mark, as in the favicon: a rounded line and a signal dot (64-unit artboard, scaled)
-    var S = 9, MX = 640 - 31.5 * S, MY = 419, L0 = MX + 15 * S, L1 = MX + 31 * S, LW2 = 3 * S, DOTX = MX + 42 * S, DOTR = 9 * S;
-    for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) {
-      P.push({
-        r: r, c: c,
-        sx: 60 + rnd() * 1160, sy: 50 + rnd() * 738,
-        gx: GX * (c + 1), gy: GY * (r + 1),
-        lx: L0 + (c / (COLS - 1)) * (L1 - L0),
-        ph: rnd() * 6.283, w: .35 + rnd() * .5, a: .35 + rnd() * .45,
-        d1: (c / COLS) * .12 + rnd() * .04, d2: (Math.abs(r - (ROWS - 1) / 2) / ((ROWS - 1) / 2)) * .08
-      });
-    }
-    var ME = (7 * COLS) + 12; // the person: a grid point near the center
+    function hash(n) { var x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+    var LY = 470, GATES = [330, 560, 790, 1010], SPEED = 250, EVERY = 0.03, X0 = 40, TIP = 1150;
+    function curveY(x) { var u = cl((x - X0) / (TIP - X0)); return 740 - 590 * Math.pow(u, 2.1); }
+    function word(t, a) { if (a <= 0) return; cx.save(); cx.globalAlpha = a; cx.font = '700 64px ' + FONT; try { cx.letterSpacing = '-3px'; } catch (e) {} cx.fillStyle = '#000'; cx.textBaseline = 'alphabetic'; cx.fillText(t, 72, 132); cx.restore(); }
 
     function size() {
       var b = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -947,32 +936,64 @@ form{display:grid;gap:16px;margin-top:22px}
     function paint(q, time) {
       cx.setTransform(1, 0, 0, 1, 0, 0); cx.fillStyle = '#FFF'; cx.fillRect(0, 0, cv.width, cv.height);
       cx.setTransform(cv.width / LW, 0, 0, cv.height / LH, 0, 0);
-      var k3 = eio(pr(q, .64, .8)), fin = eio(pr(q, .76, .88)), me = P[ME];
-      for (var i = 0; i < P.length; i++) {
-        if (i === ME) continue;
-        var p = P[i], k1 = eio(pr(q, .02 + p.d1, .22 + p.d1)), k2 = eio(pr(q, .42 + p.d2, .58 + p.d2));
-        var drift = (1 - k1) * 18;
-        var x = lerp(p.sx + Math.sin(time * p.w + p.ph) * drift, p.gx, k1), y = lerp(p.sy + Math.cos(time * p.w * .8 + p.ph) * drift, p.gy, k1);
-        y = lerp(y, MY, k2); x = lerp(x, p.lx, k3);
-        var g = Math.round(lerp(150, 0, Math.max(k1 * .75, k2)));
-        cx.globalAlpha = lerp(lerp(p.a, .8, k1), 1, k2) * (1 - fin);
-        cx.fillStyle = 'rgb(' + g + ',' + g + ',' + g + ')';
-        cx.beginPath(); cx.arc(x, y, lerp(lerp(5, 4.4, k1), LW2, k3), 0, 6.2832); cx.fill();
+      var open = eio(pr(q, .3, .5)), grow = eio(pr(q, .56, .8)), line = eio(pr(q, .76, .9));
+      var pass = lerp(.56, 1, open), shut = 1 - open;
+
+      // Gates: a pair of bars per step, leaving a narrow opening
+      if (shut > 0) for (var k = 0; k < GATES.length; k++) {
+        var gx = GATES[k], h = 74 * shut;
+        cx.globalAlpha = shut; cx.fillStyle = '#111';
+        cx.beginPath(); cx.roundRect(gx - 7, LY - 22 - h, 14, h, 7); cx.fill();
+        cx.beginPath(); cx.roundRect(gx - 7, LY + 22, 14, h, 7); cx.fill();
       }
-      // The line of the mark settles in as the dots arrive
-      cx.globalAlpha = fin; cx.strokeStyle = '#000'; cx.lineCap = 'round'; cx.lineWidth = LW2 * 2;
-      cx.beginPath(); cx.moveTo(L0, MY); cx.lineTo(L1, MY); cx.stroke();
-      // The person: wanders, takes a place in the grid, then becomes the dot of the mark
-      var a1 = eio(pr(q, .06, .3)), f2 = eio(pr(q, .42 + me.d2, .58 + me.d2)), wan = (1 - a1) * 46;
-      var px = lerp(me.sx + Math.sin(time * .9 + 1) * wan, me.gx, a1), py = lerp(me.sy + Math.cos(time * .7) * wan, me.gy, a1);
-      py = lerp(py, MY, f2); px = lerp(px, DOTX, k3);
-      var rad = lerp(9, DOTR, eio(pr(q, .68, .88)));
+
+      // The stream of people, computed from time so it scrubs cleanly
+      var first = Math.floor((time - (TIP - X0 + 400) / SPEED) / EVERY), last = Math.floor(time / EVERY);
+      for (var i = Math.max(0, first); i <= last; i++) {
+        var age = time - i * EVERY, x = X0 + age * SPEED, off = (hash(i) - .5) * 96, a = .55 + hash(i + .5) * .35;
+        var stopAt = -1;
+        for (var k2 = 0; k2 < GATES.length; k2++) if (hash(i * 7 + k2 * 13.3) > pass && x > GATES[k2] - 16) { stopAt = k2; break; }
+        var y, alpha = a;
+        if (stopAt >= 0) {
+          var gx2 = GATES[stopAt], wait = (x - (gx2 - 16)) / SPEED;
+          x = gx2 - 16 - hash(i + 3) * 26; y = LY + off * .5;
+          if (wait > .35) { var f = wait - .35; y += 260 * f * f; alpha *= cl(1 - f / 1.1); }
+          alpha *= 1 - grow;
+        } else {
+          var near = 0; for (var g = 0; g < GATES.length; g++) near = Math.max(near, Math.exp(-Math.pow((x - GATES[g]) / 46, 2)));
+          y = LY + off * (1 - .78 * near * shut);
+          y = lerp(y, curveY(x) + off * .18, grow);
+          if (x > TIP) alpha *= lerp(1, cl(1 - (x - TIP) / 40), grow);
+        }
+        alpha *= lerp(1, .32, line);
+        if (alpha <= 0.01 || x > 1260) continue;
+        var gr = Math.round(lerp(120, 30, open));
+        cx.globalAlpha = alpha; cx.fillStyle = 'rgb(' + gr + ',' + gr + ',' + gr + ')';
+        cx.beginPath(); cx.arc(x, y, 5.5, 0, 6.2832); cx.fill();
+      }
+
+      // The growth line: the Humanward mark, angled up
+      if (line > 0) {
+        cx.globalAlpha = line; cx.strokeStyle = '#000'; cx.lineWidth = 12; cx.lineCap = 'round'; cx.lineJoin = 'round';
+        cx.beginPath(); var end = lerp(X0 + 40, TIP - 58, line);
+        for (var xx = X0 + 40; xx <= end; xx += 8) { if (xx === X0 + 40) cx.moveTo(xx, curveY(xx)); else cx.lineTo(xx, curveY(xx)); }
+        cx.stroke();
+      }
+
+      // The person: stuck at a gate, released, carried to the top
+      var go = eio(pr(q, .38, .8)), stuck = 1 - pr(q, .34, .4);
+      var px = lerp(GATES[1] - 20, TIP, go) + Math.sin(time * 13) * 3 * stuck, py = lerp(LY, curveY(px), grow);
+      var rad = lerp(11, 40, eio(pr(q, .8, .92)));
       cx.globalAlpha = 1; cx.fillStyle = SIG; cx.beginPath(); cx.arc(px, py, rad, 0, 6.2832); cx.fill();
-      if (q > .88) {
+      if (q > .9) {
         var ring = (time * .45) % 1;
-        cx.globalAlpha = pr(q, .88, .94) * (1 - ring) * .5; cx.strokeStyle = SIG; cx.lineWidth = 3;
+        cx.globalAlpha = pr(q, .9, .95) * (1 - ring) * .5; cx.strokeStyle = SIG; cx.lineWidth = 3;
         cx.beginPath(); cx.arc(px, py, rad + 80 * eio(ring), 0, 6.2832); cx.stroke();
       }
+
+      word('Friction', 1 - pr(q, .28, .34));
+      word('Flow', pr(q, .36, .42) * (1 - pr(q, .58, .64)));
+      word('Growth', pr(q, .66, .72));
       cx.globalAlpha = 1;
     }
     function frame(now) {
