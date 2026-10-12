@@ -301,7 +301,7 @@ a{color:inherit}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
 /* Tablet sequence: a field of dots resolves into the Humanward mark as you scroll */
-.seq{position:relative;height:560vh;background:var(--black);--mw:min(100vw,172svh)}
+.seq{position:relative;height:440vh;background:var(--black);--mw:min(100vw,172svh)}
 .seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
 .seq-media{position:absolute;left:50%;top:52%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
@@ -309,26 +309,46 @@ a{color:inherit}
 .seq-screen{position:absolute;left:23.68%;top:12.65%;width:52.81%;height:61.42%;overflow:hidden;border-radius:1.6% / 2.5%;background:#FFF}
 .seq-screen canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .seq-screen{container-type:inline-size}
-.seq-screen canvas{opacity:var(--cvo,1)}
-.proof{position:absolute;inset:0;color:#000;opacity:var(--o,0);pointer-events:none}
-.proof p,.proof ul{margin:0}
-.p1 .p-fig{position:absolute;left:5.6cqw;top:13%;font-weight:700;font-size:13cqw;line-height:.82;letter-spacing:-.065em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.p1 .p-sub{position:absolute;left:5.8cqw;top:calc(13% + 13.4cqw);font-weight:500;font-size:max(12px,2.3cqw);line-height:1.15;letter-spacing:-.02em;max-width:15em}
-.p1 .p-clients{position:absolute;right:5.6cqw;bottom:7%;padding:0;list-style:none;text-align:right;font-weight:600;font-size:max(11px,2.1cqw);line-height:1.35;letter-spacing:-.02em}
-.p2{display:flex;flex-direction:column;justify-content:center;padding:0 7cqw}
-.p-kick{font-weight:500;font-size:max(11px,1.7cqw);color:#5E5E5E;margin-bottom:1.6cqw!important}
-.p-rank{font-weight:700;font-size:19cqw;line-height:.8;letter-spacing:-.07em}
-.p-name{font-weight:700;font-size:max(14px,3.4cqw);line-height:1.05;letter-spacing:-.035em;max-width:16em;margin-top:2.4cqw!important}
-.p-by{font-size:max(11px,1.7cqw);color:#5E5E5E;margin-top:1cqw!important}
-.p-stats{display:flex;gap:4cqw;margin-top:3cqw!important;padding:2cqw 0 0;border-top:1px solid #000;list-style:none;font-size:max(11px,1.7cqw);color:#5E5E5E;line-height:1.2}
-.p-stats b{display:block;color:#000;font-size:max(16px,3.6cqw);letter-spacing:-.04em;font-weight:700;line-height:1;margin-bottom:.5cqw}
-@media (max-width:760px){.p-by{display:none}}
+.reel{position:absolute;inset:0;pointer-events:none;color:#000}
+.reel-bars{position:absolute;left:5.6cqw;top:7%;display:flex;gap:.8cqw}
+.reel-bars i{display:block;width:4.4cqw;height:max(2px,.32cqw);border-radius:2px;background:rgba(0,0,0,.14);position:relative;overflow:hidden}
+.reel-bars i::after{content:"";position:absolute;inset:0;background:#000;transform-origin:left;transform:scaleX(var(--f,0))}
+.reel-title{position:absolute;left:5.2cqw;bottom:7.5%;margin:0;font-weight:700;font-size:9cqw;line-height:.88;letter-spacing:-.06em}
+.rl{display:block;overflow:hidden;padding:0 .06em .16em 0;margin-bottom:-.16em}
+.rl>span{display:block;transform:translateY(135%);transition:transform .85s var(--ease)}
+.reel-title.on .rl>span{transform:none}
+.reel-title.on .rl+.rl>span{transition-delay:.07s}
+.reel-title.past .rl>span{transform:translateY(-135%)}
+
+/* Impact: one figure, one line, one dot */
+.impact{background:var(--white);color:var(--black);padding:var(--sp) 0 calc(var(--sp) * .8);overflow:hidden}
+.impact-fig{margin:0;font-weight:700;font-size:clamp(112px,21vw,330px);line-height:.78;letter-spacing:-.07em;font-variant-numeric:tabular-nums;white-space:nowrap;margin-left:-.04em}
+.growth{position:relative;height:clamp(64px,9vw,136px);margin-top:clamp(18px,2.2vw,32px)}
+.growth svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.growth path{fill:none;stroke:var(--black);stroke-width:3;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.impact.run .growth path{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.65,0,.35,1)}
+.growth-dot{position:absolute;left:97.5%;top:6.25%;width:clamp(16px,1.6vw,24px);aspect-ratio:1;border-radius:50%;background:var(--signal);transform:translate(-50%,-50%) scale(0)}
+.impact.run .growth-dot{transform:translate(-50%,-50%) scale(1);transition:transform .7s cubic-bezier(.34,1.56,.64,1) 1.6s}
+.growth-dot::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--signal);opacity:0}
+.impact.run .growth-dot::after{animation:ring 2.4s ease-out 2.2s infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(3.4);opacity:0}}
+.impact-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-top:clamp(28px,3vw,44px)}
+.impact-sub{margin:0;font-weight:500;font-size:var(--fs-lead);line-height:1.12;letter-spacing:-.035em;max-width:17em}
+.impact .clients{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 32px;font-weight:600;font-size:clamp(18px,1.8vw,26px);letter-spacing:-.03em}
+.gpt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(32px,5vw,88px);align-items:end;margin-top:clamp(96px,11vw,176px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--black)}
+.gpt-rank{margin:0;font-weight:700;font-size:clamp(104px,15vw,232px);line-height:.78;letter-spacing:-.07em}
+.gpt-kick{margin:0;font-size:var(--fs-body);color:var(--ink-2)}
+.gpt-name{margin:10px 0 0;font-weight:700;font-size:clamp(28px,3.1vw,48px);line-height:1;letter-spacing:-.045em;max-width:14em}
+.gpt-by{margin:10px 0 0;font-size:var(--fs-body);color:var(--ink-2)}
+.gpt-stats{list-style:none;margin:clamp(24px,2.6vw,36px) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:16px clamp(28px,4vw,64px);font-size:15px;color:var(--ink-2)}
+.gpt-stats b{display:block;color:var(--black);font-size:clamp(28px,2.8vw,42px);font-weight:700;letter-spacing:-.045em;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.gpt{grid-template-columns:1fr}.impact-fig{font-size:25vw}}
 .seq-intro{position:absolute;left:var(--pad);right:var(--pad);top:clamp(76px,10svh,104px);color:var(--white);opacity:var(--to,1);transform:translateY(var(--ty,0px))}
 .seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
 .seq-intro p{margin:16px 0 0;max-width:40em;font-size:var(--fs-body);line-height:1.5;font-weight:300;color:#CFCFCF}
 @media (min-width:761px) and (max-aspect-ratio:1/1){.seq{--mw:130vw}}
-@media (max-width:760px){.seq{--mw:165vw;height:500vh}}
-.seq-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(to bottom,rgba(236,236,236,0),var(--mist) 85%);opacity:var(--fo,0);pointer-events:none}
+@media (max-width:760px){.seq{--mw:165vw;height:400vh}}
+.seq-stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(to bottom,rgba(255,255,255,0),#FFF 85%);opacity:var(--fo,0);pointer-events:none}
 
 /* Impact */
 
@@ -437,8 +457,8 @@ form{display:grid;gap:16px;margin-top:22px}
   <a class="brand" href="/" aria-label="Humanward Labs home"><b>Humanward</b><small>Labs</small></a>
   <nav aria-label="Main">
     <ul class="nav">
-      <li class="opt"><a href="#approach">Impact</a></li>
-      <li class="opt"><a href="#services">What we do</a></li>
+      <li class="opt"><a href="#approach">What we do</a></li>
+      <li class="opt"><a href="#impact">Impact</a></li>
       <li><a class="cta" href="mailto:info@humanwardlabs.com" data-contact aria-haspopup="dialog">Let&rsquo;s talk</a></li>
     </ul>
   </nav>
@@ -457,7 +477,7 @@ form{display:grid;gap:16px;margin-top:22px}
         <a class="talk magnetic" href="mailto:info@humanwardlabs.com" data-contact aria-haspopup="dialog">Let&rsquo;s talk.</a>
       </div>
     </div>
-    <div class="cue-wrap rise" style="animation-delay:1600ms"><a class="scroll-cue" href="#approach"><span>Scroll</span><span class="track" aria-hidden="true"></span><span class="sr">to see the impact</span></a></div>
+    <div class="cue-wrap rise" style="animation-delay:1600ms"><a class="scroll-cue" href="#approach"><span>Scroll</span><span class="track" aria-hidden="true"></span><span class="sr">to see what we do</span></a></div>
     <ul class="honey" aria-label="What great experiences are">
       <li style="--i:0">Useful</li>
       <li style="--i:1">Usable</li>
@@ -475,17 +495,11 @@ form{display:grid;gap:16px;margin-top:22px}
         <div class="seq-media">
           <img src="/assets/tablet-1280.webp" srcset="/assets/tablet-828.webp 828w, /assets/tablet-1280.webp 1280w, /assets/tablet-1672.webp 1672w" sizes="(max-width: 760px) 165vw, (max-aspect-ratio: 1/1) 130vw, min(100vw, 172vh)" width="1672" height="941" alt="" decoding="async" loading="lazy">
           <div class="seq-screen"><canvas id="seq-canvas" aria-hidden="true"></canvas>
-            <div class="proof p1">
-              <p class="p-fig"><span class="sr">Over $1.3 billion in impact delivered by our principal for the world&rsquo;s leading brands.</span><span id="fig" aria-hidden="true">$1.3B+</span></p>
-              <p class="p-sub" aria-hidden="true">in impact delivered by our principal for the world&rsquo;s leading brands.</p>
-              <ul class="p-clients" aria-label="Selected clients"><li>Circuit City</li><li>Microsoft</li><li>Allianz</li><li>Intersections</li><li>Capital One</li></ul>
-            </div>
-            <div class="proof p2">
-              <p class="p-kick">GPT Store &middot; Research &amp; Analysis</p>
-              <p class="p-rank"><span class="sr">Ranked number </span>#2</p>
-              <p class="p-name">Marketing Research and Competitive Analysis</p>
-              <p class="p-by">A GPT created by our principal.</p>
-              <ul class="p-stats"><li><b>1.28M+</b> conversations</li><li><b>4.4</b> average rating</li><li><b>25K+</b> ratings</li></ul>
+            <div class="reel" aria-hidden="true">
+              <div class="reel-bars"><i></i><i></i><i></i></div>
+              <p class="reel-title"><span class="rl"><span>Product</span></span><span class="rl"><span>Design</span></span></p>
+              <p class="reel-title"><span class="rl"><span>Experience</span></span><span class="rl"><span>Design</span></span></p>
+              <p class="reel-title"><span class="rl"><span>Design</span></span><span class="rl"><span>Strategy</span></span></p>
             </div>
           </div>
         </div>
@@ -497,6 +511,29 @@ form{display:grid;gap:16px;margin-top:22px}
     </div>
   </section>
 
+
+  <section class="impact" id="impact" aria-labelledby="impact-title">
+    <div class="wrap">
+      <h2 class="impact-fig" id="impact-title"><span class="sr">Over $1.3 billion in impact delivered by our principal for the world&rsquo;s leading brands.</span><span id="fig" aria-hidden="true">$1.3B+</span></h2>
+      <div class="growth" aria-hidden="true">
+        <svg viewBox="0 0 1200 160" preserveAspectRatio="none" focusable="false"><path pathLength="1" d="M0 156 C 380 154, 760 132, 1170 10"/></svg>
+        <span class="growth-dot"></span>
+      </div>
+      <div class="impact-meta">
+        <p class="impact-sub" aria-hidden="true">in impact delivered by our principal for the world&rsquo;s leading brands.</p>
+        <ul class="clients" aria-label="Selected clients"><li>Circuit City</li><li>Microsoft</li><li>Allianz</li><li>Intersections</li><li>Capital One</li></ul>
+      </div>
+      <div class="gpt">
+        <p class="gpt-rank" aria-hidden="true">#2</p>
+        <div>
+          <p class="gpt-kick"><span class="sr">Ranked number 2 </span>in Research &amp; Analysis on the GPT Store</p>
+          <h3 class="gpt-name">Marketing Research and Competitive Analysis</h3>
+          <p class="gpt-by">A GPT created by our principal.</p>
+          <ul class="gpt-stats"><li><b>1.28M+</b> conversations</li><li><b>4.4</b> average rating</li><li><b>25K+</b> ratings</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="services" id="services" aria-labelledby="services-title">
     <div class="wrap">
@@ -925,99 +962,136 @@ form{display:grid;gap:16px;margin-top:22px}
     });
   });
 
-  // Tablet sequence: friction, then flow, then growth. People stream through a journey,
-  // gates block most of them, design removes the gates, and the stream bends into a growth curve.
+  // Tablet film: three scenes, one per discipline, drawn live and scrubbed by scroll.
+  // Product Design assembles an interface; Experience Design connects a journey;
+  // Design Strategy resolves a field of options to one clear choice.
   var seq = document.querySelector('.seq');
   if (seq) (function () {
     var st = seq.querySelector('.seq-stage'), cv = document.getElementById('seq-canvas'), cx = cv.getContext('2d');
-    var p1 = seq.querySelector('.p1'), p2 = seq.querySelector('.p2'), fig = document.getElementById('fig');
-    var LW = 1280, LH = 838, SIG = '#FF4A1C', START = 0.2, live = false, raf = 0, t0 = performance.now() - 12000;
+    var titles = seq.querySelectorAll('.reel-title'), bars = seq.querySelectorAll('.reel-bars i');
+    var LW = 1280, LH = 838, SIG = '#FF4A1C', START = 0.2, live = false, raf = 0, t0 = performance.now(), active = -1;
     var FONT = "'Host Grotesk','Helvetica Neue',Arial,sans-serif";
     function cl(v) { return Math.max(0, Math.min(1, v)); }
     function pr(t, a, b) { return cl((t - a) / (b - a)); }
     function eio(v) { return v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; }
+    function eob(v) { var c = 1.4; return 1 + (c + 1) * Math.pow(v - 1, 3) + c * Math.pow(v - 1, 2); }
     function lerp(a, b, k) { return a + (b - a) * k; }
-    function hash(n) { var x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
-    var LY = 470, GATES = [330, 560, 790, 1010], SPEED = 250, EVERY = 0.03, X0 = 40, TIP = 1150;
-    function curveY(x) { var u = cl((x - X0) / (TIP - X0)); return 740 - 590 * Math.pow(u, 2.1); }
-    function word(t, a) { if (a <= 0) return; cx.save(); cx.globalAlpha = a; cx.font = '700 64px ' + FONT; try { cx.letterSpacing = '-3px'; } catch (e) {} cx.fillStyle = '#000'; cx.textBaseline = 'alphabetic'; cx.fillText(t, 72, 132); cx.restore(); }
+    function rr(x, y, w, h, r) { cx.beginPath(); cx.roundRect(x, y, w, h, r); }
+    function label(t, x, y, size, color, align) { cx.font = '500 ' + size + 'px ' + FONT; cx.fillStyle = color; cx.textAlign = align || 'left'; cx.textBaseline = 'middle'; cx.fillText(t, x, y); }
+    function dot(x, y, r, ripple) {
+      cx.fillStyle = SIG; cx.beginPath(); cx.arc(x, y, r, 0, 6.2832); cx.fill();
+      if (ripple > 0 && ripple < 1) { cx.save(); cx.globalAlpha *= (1 - ripple) * .6; cx.strokeStyle = SIG; cx.lineWidth = 3; cx.beginPath(); cx.arc(x, y, r + 60 * eio(ripple), 0, 6.2832); cx.stroke(); cx.restore(); }
+    }
 
+    // Scene 1: Product Design. Interface pieces fly in and snap into a phone; the person taps the button.
+    var PX = 840, PY = 84, PW = 340, PH = 670;
+    var parts = [
+      { x: 24, y: 42, w: 118, h: 14, r: 7, c: '#000', fx: 300, fy: -120, rot: .5 },
+      { x: PW - 52, y: 36, w: 26, h: 26, r: 13, c: '#BDBDBD', fx: -260, fy: 40, rot: 0 },
+      { x: 24, y: 84, w: PW - 48, h: 230, r: 22, c: '#E6E6E6', fx: 220, fy: 210, rot: -.35 },
+      { x: 24, y: 344, w: 210, h: 22, r: 11, c: '#000', fx: -330, fy: -60, rot: .4 },
+      { x: 24, y: 384, w: 270, h: 12, r: 6, c: '#CFCFCF', fx: 280, fy: 120, rot: -.6 },
+      { x: 24, y: 408, w: 200, h: 12, r: 6, c: '#CFCFCF', fx: -240, fy: 180, rot: .7 },
+      { x: 24, y: 452, w: 92, h: 40, r: 20, c: '#EFEFEF', fx: 180, fy: -200, rot: .9 },
+      { x: 126, y: 452, w: 108, h: 40, r: 20, c: '#EFEFEF', fx: -200, fy: -170, rot: -.8 }
+    ];
+    function product(u, time) {
+      var frame = eio(pr(u, 0, .16));
+      cx.globalAlpha = frame; cx.strokeStyle = '#000'; cx.lineWidth = 3; rr(PX, PY, PW, PH, 40); cx.stroke();
+      cx.globalAlpha = 1;
+      parts.forEach(function (p, i) {
+        var k = pr(u, .08 + i * .045, .34 + i * .045), e = eob(k), a = pr(k, 0, .25);
+        if (a <= 0) return;
+        var x = PX + p.x + p.fx * (1 - e), y = PY + p.y + p.fy * (1 - e);
+        cx.save(); cx.globalAlpha = a; cx.translate(x + p.w / 2, y + p.h / 2); cx.rotate(p.rot * (1 - e));
+        cx.fillStyle = p.c; rr(-p.w / 2, -p.h / 2, p.w, p.h, p.r); cx.fill(); cx.restore();
+      });
+      // Primary action
+      var ba = eob(pr(u, .5, .66)), bx = PX + 24, by = PY + PH - 92, bw = PW - 48, bh = 68;
+      if (ba > 0) {
+        cx.save(); cx.globalAlpha = cl(ba); cx.translate(bx + bw / 2, by + bh / 2); cx.scale(lerp(.6, 1, cl(ba)), lerp(.6, 1, cl(ba)));
+        var pressed = pr(u, .8, .84) * (1 - pr(u, .84, .9));
+        cx.scale(1 - .05 * pressed, 1 - .05 * pressed);
+        cx.fillStyle = '#000'; rr(-bw / 2, -bh / 2, bw, bh, bh / 2); cx.fill();
+        label('Continue', 0, 1, 26, '#FFF', 'center'); cx.restore();
+      }
+      // The person
+      var m = eio(pr(u, .62, .8)), da = pr(u, .58, .64);
+      if (da > 0) { cx.globalAlpha = da; dot(lerp(1230, bx + bw * .72, m), lerp(760, by + bh / 2, m), 13, pr(u, .8, 1)); cx.globalAlpha = 1; }
+    }
+
+    // Scene 2: Experience Design. A journey line connects every touchpoint; the person rides it.
+    var NODES = [[730, 660, 'Search'], [850, 380, 'Site'], [970, 560, 'App'], [1090, 250, 'Email'], [1200, 120, 'Store']];
+    function along(t) { // point on a smooth curve through the nodes, t in 0..1
+      var n = NODES.length - 1, s = Math.min(n - 1e-6, t * n), i = Math.floor(s), f = s - i;
+      var p0 = NODES[Math.max(0, i - 1)], p1 = NODES[i], p2 = NODES[i + 1], p3 = NODES[Math.min(n, i + 2)];
+      function cr(a, b, c, d) { return .5 * ((2 * b) + (-a + c) * f + (2 * a - 5 * b + 4 * c - d) * f * f + (-a + 3 * b - 3 * c + d) * f * f * f); }
+      return [cr(p0[0], p1[0], p2[0], p3[0]), cr(p0[1], p1[1], p2[1], p3[1])];
+    }
+    function experience(u, time) {
+      var show = eio(pr(u, 0, .16)), draw = eio(pr(u, .14, .78)), n = NODES.length - 1;
+      // ghost path
+      cx.globalAlpha = show * .18; cx.strokeStyle = '#000'; cx.lineWidth = 3; cx.setLineDash([2, 12]); cx.lineCap = 'round';
+      cx.beginPath(); for (var t = 0; t <= 1.0001; t += .01) { var g = along(t); t === 0 ? cx.moveTo(g[0], g[1]) : cx.lineTo(g[0], g[1]); } cx.stroke(); cx.setLineDash([]);
+      // drawn path
+      if (draw > 0) { cx.globalAlpha = 1; cx.lineWidth = 6; cx.beginPath(); for (var t2 = 0; t2 <= draw + 1e-6; t2 += .005) { var q2 = along(Math.min(t2, draw)); t2 === 0 ? cx.moveTo(q2[0], q2[1]) : cx.lineTo(q2[0], q2[1]); } cx.stroke(); }
+      // touchpoints
+      NODES.forEach(function (nd, i) {
+        var a = eob(pr(u, .02 + i * .04, .2 + i * .04)), on = draw >= i / n - 1e-3;
+        if (a <= 0) return;
+        cx.save(); cx.globalAlpha = cl(a); cx.translate(nd[0], nd[1]); cx.scale(cl(a), cl(a));
+        cx.fillStyle = on && draw > 0 ? '#000' : '#FFF'; cx.strokeStyle = '#000'; cx.lineWidth = 3;
+        cx.beginPath(); cx.arc(0, 0, 20, 0, 6.2832); cx.fill(); cx.stroke(); cx.restore();
+        cx.globalAlpha = cl(a); label(nd[2], nd[0] - 30, nd[1], 26, '#5E5E5E', 'right');
+      });
+      cx.globalAlpha = 1;
+      var head = along(draw);
+      if (pr(u, .1, .16) > 0) { cx.globalAlpha = pr(u, .1, .16); dot(head[0], head[1], 13, pr(u, .8, 1)); cx.globalAlpha = 1; }
+    }
+
+    // Scene 3: Design Strategy. Options on an impact/effort map resolve to the one worth doing first.
+    var OX = 660, OY = 750, AX = 1220, AY = 80, OPTS = [], BEST = [780, 200];
+    (function () { var s = 11; function r() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }
+      for (var i = 0; i < 30; i++) OPTS.push([OX + 50 + r() * (AX - OX - 90), AY + 40 + r() * (OY - AY - 90), r()]); })();
+    function strategy(u, time) {
+      var ax = eio(pr(u, 0, .2)), pts = pr(u, .1, .34), sort = eio(pr(u, .38, .58)), go = eio(pr(u, .6, .8));
+      cx.strokeStyle = '#000'; cx.lineWidth = 3; cx.lineCap = 'round';
+      cx.globalAlpha = 1; cx.beginPath(); cx.moveTo(OX, OY); cx.lineTo(OX, lerp(OY, AY, ax)); cx.moveTo(OX, OY); cx.lineTo(lerp(OX, AX, ax), OY); cx.stroke();
+      cx.globalAlpha = ax; label('Impact', OX + 18, AY + 8, 24, '#5E5E5E'); label('Effort', AX, OY - 28, 24, '#5E5E5E', 'right');
+      // the sweet spot: high impact, low effort
+      var zx = OX + 24, zy = AY + 24, zw = (AX - OX) * .42, zh = (OY - AY) * .42;
+      if (sort > 0) { cx.globalAlpha = sort; cx.fillStyle = '#F2F2F2'; rr(zx, zy, zw, zh, 18); cx.fill(); }
+      OPTS.forEach(function (o, i) {
+        var a = pr(pts, o[2] * .6, o[2] * .6 + .4); if (a <= 0) return;
+        var inZone = o[0] < zx + zw && o[1] < zy + zh;
+        cx.globalAlpha = a * lerp(1, inZone ? .9 : .25, sort);
+        cx.fillStyle = inZone && sort > .5 ? '#000' : '#9A9A9A';
+        cx.beginPath(); cx.arc(o[0], o[1], 9, 0, 6.2832); cx.fill();
+      });
+      if (go > 0) {
+        cx.globalAlpha = 1; cx.strokeStyle = '#000'; cx.lineWidth = 5;
+        cx.beginPath(); cx.moveTo(OX, OY); cx.lineTo(lerp(OX, BEST[0], go), lerp(OY, BEST[1], go)); cx.stroke();
+        dot(lerp(OX, BEST[0], go), lerp(OY, BEST[1], go), lerp(10, 18, go), pr(u, .8, 1));
+      }
+      cx.globalAlpha = 1;
+    }
+
+    var SCENES = [product, experience, strategy];
     function size() {
       var b = cv.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
       var w = Math.max(1, Math.round(b.width * dpr)), h = Math.max(1, Math.round(b.height * dpr));
       if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
     }
     function paint(q, time) {
-      cx.setTransform(1, 0, 0, 1, 0, 0); cx.fillStyle = '#FFF'; cx.fillRect(0, 0, cv.width, cv.height);
+      cx.setTransform(1, 0, 0, 1, 0, 0); cx.globalAlpha = 1; cx.fillStyle = '#FFF'; cx.fillRect(0, 0, cv.width, cv.height);
       cx.setTransform(cv.width / LW, 0, 0, cv.height / LH, 0, 0);
-      var open = eio(pr(q, .3, .5)), grow = eio(pr(q, .56, .8)), line = eio(pr(q, .76, .9));
-      var pass = lerp(.56, 1, open), shut = 1 - open;
-
-      // Gates: heavy bars per step, leaving a narrow opening
-      if (shut > 0) for (var k = 0; k < GATES.length; k++) {
-        var gx = GATES[k], h = 96 * shut;
-        cx.globalAlpha = shut; cx.fillStyle = '#000';
-        cx.beginPath(); cx.roundRect(gx - 10, LY - 20 - h, 20, h, 10); cx.fill();
-        cx.beginPath(); cx.roundRect(gx - 10, LY + 20, 20, h, 10); cx.fill();
-      }
-
-      // The stream of people, computed from time so it scrubs cleanly. Flow doubles the volume.
-      var first = Math.floor((time - 9) / EVERY), last = Math.floor(time / EVERY);
-      for (var j = Math.max(0, first) * 2; j <= last * 2; j++) {
-        var half = j % 2, i = j / 2;
-        if (half && open <= 0) continue;
-        var age = time - i * EVERY, x = X0 + age * SPEED, off = (hash(i) - .5) * 96, a = (.55 + hash(i + .25) * .35) * (half ? open : 1);
-        var stopAt = -1;
-        if (!half) for (var k2 = 0; k2 < GATES.length; k2++) if (hash(i * 7 + k2 * 13.3) > pass && x > GATES[k2] - 18) { stopAt = k2; break; }
-        var y, alpha = a, streak = 0;
-        if (stopAt >= 0) {
-          // Lost: stalls at the gate, then falls into a pile beneath it
-          var gx2 = GATES[stopAt], wait = (x - (gx2 - 18)) / SPEED, hx = hash(i + 3), hy = hash(i + 5);
-          var restX = gx2 - 6 + (hx - .5) * 90 * (1 - hy * .6), restY = 768 - hy * hy * 64;
-          if (wait < .3) { x = gx2 - 18 - hx * 22; y = LY + off * .45; }
-          else { var f = eio(cl((wait - .3) / .7)); x = lerp(gx2 - 18 - hx * 22, restX, f); y = lerp(LY + off * .45, restY, f * f); }
-          alpha *= .5 + .5 * cl(1 - (wait - .3) / .8);
-          if (wait > 7) alpha *= cl(1 - (wait - 7));
-          alpha *= 1 - grow;
-        } else {
-          if (x > 1300) continue;
-          var near = 0; for (var g = 0; g < GATES.length; g++) near = Math.max(near, Math.exp(-Math.pow((x - GATES[g]) / 46, 2)));
-          y = LY + off * (1 - .8 * near * shut);
-          y = lerp(y, curveY(x) + off * .18, grow);
-          if (x > TIP) alpha *= lerp(1, cl(1 - (x - TIP) / 40), grow);
-          streak = open * (1 - grow);
-        }
-        alpha *= lerp(1, .32, line);
-        if (alpha <= 0.01 || x > 1260) continue;
-        var gr = Math.round(lerp(120, 25, open));
-        cx.globalAlpha = alpha; cx.fillStyle = cx.strokeStyle = 'rgb(' + gr + ',' + gr + ',' + gr + ')';
-        if (streak > 0) { cx.globalAlpha = alpha * .35 * streak; cx.lineWidth = 6; cx.lineCap = 'round'; cx.beginPath(); cx.moveTo(x - 46 * streak, y); cx.lineTo(x, y); cx.stroke(); cx.globalAlpha = alpha; }
-        cx.beginPath(); cx.arc(x, y, 6, 0, 6.2832); cx.fill();
-      }
-
-      // The growth line: the Humanward mark, angled up
-      if (line > 0) {
-        cx.globalAlpha = line; cx.strokeStyle = '#000'; cx.lineWidth = 12; cx.lineCap = 'round'; cx.lineJoin = 'round';
-        cx.beginPath(); var end = lerp(X0 + 40, TIP - 58, line);
-        for (var xx = X0 + 40; xx <= end; xx += 8) { if (xx === X0 + 40) cx.moveTo(xx, curveY(xx)); else cx.lineTo(xx, curveY(xx)); }
-        cx.stroke();
-      }
-
-      // The person: stuck at a gate, released, carried to the top
-      var go = eio(pr(q, .38, .8)), stuck = 1 - pr(q, .34, .4);
-      var px = lerp(GATES[1] - 20, TIP, go) + Math.sin(time * 13) * 5 * stuck, py = lerp(LY, curveY(px), grow);
-      var rad = lerp(15, 40, eio(pr(q, .8, .92)));
-      cx.globalAlpha = 1; cx.fillStyle = SIG; cx.beginPath(); cx.arc(px, py, rad, 0, 6.2832); cx.fill();
-      if (q > .9) {
-        var ring = (time * .45) % 1;
-        cx.globalAlpha = pr(q, .9, .95) * (1 - ring) * .5; cx.strokeStyle = SIG; cx.lineWidth = 3;
-        cx.beginPath(); cx.arc(px, py, rad + 80 * eio(ring), 0, 6.2832); cx.stroke();
-      }
-
-      word('Friction', 1 - pr(q, .28, .34));
-      word('Flow', pr(q, .36, .42) * (1 - pr(q, .58, .64)));
-      word('Growth', pr(q, .66, .72) * (1 - pr(q, .95, 1)));
-      cx.globalAlpha = 1;
+      var s = Math.min(2, Math.floor(q * 3)), u = Math.min(1, q * 3 - s);
+      var fade = s === 0 ? 1 - pr(u, .94, 1) : pr(u, 0, .06) * (s === 2 ? 1 : 1 - pr(u, .94, 1));
+      cx.save();
+      SCENES[s](u, time);
+      cx.restore();
+      if (fade < 1) { cx.setTransform(1, 0, 0, 1, 0, 0); cx.globalAlpha = 1 - fade; cx.fillStyle = '#FFF'; cx.fillRect(0, 0, cv.width, cv.height); cx.globalAlpha = 1; }
+      return s;
     }
     function frame(now) {
       raf = 0;
@@ -1032,16 +1106,12 @@ form{display:grid;gap:16px;margin-top:22px}
       var tp = cl(p / (START * .5));
       seq.style.setProperty('--to', (1 - tp).toFixed(3));
       seq.style.setProperty('--ty', (-40 * tp).toFixed(1) + 'px');
-      st.style.setProperty('--fo', pr(p, .9, 1).toFixed(3));
+      st.style.setProperty('--fo', pr(p, .92, 1).toFixed(3));
       size();
-      var q = cl((p - START) / (1 - START - .04));
-      paint(cl(q / .7), ((now || performance.now()) - t0) / 1000);
-      // Proof: the growth curve lands on the impact figure, then the GPT
-      var o1 = pr(q, .68, .74) * (1 - pr(q, .84, .88)), o2 = pr(q, .88, .94);
-      p1.style.setProperty('--o', o1.toFixed(3)); p2.style.setProperty('--o', o2.toFixed(3));
-      cv.style.setProperty('--cvo', (1 - pr(q, .84, .9)).toFixed(3));
-      var v = q >= .8 ? '$1.3B+' : '$' + (1.3 * eio(pr(q, .68, .8))).toFixed(1) + 'B+';
-      if (fig.textContent !== v) fig.textContent = v;
+      var q = cl((p - START * .6) / (1 - START * .6 - .06));
+      var s = paint(q, ((now || performance.now()) - t0) / 1000);
+      if (s !== active) { titles.forEach(function (t, i) { t.classList.toggle('on', i === s); t.classList.toggle('past', i < s); }); active = s; }
+      bars.forEach(function (b, i) { b.style.setProperty('--f', i < s ? 1 : i > s ? 0 : Math.min(1, q * 3 - s).toFixed(3)); });
       if (live) raf = requestAnimationFrame(frame);
     }
     function req() { if (!raf) raf = requestAnimationFrame(frame); }
@@ -1050,8 +1120,27 @@ form{display:grid;gap:16px;margin-top:22px}
     } else { live = true; }
     window.addEventListener('scroll', req, { passive: true });
     window.addEventListener('resize', req);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(req);
     frame();
   })();
+
+  // Impact: the growth line draws as the figure counts up
+  var impact = document.querySelector('.impact');
+  if (impact) {
+    var fig = document.getElementById('fig');
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect(); impact.classList.add('run');
+      var t1 = null, dur = 1800;
+      function step(t) {
+        if (!t1) t1 = t;
+        var k = Math.min(1, (t - t1) / dur), v = 1.3 * (1 - Math.pow(1 - k, 3));
+        fig.textContent = '$' + v.toFixed(1) + 'B+';
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, { threshold: 0.35 }).observe(impact);
+  }
 
   // Heading reveals and the behavioral spotlight
   if ('IntersectionObserver' in window) {

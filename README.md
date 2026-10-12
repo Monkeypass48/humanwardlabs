@@ -15,7 +15,7 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page (hero with scroll cue, tablet scroll sequence, services flip cards, FAQ, contact dialog). The tablet tells friction, flow, growth on a `<canvas>`, then the growth curve lands on the proof: $1.3B+ in impact with client names, then the #2 Research & Analysis GPT. The proof is real HTML layered over the screen, so it stays indexable and readable by screen readers.
+- `index.html` — the page (hero, tablet film, impact, services flip cards, FAQ, contact dialog). The tablet plays three scroll-scrubbed scenes on a `<canvas>`: Product Design (an interface assembles), Experience Design (a journey connects touchpoints) and Design Strategy (options resolve to one choice on an impact/effort map). The impact section counts to $1.3B+ while a growth line draws to the signal dot, then shows the #2 Research & Analysis GPT.
 - `assets/tablet-*.webp` — tablet photo at three widths
 - `fonts/` — self-hosted Host Grotesk (OFL)
 - `robots.txt`, `sitemap.xml`, `llms.txt` — search and AI-answer discovery
