@@ -56,6 +56,31 @@ h1{position:relative;z-index:3;margin:6px 0 0;font-weight:500;font-size:clamp(62
 .mark-in span:first-child{padding-right:.04em}
 .mark-in span+span{font-size:.17em;letter-spacing:-.03em;line-height:1;margin-top:.18em;margin-left:.06em}
 .rise{animation:rise 1.2s cubic-bezier(.16,.84,.2,1) both}
+dialog{width:min(560px,calc(100vw - 32px));max-height:calc(100vh - 32px);padding:0;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(22,12,10,.92);color:#FFF;font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;box-shadow:0 40px 120px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+dialog::backdrop{background:rgba(5,2,2,.7);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog[open]{animation:pop .5s cubic-bezier(.16,.84,.2,1)}
+.dlg{padding:clamp(24px,4vw,40px)}
+.dlg h2{margin:0;font-weight:500;font-size:clamp(28px,3vw,36px);letter-spacing:-.035em;line-height:1.05}
+.dlg .lede{margin:10px 0 0;font-weight:300;font-size:16px;line-height:1.5}
+.close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:#FFF;cursor:pointer;display:grid;place-items:center}
+.close:hover{background:rgba(255,255,255,.08)}
+.close:focus-visible,.field input:focus-visible,.field textarea:focus-visible,.send:focus-visible{outline:2px solid #FF7A45;outline-offset:3px}
+form{display:grid;gap:18px;margin-top:28px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:6px}
+.field label{font-size:14px;font-weight:400}
+.field input,.field textarea{width:100%;font:inherit;font-size:17px;color:#FFF;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);border-radius:0;padding:10px 0;transition:border-color .2s ease}
+.field input:focus,.field textarea:focus{border-bottom-color:#FFF}
+.field textarea{resize:vertical;min-height:110px}
+.trap{position:absolute;left:-9999px}
+.send{justify-self:start;margin-top:6px;border:0;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:999px;font-weight:500;font-size:17px;background:#C9461F;color:#FFF;transition:background-color .18s ease}
+.send:hover{background:#DD552B}
+.send[disabled]{opacity:.6;cursor:progress}
+.status{min-height:1.4em;margin:0;font-size:15px}
+.done{display:none;padding:12px 0 4px}
+.sent .done{display:block}.sent form,.sent .lede{display:none}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
 @media (max-width:860px){.mid{grid-template-columns:minmax(0,1fr);align-content:end;padding-bottom:24px}.tag{text-align:left;justify-self:start}.scene{height:86vh;bottom:8vh}}
 @keyframes reveal{from{opacity:0;filter:brightness(.15);transform:scale(1.06)}to{opacity:1;filter:brightness(1);transform:none}}
 @keyframes breathe{from{transform:scale(1)}to{transform:scale(1.03)}}
@@ -96,6 +121,70 @@ h1{position:relative;z-index:3;margin:6px 0 0;font-weight:500;font-size:clamp(62
     <span class="mark" aria-hidden="true"><span class="mark-in"><span>Humanward</span><span>Labs</span></span></span>
   </h1>
 </main>
+
+<dialog id="contact" aria-labelledby="contact-title">
+  <div class="dlg" id="dlg">
+    <button class="close" type="button" aria-label="Close" data-close>
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <h2 id="contact-title">Start a project</h2>
+    <p class="lede">Tell us who your customers are and what you want to build. We reply within one business day.</p>
+    <form id="contact-form" novalidate>
+      <div class="row">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+      <div class="field"><label for="f-message">What are you working on?</label><textarea id="f-message" name="message" rows="4" required></textarea></div>
+      <div class="trap" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
+      <button class="send" type="submit">Send message</button>
+      <p class="status" id="f-status" role="status" aria-live="polite"></p>
+    </form>
+    <div class="done">
+      <p class="lede" style="display:block;margin:0">Message sent. We'll be in touch from info@humanwardlabs.com.</p>
+      <button class="send" type="button" data-close style="margin-top:22px">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var dlg = document.getElementById('contact');
+  var box = document.getElementById('dlg');
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('f-status');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+  document.querySelectorAll('a[href^="mailto:info@humanwardlabs.com"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      box.classList.remove('sent'); status.textContent = '';
+      dlg.showModal();
+      setTimeout(function () { document.getElementById('f-name').focus(); }, 50);
+    });
+  });
+  dlg.addEventListener('click', function (e) {
+    if (e.target === dlg || e.target.closest('[data-close]')) dlg.close();
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = Object.fromEntries(new FormData(form));
+    if (!data.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()) || data.message.trim().length < 5) {
+      status.textContent = 'Add your name, a valid email and a short message.';
+      return;
+    }
+    var btn = form.querySelector('.send');
+    btn.disabled = true; btn.textContent = 'Sending…'; status.textContent = '';
+    fetch('/api/contact', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (res) {
+        if (res.ok) { form.reset(); box.classList.add('sent'); }
+        else status.textContent = res.error || "Your message didn't send. Email info@humanwardlabs.com directly.";
+      })
+      .catch(function () { status.textContent = "Your message didn't send. Email info@humanwardlabs.com directly."; })
+      .finally(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+  });
+})();
+</script>
 
 <script>
 (function () {
