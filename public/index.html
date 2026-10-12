@@ -928,6 +928,46 @@ form{display:grid;gap:16px;margin-top:22px}
     });
   }
 
+  // WebMCP: lets a visitor's AI agent learn about the studio and send a message (feature-detected)
+  var mc = navigator.modelContext;
+  if (mc && (mc.registerTool || mc.provideContext)) {
+    var reply = function (t) { return { content: [{ type: 'text', text: t }] }; };
+    var tools = [
+      {
+        name: 'get_studio_info',
+        description: 'Get a summary of Humanward Labs: services, behavioral economics approach, impact and contact details.',
+        inputSchema: { type: 'object', properties: {} },
+        annotations: { readOnlyHint: true },
+        execute: function () {
+          return fetch('/index.md', { headers: { accept: 'text/markdown' } }).then(function (r) { return r.text(); }).then(reply);
+        }
+      },
+      {
+        name: 'contact_humanward_labs',
+        description: 'Send a project inquiry to Humanward Labs on behalf of the user. Confirm the name, email and message with the user before sending.',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', description: "The sender's full name" },
+            email: { type: 'string', description: "The sender's email address for the reply" },
+            message: { type: 'string', description: 'What the user is building and how Humanward Labs can help' }
+          },
+          required: ['name', 'email', 'message']
+        },
+        execute: function (input) {
+          return fetch('/api/contact', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: input.name, email: input.email, message: input.message }) })
+            .then(function (r) { return r.json(); })
+            .then(function (res) { return reply(res.ok ? 'Sent. Humanward Labs will reply to ' + input.email + '.' : (res.error || 'Not sent. Email info@humanwardlabs.com directly.')); })
+            .catch(function () { return reply('Not sent. Email info@humanwardlabs.com directly.'); });
+        }
+      }
+    ];
+    try {
+      if (mc.provideContext) mc.provideContext({ tools: tools });
+      else tools.forEach(function (t) { mc.registerTool(t); });
+    } catch (e) {}
+  }
+
   // Hero depth and magnetic links
   var root = document.documentElement, hero = document.querySelector('.hero'), raf = 0;
   if (hero && window.matchMedia('(hover: hover)').matches) {
