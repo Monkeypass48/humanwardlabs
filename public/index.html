@@ -132,27 +132,38 @@ a{color:inherit}
 .scroll-cue:hover .track{background:rgba(255,255,255,.7)}
 @keyframes cue{0%{transform:translateY(0);opacity:0}15%{opacity:1}75%{transform:translateY(37px);opacity:1}100%{transform:translateY(37px);opacity:0}}
 
-/* Sequence */
-.seq{position:relative;height:260vh;background:var(--black)}
+/* Behavioral sequence: the tablet demonstrates six principles as you scroll */
+.seq{position:relative;height:540vh;background:var(--black);--mw:min(100vw,172svh)}
 .seq-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .seq-stage{position:absolute;inset:0;background:linear-gradient(100deg,#868686 0%,#9C9C9C 45%,#B4B4B5 100%);clip-path:inset(var(--ct,0px) var(--cx,0px) var(--cb,0px) var(--cx,0px) round var(--cr,0px));will-change:clip-path}
-.seq-media{position:absolute;left:50%;top:50%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
+.seq-media{position:absolute;left:50%;top:46%;width:var(--mw);aspect-ratio:1672/941;transform-origin:50.06% 43.31%;transform:translate(-50.06%,-43.31%) scale(var(--ms,1));will-change:transform}
 .seq-media img{position:absolute;inset:0;width:100%;height:100%;display:block;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%);mask-composite:intersect}
 .seq-screen{position:absolute;left:23.68%;top:12.65%;width:52.81%;height:61.42%;overflow:hidden;border-radius:1.6% / 2.5%;background:#FFF}
-.seq-screen video,.seq-screen .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.seq{--mw:min(100vw,172svh)}
-@media (max-width:760px){.seq{--mw:150vw;height:240vh}.seq-lines{text-align:left;right:calc(var(--pad) + 68px);font-size:22px}}
-.seq-title{position:absolute;left:var(--pad);right:var(--pad);top:clamp(72px,9svh,96px);margin:0;color:var(--white);font-weight:700;font-size:clamp(30px,4.2vw,64px);line-height:.95;letter-spacing:-.05em;max-width:16em;opacity:var(--to,1);transform:translateY(var(--ty,0px))}
-.seq-lines{list-style:none;margin:0;padding:0;position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,7svh,64px);text-align:center;color:var(--black);font-weight:700;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.04em;line-height:1.05}
-.seq-lines li{position:absolute;left:0;right:0;bottom:0;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .7s var(--ease)}
-.seq-lines li.on{opacity:1;transform:none}
-.seq-toggle{position:absolute;right:var(--pad);bottom:clamp(28px,7svh,64px);z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--black);color:var(--white);display:grid;place-items:center;cursor:pointer;opacity:var(--bo,1);transition:background-color .2s ease}
-.seq-toggle:hover{background:#333}
-.seq-toggle:focus-visible{outline:2px solid var(--black);outline-offset:3px}
-.seq-toggle .i-play{display:none}
-.seq-toggle[aria-pressed="true"] .i-play{display:block}
-.seq-toggle[aria-pressed="true"] .i-pause{display:none}
-.no-js-hide{display:none}
+.seq-screen canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.seq-intro{position:absolute;left:var(--pad);right:var(--pad);top:clamp(76px,10svh,104px);color:var(--white);opacity:var(--to,1);transform:translateY(var(--ty,0px))}
+.seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
+.seq-intro p{margin:16px 0 0;max-width:40em;font-size:var(--fs-body);line-height:1.5;font-weight:300;color:#CFCFCF}
+.chapters{list-style:none;margin:0;padding:0;position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(24px,5svh,52px);height:112px;color:var(--black);text-align:center}
+.chapters h3{margin:0;font-weight:700;font-size:clamp(26px,2.8vw,42px);line-height:1;letter-spacing:-.045em}
+.chapters p{margin:10px auto 0;max-width:36em;font-size:var(--fs-body);line-height:1.45;font-weight:400}
+.js .chapters li{position:absolute;left:0;right:0;top:0;opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .6s var(--ease)}
+.js .chapters li.on{opacity:1;transform:none}
+.rail{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:6px;bottom:calc(clamp(24px,5svh,52px) + 130px);opacity:var(--bo,0)}
+.rail i{display:block;width:28px;height:3px;border-radius:2px;background:rgba(0,0,0,.18);overflow:hidden;position:relative}
+.rail i::after{content:"";position:absolute;inset:0;background:var(--black);transform-origin:left;transform:scaleX(var(--f,0))}
+@media (min-width:761px) and (max-aspect-ratio:1/1){
+  .seq{--mw:130vw}
+  .seq-media{top:42%}
+  .chapters{top:calc(42svh + 36vw);bottom:auto;height:auto}
+  .rail{bottom:auto;top:calc(42svh + 36vw - 26px)}
+}
+@media (max-width:760px){
+  .seq{--mw:165vw;height:500vh}
+  .seq-media{top:42%}
+  .chapters{text-align:left;top:calc(42svh + 46vw);bottom:auto;height:auto}
+  .chapters p{margin-left:0}
+  .rail{left:var(--pad);transform:none;bottom:auto;top:calc(42svh + 46vw - 24px)}
+}
 
 /* Impact */
 .impact{background:var(--white);color:var(--black);padding:var(--sp) 0}
@@ -207,22 +218,6 @@ a{color:inherit}
 .ring{opacity:0;transform-box:fill-box;transform-origin:center}
 .g.built .ring{animation:ring 2.2s ease-out 1.7s infinite}
 @keyframes ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
-
-/* Approach: behavioral economics */
-.approach{background:var(--black);color:var(--white);padding:var(--sp) 0}
-.approach .h2{font-size:clamp(40px,4.8vw,76px)}
-.approach-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:56px clamp(40px,7vw,120px);align-items:start}
-.approach-intro{position:sticky;top:clamp(104px,14vh,140px)}
-.approach-intro p{margin:28px 0 0;max-width:30em;font-size:var(--fs-body);line-height:1.55;font-weight:300;color:#CFCFCF}
-.approach-intro p+p{margin-top:16px;color:var(--night-2)}
-.levers{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.22)}
-.levers li{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:clamp(22px,2.6vw,34px) 0;border-bottom:1px solid rgba(255,255,255,.22)}
-.levers h3{margin:0;font-weight:700;font-size:clamp(30px,3.6vw,56px);line-height:.98;letter-spacing:-.045em;color:#6E6E6E;transition:color .6s ease}
-.levers p{margin:0;max-width:34em;font-size:var(--fs-body);line-height:1.5;color:var(--night-2)}
-.levers li.lit h3,.no-io .levers h3{color:var(--white)}
-.levers h3::after{content:"";display:inline-block;width:.22em;height:.22em;margin-left:.22em;border-radius:50%;background:var(--signal);vertical-align:.08em;opacity:0;transform:scale(.4);transition:opacity .5s ease,transform .6s var(--ease)}
-.levers li.lit h3::after{opacity:1;transform:none}
-@media (max-width:860px){.approach-grid{grid-template-columns:1fr}.approach-intro{position:static}}
 
 /* FAQ */
 .faq{background:var(--white);color:var(--black);padding:var(--sp) 0}
@@ -306,7 +301,7 @@ form{display:grid;gap:16px;margin-top:22px}
         <a class="talk magnetic" href="mailto:info@humanwardlabs.com" data-contact aria-haspopup="dialog">Let&rsquo;s talk.</a>
       </div>
     </div>
-    <div class="cue-wrap rise" style="animation-delay:1600ms"><a class="scroll-cue" href="#reel"><span>Scroll</span><span class="track" aria-hidden="true"></span><span class="sr">to see how we work</span></a></div>
+    <div class="cue-wrap rise" style="animation-delay:1600ms"><a class="scroll-cue" href="#approach"><span>Scroll</span><span class="track" aria-hidden="true"></span><span class="sr">to see how we design for decisions</span></a></div>
     <ul class="honey" aria-label="What great experiences are">
       <li style="--i:0">Useful</li>
       <li style="--i:1">Usable</li>
@@ -318,29 +313,27 @@ form{display:grid;gap:16px;margin-top:22px}
     </ul>
   </section>
 
-  <section class="seq" id="reel" aria-labelledby="seq-title">
+  <section class="seq" id="approach" aria-labelledby="approach-title">
     <div class="seq-sticky">
       <div class="seq-stage">
         <div class="seq-media">
-          <img src="/assets/tablet-1280.webp" srcset="/assets/tablet-828.webp 828w, /assets/tablet-1280.webp 1280w, /assets/tablet-1672.webp 1672w" sizes="(max-width: 760px) 150vw, min(100vw, 172vh)" width="1672" height="941" alt="Two hands holding a tablet that plays a Humanward Labs design reel." decoding="async" loading="lazy">
-          <div class="seq-screen">
-            <video id="reel-video" muted loop playsinline preload="none" poster="/assets/reel-poster.webp" aria-label="Design reel: interface pieces assemble into a finished screen, a tangled journey becomes one clear path, and scattered options converge on a person.">
-              <source src="/assets/reel.mp4" type="video/mp4">
-              <source src="/assets/reel.webm" type="video/webm">
-            </video>
-          </div>
+          <img src="/assets/tablet-1280.webp" srcset="/assets/tablet-828.webp 828w, /assets/tablet-1280.webp 1280w, /assets/tablet-1672.webp 1672w" sizes="(max-width: 760px) 165vw, (max-aspect-ratio: 1/1) 130vw, min(100vw, 172vh)" width="1672" height="941" alt="" decoding="async" loading="lazy">
+          <div class="seq-screen"><canvas id="seq-canvas" aria-hidden="true"></canvas></div>
         </div>
-        <ul class="seq-lines" aria-label="How we work">
-          <li>Fitted to how people think.</li>
-          <li>Tested in real hands.</li>
-          <li>Made for the age of AI.</li>
-        </ul>
-        <button class="seq-toggle" id="reel-toggle" type="button" aria-pressed="false" aria-label="Pause the design reel">
-          <svg class="i-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
-          <svg class="i-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor"/></svg>
-        </button>
+        <div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <ol class="chapters" aria-label="Six behavioral principles we design with">
+          <li><h3>Defaults</h3><p>Most people keep what&rsquo;s pre-selected. We make the default the best choice.</p></li>
+          <li><h3>Loss aversion</h3><p>Losses loom larger than gains. We frame value around what people keep.</p></li>
+          <li><h3>Choice overload</h3><p>Too many options stall a decision. We design fewer, clearer paths.</p></li>
+          <li><h3>Anchoring</h3><p>The first number sets the frame. We order information with intent.</p></li>
+          <li><h3>Social proof</h3><p>People look to people. We show evidence at the moment of doubt.</p></li>
+          <li><h3>Friction</h3><p>Every extra step costs action. We remove the steps that don&rsquo;t earn their place.</p></li>
+        </ol>
       </div>
-      <h2 class="seq-title" id="seq-title">Tailored to the people who use it.</h2>
+      <div class="seq-intro">
+        <h2 class="h2" id="approach-title">People don&rsquo;t decide the way spreadsheets assume.</h2>
+        <p>Behavioral economics shows that real decisions run on shortcuts, habits and emotion. We design for how people actually decide, so the right choice feels like the easy one.</p>
+      </div>
     </div>
   </section>
 
@@ -362,24 +355,6 @@ form{display:grid;gap:16px;margin-top:22px}
         <p class="fig2" aria-hidden="true">#2</p>
         <p class="fig2-sub"><span class="sr">Number 2: </span>most-used GPT app, created by our principal.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="approach" id="approach" aria-labelledby="approach-title">
-    <div class="wrap approach-grid">
-      <div class="approach-intro">
-        <h2 class="h2 reveal" id="approach-title">People don&rsquo;t decide the way spreadsheets assume.</h2>
-        <p>Behavioral economics shows that real decisions run on shortcuts, habits and emotion. We design for how people actually decide, so the right choice feels like the easy one.</p>
-        <p>Every engagement starts with a decision map: where people hesitate, what they weigh, and what moves them to act.</p>
-      </div>
-      <ul class="levers" aria-label="Behavioral principles we design with">
-        <li><h3>Defaults</h3><p>Most people keep what&rsquo;s pre-selected. We make the default the best choice.</p></li>
-        <li><h3>Loss aversion</h3><p>Losses loom larger than gains. We frame value around what people keep.</p></li>
-        <li><h3>Choice overload</h3><p>Too many options stall a decision. We design fewer, clearer paths.</p></li>
-        <li><h3>Anchoring</h3><p>The first number sets the frame. We order information with intent.</p></li>
-        <li><h3>Social proof</h3><p>People look to people. We show evidence at the moment of doubt.</p></li>
-        <li><h3>Friction</h3><p>Every extra step costs action. We remove the steps that don&rsquo;t earn their place.</p></li>
-      </ul>
     </div>
   </section>
 
@@ -764,55 +739,189 @@ form{display:grid;gap:16px;margin-top:22px}
     });
   });
 
-  // Scroll sequence
-  var seq = document.querySelector('.seq'), st = seq && seq.querySelector('.seq-stage');
-  var lines = seq ? seq.querySelectorAll('.seq-lines li') : [];
-  var vid = document.getElementById('reel-video'), tog = document.getElementById('reel-toggle');
-  var userPaused = false, seqRaf = 0, lastLine = -1;
-  function ez(v) { return v >= 1 ? 1 : 1 - Math.pow(2, -10 * v); }
-  function clamp(v) { return Math.max(0, Math.min(1, v)); }
-  function frame() {
-    seqRaf = 0;
-    var r = seq.getBoundingClientRect(), vh = window.innerHeight;
-    var p = clamp(-r.top / (r.height - vh));
-    var o0 = clamp(p / 0.4), open = o0 * o0 * (3 - 2 * o0);
-    var mob = window.innerWidth <= 760;
-    st.style.setProperty('--ct', ((1 - open) * vh * (mob ? 0.30 : 0.26)).toFixed(1) + 'px');
-    st.style.setProperty('--cb', ((1 - open) * vh * 0.07).toFixed(1) + 'px');
-    st.style.setProperty('--cx', ((1 - open) * window.innerWidth * (mob ? 0.05 : 0.09)).toFixed(1) + 'px');
-    st.style.setProperty('--cr', ((1 - open) * 28).toFixed(1) + 'px');
-    var push = clamp((p - 0.42) / 0.58);
-    seq.style.setProperty('--ms', (1.08 - 0.08 * open + (mob ? 0.05 : 0.16) * push * push * (3 - 2 * push)).toFixed(4));
-    var tp = clamp(p / 0.2);
-    seq.style.setProperty('--to', (1 - tp).toFixed(3));
-    seq.style.setProperty('--ty', (-48 * tp).toFixed(1) + 'px');
-    st.style.setProperty('--bo', open.toFixed(3));
-    var li = p < 0.36 ? -1 : (p < 0.6 ? 0 : (p < 0.8 ? 1 : 2));
-    if (li !== lastLine) { lines.forEach(function (l, i) { l.classList.toggle('on', i === li); }); lastLine = li; }
-  }
-  if (seq) {
-    seq.classList.add('js');
-    window.addEventListener('scroll', function () { if (!seqRaf) seqRaf = requestAnimationFrame(frame); }, { passive: true });
-    window.addEventListener('resize', function () { if (!seqRaf) seqRaf = requestAnimationFrame(frame); });
+  // Behavioral sequence: scroll drives six chapters drawn live on the tablet screen
+  var seq = document.querySelector('.seq');
+  if (seq) (function () {
+    var st = seq.querySelector('.seq-stage'), cv = document.getElementById('seq-canvas'), cx = cv.getContext('2d');
+    var caps = seq.querySelectorAll('.chapters li'), bars = seq.querySelectorAll('.rail i');
+    var LW = 1280, LH = 838, SIG = '#FF4A1C', raf = 0, last = -1, dpr = 1;
+    var FONT = "'Host Grotesk','Helvetica Neue',Arial,sans-serif";
+    function cl(v) { return Math.max(0, Math.min(1, v)); }
+    function pr(t, a, b) { return cl((t - a) / (b - a)); }
+    function eo(v) { return v >= 1 ? 1 : 1 - Math.pow(2, -10 * v); }
+    function eio(v) { return v < .5 ? 4 * v * v * v : 1 - Math.pow(-2 * v + 2, 3) / 2; }
+    function lerp(a, b, k) { return a + (b - a) * k; }
+    function rr(x, y, w, h, r) { cx.beginPath(); cx.moveTo(x + r, y); cx.arcTo(x + w, y, x + w, y + h, r); cx.arcTo(x + w, y + h, x, y + h, r); cx.arcTo(x, y + h, x, y, r); cx.arcTo(x, y, x + w, y, r); cx.closePath(); }
+    function txt(s, x, y, size, weight, color, align) { cx.font = weight + ' ' + size + 'px ' + FONT; cx.fillStyle = color; cx.textAlign = align || 'left'; cx.textBaseline = 'middle'; cx.fillText(s, x, y); }
+    function btn(x, y, w, h, label, a) { cx.save(); cx.globalAlpha *= a; cx.fillStyle = '#000'; rr(x, y, w, h, h / 2); cx.fill(); txt(label, x + w / 2, y + h / 2 + 1, 24, 600, '#FFF', 'center'); cx.restore(); }
+    function person(x, y, a, ripple) {
+      if (a <= 0) return;
+      cx.save(); cx.globalAlpha *= a; cx.fillStyle = SIG; cx.beginPath(); cx.arc(x, y, 12, 0, Math.PI * 2); cx.fill();
+      if (ripple > 0 && ripple < 1) { cx.globalAlpha *= 1 - ripple; cx.strokeStyle = SIG; cx.lineWidth = 3; cx.beginPath(); cx.arc(x, y, 12 + 50 * eo(ripple), 0, Math.PI * 2); cx.stroke(); }
+      cx.restore();
+    }
+    function lines(x, y, ws, a) { cx.save(); cx.globalAlpha *= a; cx.fillStyle = '#CFCFCF'; ws.forEach(function (w, i) { rr(x, y + i * 24, w, 10, 5); cx.fill(); }); cx.restore(); }
+
+    var scenes = [
+      function defaults(u) {
+        var names = ['Basic', 'Plus', 'Pro'], prices = ['$9', '$19', '$39'];
+        var s = eo(pr(u, .38, .58));
+        for (var i = 0; i < 3; i++) {
+          var k = eo(pr(u, .04 + i * .05, .3 + i * .05)), x = 170 + i * 320, y = 200 + (1 - k) * 30;
+          cx.save(); cx.globalAlpha = k;
+          cx.fillStyle = '#F3F3F3'; rr(x, y, 300, 340, 22); cx.fill();
+          if (i === 1 && s > 0) { cx.lineWidth = 4; cx.strokeStyle = 'rgba(0,0,0,' + s + ')'; rr(x, y, 300, 340, 22); cx.stroke(); }
+          txt(names[i], x + 30, y + 52, 30, 600, '#000');
+          txt(prices[i], x + 30, y + 140, 70, 700, '#000');
+          txt('/mo', x + 30 + cx.measureText(prices[i]).width + 8, y + 156, 22, 500, '#8A8A8A');
+          lines(x + 30, y + 214, [200, 170, 186], 1);
+          cx.lineWidth = 3; cx.strokeStyle = '#BDBDBD'; cx.beginPath(); cx.arc(x + 262, y + 50, 14, 0, Math.PI * 2); cx.stroke();
+          if (i === 1 && s > 0) { cx.fillStyle = SIG; cx.globalAlpha = k * s; cx.beginPath(); cx.arc(x + 262, y + 50, 8, 0, Math.PI * 2); cx.fill(); }
+          cx.restore();
+        }
+        if (s > 0) {
+          cx.save(); cx.globalAlpha = s; cx.fillStyle = '#000'; rr(500, 178 - 8 * (1 - s), 186, 40, 20); cx.fill();
+          txt('Recommended', 593, 199 - 8 * (1 - s), 19, 600, '#FFF', 'center'); cx.restore();
+        }
+        btn(470, 600, 340, 72, 'Continue with Plus', eo(pr(u, .5, .66)));
+        var m = eio(pr(u, .62, .8));
+        person(lerp(1080, 640, m), lerp(780, 636, m), pr(u, .6, .66), pr(u, .82, 1));
+      },
+      function lossAversion(u) {
+        var a1 = eo(pr(u, .04, .24)), strike = eio(pr(u, .3, .44)), dim = pr(u, .36, .5), a2 = eo(pr(u, .44, .62));
+        cx.save(); cx.globalAlpha = a1;
+        var gain = 'Get $120 a year.';
+        cx.font = '700 72px ' + FONT; var gw = cx.measureText(gain).width;
+        txt(gain, 640, 268, 72, 700, dim > 0 ? 'rgb(' + Math.round(lerp(0, 175, dim)) + ',' + Math.round(lerp(0, 175, dim)) + ',' + Math.round(lerp(0, 175, dim)) + ')' : '#000', 'center');
+        if (strike > 0) { cx.strokeStyle = '#000'; cx.lineWidth = 5; cx.beginPath(); cx.moveTo(640 - gw / 2 - 10, 270); cx.lineTo(640 - gw / 2 - 10 + (gw + 20) * strike, 270); cx.stroke(); }
+        cx.restore();
+        cx.save(); cx.globalAlpha = a2; txt('Keep your $120 a year.', 640, 410 + (1 - a2) * 20, 80, 700, '#000', 'center'); cx.restore();
+        btn(470, 540, 340, 72, 'Keep my savings', eo(pr(u, .58, .72)));
+        var m = eio(pr(u, .66, .82));
+        person(lerp(1090, 640, m), lerp(760, 576, m), pr(u, .64, .7), pr(u, .84, 1));
+      },
+      function choiceOverload(u) {
+        var keep = [4, 5, 6], c = eio(pr(u, .4, .64)), labels = ['Starter', 'Growth', 'Scale'];
+        for (var i = 0; i < 12; i++) {
+          var col = i % 4, row = Math.floor(i / 4), k = eo(pr(u, .02 + i * .018, .22 + i * .018));
+          var x0 = 204 + col * 224, y0 = 150 + row * 150, w0 = 200, h0 = 120;
+          var ki = keep.indexOf(i), x = x0, y = y0, w = w0, h = h0, a = k;
+          if (ki >= 0) { x = lerp(x0, 180 + ki * 320, c); y = lerp(y0, 240, c); w = lerp(w0, 280, c); h = lerp(h0, 260, c); }
+          else { a = k * (1 - c); var sc = 1 - .2 * c; x = x0 + w0 * (1 - sc) / 2; y = y0 + h0 * (1 - sc) / 2; w = w0 * sc; h = h0 * sc; }
+          if (a <= 0) continue;
+          cx.save(); cx.globalAlpha = a; cx.fillStyle = '#F0F0F0'; rr(x, y, w, h, 16); cx.fill();
+          cx.fillStyle = '#CFCFCF'; rr(x + 18, y + 20, w * .45, 10, 5); cx.fill(); rr(x + 18, y + 40, w * .3, 10, 5); cx.fill();
+          if (ki >= 0 && c > .6) { var la = pr(c, .6, 1); cx.globalAlpha = a * la; txt(labels[ki], x + 24, y + h - 70, 32, 600, '#000'); txt(['$9', '$19', '$39'][ki], x + 24, y + h - 34, 24, 500, '#6B6B6B'); }
+          cx.restore();
+        }
+        var pick = eo(pr(u, .7, .8));
+        if (pick > 0) { cx.save(); cx.globalAlpha = pick; cx.lineWidth = 4; cx.strokeStyle = '#000'; rr(500, 240, 280, 260, 16); cx.stroke(); cx.restore(); }
+        var m = eio(pr(u, .62, .76));
+        person(lerp(1100, 740, m), lerp(760, 290, m), pr(u, .6, .66), pr(u, .78, .98));
+      },
+      function anchoring(u) {
+        var a1 = eo(pr(u, .04, .22)), b1 = eio(pr(u, .1, .34)), s1 = eio(pr(u, .36, .46)), a2 = eo(pr(u, .44, .6)), b2 = eio(pr(u, .5, .68));
+        cx.save(); cx.globalAlpha = a1;
+        txt('List price', 200, 190, 26, 500, '#6B6B6B');
+        cx.font = '700 120px ' + FONT; var w1 = cx.measureText('$1,200').width;
+        txt('$1,200', 200, 290, 120, 700, s1 > 0 ? '#A8A8A8' : '#000');
+        if (s1 > 0) { cx.strokeStyle = '#000'; cx.lineWidth = 6; cx.beginPath(); cx.moveTo(196, 292); cx.lineTo(196 + (w1 + 8) * s1, 292); cx.stroke(); }
+        cx.fillStyle = '#D6D6D6'; rr(200, 470, 880 * b1, 34, 17); cx.fill();
+        cx.restore();
+        cx.save(); cx.globalAlpha = a2;
+        txt('Your price', 720, 190, 26, 500, '#6B6B6B');
+        txt('$480', 720, 290, 120, 700, '#000');
+        cx.fillStyle = '#000'; rr(200, 540, Math.max(34, 352 * b2), 34, 17); cx.fill();
+        cx.restore();
+        var m = eo(pr(u, .66, .78));
+        person(lerp(1080, 200 + 352 + 34, m), lerp(760, 557, m), pr(u, .64, .7), pr(u, .8, .98));
+      },
+      function socialProof(u) {
+        var a = eo(pr(u, .02, .2)), badge = eo(pr(u, .44, .6));
+        cx.save(); cx.globalAlpha = a; cx.fillStyle = '#F3F3F3'; rr(390, 120, 500, 470, 24); cx.fill();
+        txt('Team plan', 430, 180, 40, 700, '#000'); lines(430, 230, [300, 260, 280], 1);
+        cx.restore();
+        if (badge > 0) {
+          cx.save(); cx.globalAlpha = badge; var by = 384 + (1 - badge) * 16;
+          cx.fillStyle = '#FFF'; rr(430, by, 420, 62, 31); cx.fill(); cx.strokeStyle = '#E2E2E2'; cx.lineWidth = 2; cx.stroke();
+          var g = ['#1A1A1A', '#4A4A4A', '#767676', '#9E9E9E', '#C4C4C4'];
+          for (var i = 0; i < 5; i++) { cx.fillStyle = g[i]; cx.beginPath(); cx.arc(466 + i * 22, by + 31, 15, 0, Math.PI * 2); cx.fill(); cx.strokeStyle = '#FFF'; cx.lineWidth = 3; cx.stroke(); }
+          txt('2,400 teams chose this', 578, by + 32, 23, 600, '#000');
+          cx.restore();
+        }
+        btn(430, 490, 420, 72, 'Choose plan', a);
+        var approach = eio(pr(u, .1, .32)), wob = pr(u, .32, .5), go = eio(pr(u, .62, .76));
+        var px = lerp(1100, 930, approach) + Math.sin(wob * Math.PI * 4) * 14 * (1 - wob) + lerp(0, 640 - 930, go);
+        var py = lerp(760, 526, approach);
+        person(px, py, pr(u, .08, .14), pr(u, .78, .98));
+      },
+      function friction(u) {
+        var a = eo(pr(u, .02, .2)), c = eio(pr(u, .38, .62));
+        var names = ['Name', 'Email', 'Phone', 'Company', 'Role'];
+        var ch = lerp(620, 380, c), cy0 = lerp(110, 230, c);
+        cx.save(); cx.globalAlpha = a; cx.fillStyle = '#F3F3F3'; rr(390, cy0, 500, ch, 24); cx.fill();
+        cx.save(); cx.globalAlpha *= 1 - pr(c, 0, .5); txt('Step 1 of 5', 430, cy0 + 44, 22, 600, '#6B6B6B'); cx.restore();
+        cx.save(); cx.globalAlpha *= pr(c, .5, 1); txt('One step', 430, cy0 + 44, 22, 600, '#6B6B6B'); cx.restore();
+        for (var i = 0; i < 5; i++) {
+          var k = eo(pr(u, .04 + i * .03, .22 + i * .03)), y = 190 + i * 92, fa = k;
+          if (i === 1) y = lerp(y, 330, c); else { fa = k * (1 - c); y = y + (i < 1 ? -30 : 30) * c; }
+          if (fa <= 0) continue;
+          cx.save(); cx.globalAlpha *= fa; txt(names[i], 430, y, 20, 500, '#6B6B6B');
+          cx.fillStyle = '#FFF'; rr(430, y + 16, 420, 52, 12); cx.fill(); cx.strokeStyle = '#DADADA'; cx.lineWidth = 2; cx.stroke(); cx.restore();
+        }
+        cx.restore();
+        btn(430, 440, 420, 72, 'Get started', eo(pr(u, .56, .7)));
+        var m = eio(pr(u, .64, .78));
+        person(lerp(1100, 640, m), lerp(760, 476, m), pr(u, .62, .68), pr(u, .8, .98));
+      }
+    ];
+
+    function size() {
+      var r = cv.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.max(1, Math.round(r.width * dpr)), h = Math.max(1, Math.round(r.height * dpr));
+      if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; return true; }
+      return false;
+    }
+    function paint(ci, u) {
+      cx.setTransform(1, 0, 0, 1, 0, 0); cx.globalAlpha = 1;
+      cx.fillStyle = '#FFF'; cx.fillRect(0, 0, cv.width, cv.height);
+      cx.setTransform(cv.width / LW, 0, 0, cv.height / LH, 0, 0);
+      var fade = pr(u, 0, .06) * (1 - pr(u, .95, 1));
+      cx.globalAlpha = ci === 0 ? 1 - (1 - fade) * pr(u, .9, 1) : fade;
+      if (ci === 0 && u < .9) cx.globalAlpha = 1;
+      scenes[ci](u);
+    }
+    var START = .14;
+    function frame() {
+      raf = 0;
+      var r = seq.getBoundingClientRect(), vh = window.innerHeight;
+      if (r.bottom < -vh || r.top > vh * 2) return;
+      var p = cl(-r.top / (r.height - vh)), mob = window.innerWidth <= 760;
+      var o0 = cl(p / START), open = o0 * o0 * (3 - 2 * o0);
+      st.style.setProperty('--ct', ((1 - open) * vh * (mob ? 0.42 : 0.33)).toFixed(1) + 'px');
+      st.style.setProperty('--cb', ((1 - open) * vh * 0.06).toFixed(1) + 'px');
+      st.style.setProperty('--cx', ((1 - open) * window.innerWidth * (mob ? 0.05 : 0.09)).toFixed(1) + 'px');
+      st.style.setProperty('--cr', ((1 - open) * 28).toFixed(1) + 'px');
+      seq.style.setProperty('--ms', (1.06 - 0.06 * open).toFixed(4));
+      var tp = cl(p / (START * .45));
+      seq.style.setProperty('--to', (1 - tp).toFixed(3));
+      seq.style.setProperty('--ty', (-40 * tp).toFixed(1) + 'px');
+      st.style.setProperty('--bo', open.toFixed(3));
+      var span = (1 - START) / 6, q = Math.max(0, p - START) / span;
+      var ci = Math.min(5, Math.floor(q)), u = Math.min(1, q - ci);
+      bars.forEach(function (b, i) { b.style.setProperty('--f', i < ci ? 1 : (i === ci && p >= START ? Math.min(1, u).toFixed(3) : 0)); });
+      var showCap = p >= START * .8 ? ci : -1;
+      if (showCap !== last) { caps.forEach(function (c, i) { c.classList.toggle('on', i === showCap); }); last = showCap; }
+      size();
+      paint(ci, p < START ? 0.3 * open : (ci === 0 ? 0.3 + 0.7 * u : u));
+    }
+    function req() { if (!raf) raf = requestAnimationFrame(frame); }
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(req);
     frame();
-  }
-  if (vid && 'IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      var e = entries[0];
-      if (e.isIntersecting) {
-        if (vid.preload !== 'auto') { vid.preload = 'auto'; vid.load(); }
-        if (!userPaused) { var pp = vid.play(); if (pp && pp.catch) pp.catch(function () {}); }
-      } else { vid.pause(); }
-    }, { rootMargin: '200px 0px' }).observe(seq);
-  }
-  if (tog && vid) {
-    tog.addEventListener('click', function () {
-      userPaused = !userPaused;
-      if (userPaused) vid.pause(); else { var pp = vid.play(); if (pp && pp.catch) pp.catch(function () {}); }
-      tog.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
-      tog.setAttribute('aria-label', userPaused ? 'Play the design reel' : 'Pause the design reel');
-    });
-  }
+  })();
 
   // Heading reveals and the behavioral spotlight
   if ('IntersectionObserver' in window) {
@@ -820,10 +929,6 @@ form{display:grid;gap:16px;margin-top:22px}
       es.forEach(function (e) { if (e.isIntersecting) { e.target._rv.classList.add('in'); rv.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -12% 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { el.parentElement._rv = el; rv.observe(el.parentElement); });
-    var lv = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); });
-    }, { rootMargin: '-38% 0px -38% 0px' });
-    document.querySelectorAll('.levers li').forEach(function (el) { lv.observe(el); });
   } else {
     document.documentElement.classList.add('no-io');
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
