@@ -15,7 +15,10 @@ Cloudflare Pages build settings:
 
 ## Files
 
-- `index.html` — the page
+- `index.html` — the page (hero, impact, services flip cards, FAQ, contact dialog)
+- `fonts/` — self-hosted Host Grotesk (OFL)
+- `robots.txt`, `sitemap.xml`, `llms.txt` — search and AI-answer discovery
+- `_headers`, `404.html`, `site.webmanifest`, icons
 - `assets/og.jpg` — social share preview
 - `favicon.svg` — browser tab icon
 
