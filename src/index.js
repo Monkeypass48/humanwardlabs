@@ -3,9 +3,24 @@ import { EmailMessage } from "cloudflare:email";
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json" } });
 
+// Home page: HTML for browsers, Markdown for agents that ask for it (Accept: text/markdown).
+async function page(request, env, url) {
+  const accept = request.headers.get("accept") || "";
+  const md = url.pathname === "/index.md" || /text\/markdown/i.test(accept);
+  const res = await env.ASSETS.fetch(new Request(new URL(md ? "/index.md" : "/", url), request));
+  const out = new Response(res.body, res);
+  if (md && res.ok) out.headers.set("content-type", "text/markdown; charset=utf-8");
+  out.headers.append("vary", "Accept");
+  out.headers.set("link", md
+    ? '<https://humanwardlabs.com/>; rel="canonical"'
+    : '</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain"');
+  return out;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/" || url.pathname === "/index.md") return page(request, env, url);
     if (url.pathname !== "/api/contact") return env.ASSETS.fetch(request);
     if (request.method !== "POST") return json({ ok: false, error: "Method not allowed." }, 405);
 
