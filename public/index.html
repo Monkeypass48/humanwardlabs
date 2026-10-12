@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Humanward Labs | Product &amp; Experience Design</title>
-<meta name="description" content="Humanward Labs is a human-centered product and experience design studio in Richmond, VA. Designing the future of brands.">
+<title>Humanward Labs | Product &amp; Experience Design Studio, Richmond VA</title>
+<meta name="description" content="Humanward Labs designs products and experiences around how people actually decide. Senior-led product and experience design from Richmond, VA. Start a project.">
 <meta name="theme-color" content="#0A0504">
 <link rel="canonical" href="https://humanwardlabs.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://humanwardlabs.com/">
 <meta property="og:title" content="Humanward Labs">
-<meta property="og:description" content="Human-centered product and experience design. Designing the future of brands.">
+<meta property="og:description" content="Designing the future of brands. Senior-led product and experience design, built around how people actually decide.">
 <meta property="og:image" content="https://humanwardlabs.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -94,6 +94,20 @@ h1{order:3}
 .intro p,.tag,.meta{text-shadow:0 1px 18px rgba(10,5,4,.85),0 0 2px rgba(10,5,4,.9)}
 .field [aria-invalid="true"]{border-bottom-color:#FF9C7A}
 .status{color:#FFD2C2}
+.proof{margin-top:16px !important;font-size:15px !important;font-weight:400 !important;letter-spacing:0 !important}
+.assure{margin:14px 0 0 !important;font-size:14px !important;font-weight:400 !important;letter-spacing:0 !important}
+.chips{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips legend{padding:0;margin-bottom:10px;font-size:14px}
+.chips legend span{opacity:.75}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chips label span{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.35);font-size:15px;transition:background-color .18s ease,border-color .18s ease,color .18s ease}
+.chips input:checked+span{background:#FFF;color:#0A0504;border-color:#FFF}
+.chips input:focus-visible+span{outline:2px solid #FF7A45;outline-offset:3px}
+.field select{width:100%;font:inherit;font-size:17px;color:#FFF;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.35);border-radius:0;padding:10px 0;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#FFF 50%),linear-gradient(135deg,#FFF 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 6px) 55%;background-size:6px 6px;background-repeat:no-repeat;cursor:pointer}
+.field select option{color:#0A0504}
+.field select:focus-visible{outline:2px solid #FF7A45;outline-offset:3px}
+.field textarea::placeholder{color:rgba(255,255,255,.55)}
 @media (max-width:860px){.scrim{background:linear-gradient(180deg,rgba(10,5,4,.55) 0,rgba(10,5,4,0) 90px),linear-gradient(0deg,rgba(10,5,4,.85) 0,rgba(10,5,4,.5) 45%,rgba(10,5,4,0) 70%)}}
 @media (prefers-contrast:more){.scrim{background:rgba(10,5,4,.55)}.field input,.field textarea{border-bottom-color:#FFF}}
 </style>
@@ -116,7 +130,6 @@ h1{order:3}
   <header class="rise" style="animation-delay:150ms">
     <a class="brand" href="/" aria-label="Humanward Labs home"><b>Humanward</b><small>Labs</small></a>
     <p class="meta"><span>Product &amp; Experience Design</span><span>Richmond, VA</span></p>
-    <a class="link" href="mailto:info@humanwardlabs.com" aria-label="Contact Humanward Labs" aria-haspopup="dialog">Contact</a>
   </header>
 
   <main id="main">
@@ -126,8 +139,10 @@ h1{order:3}
   </h1>
   <div class="mid">
     <div class="intro rise depth" style="animation-delay:1500ms">
-      <p>Human-centered product and experience design. We turn what people need into brands, products and experiences they choose.</p>
+      <p>Your customers decide in seconds. We design products and experiences around how people actually think, so choosing you feels obvious.</p>
+      <p class="proof">Senior-led by the designer behind work for Capital One, PayPal, Microsoft and Dominion Energy.</p>
       <a class="pill" href="mailto:info@humanwardlabs.com" aria-haspopup="dialog">Start a project</a>
+      <p class="assure">Two minutes to share. A senior designer replies within one business day.</p>
     </div>
     <p class="tag rise depth" style="animation-delay:1800ms">Designing the future<br>of brands.</p>
   </div>
@@ -141,20 +156,30 @@ h1{order:3}
       <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
     <h2 id="contact-title">Start a project</h2>
-    <p class="lede">Tell us who your customers are and what you want to build. We reply within one business day.</p>
+    <p class="lede">Tell us where you are and where you want to go. You get a reply from a senior designer within one business day, with clear next steps and no sales script.</p>
     <form id="contact-form" novalidate>
       <div class="row">
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="f-status"></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="f-status"></div>
+        <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required aria-required="true" aria-describedby="f-status"></div>
       </div>
       <div class="field"><label for="f-company">Company (optional)</label><input id="f-company" name="company" autocomplete="organization"></div>
-      <div class="field"><label for="f-message">What are you working on?</label><textarea id="f-message" name="message" rows="4" required aria-required="true" aria-describedby="f-status"></textarea></div>
+      <fieldset class="chips">
+        <legend>What do you need? <span>Choose any that fit</span></legend>
+        <label><input type="checkbox" name="services" value="Product design"><span>Product design</span></label>
+        <label><input type="checkbox" name="services" value="Experience design"><span>Experience design</span></label>
+        <label><input type="checkbox" name="services" value="UX research"><span>UX research</span></label>
+        <label><input type="checkbox" name="services" value="AI-powered product"><span>AI-powered product</span></label>
+        <label><input type="checkbox" name="services" value="Not sure yet"><span>Not sure yet</span></label>
+      </fieldset>
+      <div class="field"><label for="f-message">What's the challenge?</label><textarea id="f-message" name="message" rows="4" required aria-required="true" aria-describedby="f-status" placeholder="Example: New customers drop off during onboarding and we don't know why."></textarea></div>
+      <div class="field"><label for="f-timeline">When do you want to start? (optional)</label>
+        <select id="f-timeline" name="timeline"><option value="">Choose a timeframe</option><option>As soon as possible</option><option>In the next 1 to 3 months</option><option>Later this year</option><option>Just exploring</option></select></div>
       <div class="trap" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" tabindex="-1" autocomplete="off"></div>
-      <button class="send" type="submit">Send message</button>
+      <button class="send" type="submit">Send project details</button>
       <p class="status" id="f-status" role="status" aria-live="polite"></p>
     </form>
     <div class="done">
-      <p class="lede" id="f-done" tabindex="-1" style="display:block;margin:0">Message sent. We'll be in touch from info@humanwardlabs.com.</p>
+      <p class="lede" id="f-done" tabindex="-1" style="display:block;margin:0">Project details sent. Expect a reply from info@humanwardlabs.com within one business day.</p>
       <button class="send" type="button" data-close style="margin-top:22px">Close</button>
     </div>
   </div>
@@ -180,11 +205,11 @@ h1{order:3}
   });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var data = Object.fromEntries(new FormData(form));
+    var fd = new FormData(form); var data = Object.fromEntries(fd); data.services = fd.getAll('services');
     var bad = [];
     if (!data.name.trim()) bad.push(['f-name', 'your name']);
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())) bad.push(['f-email', 'a valid email']);
-    if (data.message.trim().length < 5) bad.push(['f-message', 'a short message']);
+    if (data.message.trim().length < 5) bad.push(['f-message', 'a line about the challenge']);
     ['f-name', 'f-email', 'f-message'].forEach(function (id) { document.getElementById(id).removeAttribute('aria-invalid'); });
     if (bad.length) {
       bad.forEach(function (b) { document.getElementById(b[0]).setAttribute('aria-invalid', 'true'); });
@@ -201,7 +226,7 @@ h1{order:3}
         else status.textContent = res.error || "Your message didn't send. Email info@humanwardlabs.com directly.";
       })
       .catch(function () { status.textContent = "Your message didn't send. Email info@humanwardlabs.com directly."; })
-      .finally(function () { btn.disabled = false; btn.textContent = 'Send message'; });
+      .finally(function () { btn.disabled = false; btn.textContent = 'Send project details'; });
   });
 })();
 </script>

@@ -19,17 +19,19 @@ export default {
     const email = s(d.email, 200);
     const company = oneLine(s(d.company, 200));
     const message = s(d.message, 5000);
+    const services = (Array.isArray(d.services) ? d.services : []).map((x) => oneLine(s(x, 60))).filter(Boolean).slice(0, 6);
+    const timeline = oneLine(s(d.timeline, 60));
 
     if (!name || !/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(email) || message.length < 5) {
       return json({ ok: false, error: "Add your name, a valid email and a short message." }, 400);
     }
 
-    const body = `Name: ${name}\nEmail: ${email}\nCompany: ${company || "-"}\n\n${message}\n`;
+    const body = `Name: ${name}\nEmail: ${email}\nCompany: ${company || "-"}\nNeeds: ${services.join(", ") || "-"}\nTimeline: ${timeline || "-"}\n\nChallenge:\n${message}\n`;
     const raw = [
       "From: Humanward Labs Website <website@humanwardlabs.com>",
       `To: ${env.CONTACT_TO}`,
       `Reply-To: ${name} <${email}>`,
-      `Subject: New project inquiry from ${name}`,
+      `Subject: New project: ${name}${company ? " at " + company : ""}`,
       `Message-ID: <${crypto.randomUUID()}@humanwardlabs.com>`,
       `Date: ${new Date().toUTCString()}`,
       "MIME-Version: 1.0",
