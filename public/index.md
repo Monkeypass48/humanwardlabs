@@ -15,7 +15,7 @@ Behavioral science, research and craft, applied to every product and experience 
 ## Impact
 
 - Over **$1.3 billion** in impact delivered by our principal for the world's leading brands, including Circuit City, Microsoft, Allianz, Intersections and Capital One.
-- Our principal created **Marketing Research and Competitive Analysis**, ranked **#2 in Research & Analysis** on the GPT Store: 1.28M+ conversations, 4.4 average rating from 25K+ ratings.
+- Our principal built **Marketing Research and Competitive Analysis**, a GPT that gives marketers competitive research in minutes. It ranked **#2 in Research & Analysis** on the GPT Store. Marketers adopted it fast, and **Semrush acquired it**.
 - Our principal holds **three U.S. patents** in financial services. Each one started with how people really handle money:
   - [Rewards that apply themselves](https://patents.google.com/patent/US20150206167A1/en): discounts and rewards applied automatically at checkout, with no extra step for the customer. Granted 2020.
   - [Spending categories that learn](https://patents.google.com/patent/US20160125317A1/en): machine learning that sorts transactions the way each person thinks about their money, and gets sharper with their feedback. Granted 2020.
@@ -51,7 +51,7 @@ We design AI-powered products around the people who rely on them: clear interfac
 
 ### What's the track record behind Humanward Labs?
 
-Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services.
+Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, a GPT that ranked #2 in Research & Analysis on the GPT Store and was acquired by Semrush, and hold three U.S. patents in financial services.
 
 ### How do I start a project with Humanward Labs?
 

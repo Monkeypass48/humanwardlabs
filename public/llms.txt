@@ -1,6 +1,6 @@
 # Humanward Labs
 
-> Humanward Labs is a human-centered product and experience design studio in Richmond, Virginia, grounded in behavioral economics and decision-making. Its principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created Marketing Research and Competitive Analysis, a GPT ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.
+> Humanward Labs is a human-centered product and experience design studio in Richmond, Virginia, grounded in behavioral economics and decision-making. Its principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal built Marketing Research and Competitive Analysis, a GPT that ranked #2 in Research & Analysis on the GPT Store and was acquired by Semrush.
 
 Humanward Labs offers three services: product design, experience design and design strategy. Its work is grounded in how people really think and act, drawing on behavioral science, research and design craft.
 

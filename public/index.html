@@ -40,7 +40,7 @@
    "image": "https://humanwardlabs.com/assets/og.jpg",
    "email": "info@humanwardlabs.com",
    "slogan": "Human-centered design in the age of AI.",
-   "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy, grounded in behavioral economics and decision-making. Its principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created Marketing Research and Competitive Analysis, a GPT ranked #2 in Research & Analysis on the GPT Store. Its principal holds three U.S. patents in financial services.",
+   "description": "Humanward Labs is a human-centered design studio offering product design, experience design and design strategy, grounded in behavioral economics and decision-making. Its principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created Marketing Research and Competitive Analysis, a GPT that ranked #2 in Research & Analysis on the GPT Store and was acquired by Semrush. Its principal holds three U.S. patents in financial services.",
    "address": {
     "@type": "PostalAddress",
     "addressLocality": "Richmond",
@@ -212,7 +212,7 @@
      "name": "What's the track record behind Humanward Labs?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services."
+      "text": "Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, a GPT that ranked #2 in Research & Analysis on the GPT Store and was acquired by Semrush, and hold three U.S. patents in financial services."
      }
     },
     {
@@ -231,7 +231,7 @@
    "name": "Marketing Research and Competitive Analysis",
    "applicationCategory": "Research & Analysis",
    "operatingSystem": "ChatGPT",
-   "description": "A custom GPT for marketing research and competitive analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.",
+   "description": "A custom GPT for marketing research and competitive analysis. It ranked #2 in Research & Analysis on the GPT Store and was acquired by Semrush.",
    "creator": {
     "@id": "https://humanwardlabs.com/#principal"
    }
@@ -384,11 +384,24 @@ p,li,summary{text-wrap:pretty}
 @media (max-width:760px){.logos{--ls:.64;gap:26px 10px}}
 .gpt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(32px,5vw,88px);align-items:end;margin-top:clamp(96px,11vw,176px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--black)}
 .gpt-rank{margin:0;font-weight:700;font-size:clamp(104px,15vw,232px);line-height:.78;letter-spacing:-.07em}
-.gpt-kick{margin:0;font-size:var(--fs-body);color:var(--ink-2)}
 .gpt-name{margin:10px 0 0;font-weight:700;font-size:clamp(28px,3.1vw,48px);line-height:1;letter-spacing:-.045em;max-width:14em}
-.gpt-by{margin:10px 0 0;font-size:var(--fs-body);color:var(--ink-2)}
-.gpt-stats{list-style:none;margin:clamp(24px,2.6vw,36px) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:16px clamp(28px,4vw,64px);font-size:15px;color:var(--ink-2)}
-.gpt-stats b{display:block;color:var(--black);font-size:clamp(28px,2.8vw,42px);font-weight:700;letter-spacing:-.045em;line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.gpt-story{margin:14px 0 0;font-size:var(--fs-body);line-height:1.5;color:var(--ink-2);max-width:36em}
+.arc{list-style:none;margin:clamp(28px,3vw,40px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));--g:clamp(16px,2vw,28px);gap:0 var(--g);--arc:1}
+.js .arc{--arc:0}
+.arc.in{--arc:1}
+.arc li:not(:last-child)::after{content:"";position:absolute;left:7px;top:6px;height:2px;width:calc(100% + var(--g));background:var(--black);transform-origin:left;transform:scaleX(var(--arc));transition:transform .6s cubic-bezier(.65,0,.35,1)}
+.arc.in li:nth-child(2)::after{transition-delay:.45s}
+.arc li{position:relative;padding-top:30px;display:flex;flex-direction:column;gap:6px}
+.arc li::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--white);border:2px solid var(--black);box-sizing:border-box}
+.arc li.arc-end::before{background:var(--signal);border-color:var(--signal);width:18px;height:18px;top:-2px}
+.js .arc li{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .7s var(--ease)}
+.arc.in li{opacity:1;transform:none}
+.arc.in li:nth-child(2){transition-delay:.45s}
+.arc.in li:nth-child(3){transition-delay:.9s}
+.arc-k{font-weight:700;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.03em;line-height:1.1}
+.arc-v{font-size:15px;line-height:1.4;color:var(--ink-2);max-width:16em}
+.arc-logo{display:block;width:clamp(132px,11vw,168px);height:auto;margin-top:4px;opacity:.9}
+@media (max-width:760px){.arc{grid-template-columns:1fr;gap:22px 0}.arc li{padding:0 0 0 32px}.arc li:not(:last-child)::after{left:6px;top:7px;width:2px;height:calc(100% + 22px);transform-origin:top;transform:scaleY(var(--arc))}.arc li.arc-end::before{left:-2px}}
 .patents{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px clamp(32px,5vw,88px);margin-top:clamp(88px,10vw,160px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--black)}
 .patents-title{margin:0;font-weight:700;font-size:clamp(28px,3.1vw,48px);line-height:1;letter-spacing:-.045em;max-width:11em}
 .patents-sub{margin:14px 0 0;font-size:var(--fs-body);color:var(--ink-2);max-width:22em}
@@ -604,10 +617,13 @@ form{display:grid;gap:16px;margin-top:22px}
       <div class="gpt">
         <p class="gpt-rank" aria-hidden="true">#2</p>
         <div>
-          <p class="gpt-kick"><span class="sr">Ranked number 2 </span>in Research &amp; Analysis on the GPT Store</p>
           <h3 class="gpt-name">Marketing Research and Competitive Analysis</h3>
-          <p class="gpt-by">A GPT created by our principal.</p>
-          <ul class="gpt-stats"><li><b>1.28M+</b> conversations</li><li><b>4.4</b> average rating</li><li><b>25K+</b> ratings</li></ul>
+          <p class="gpt-story">Our principal built a GPT that gives marketers competitive research in minutes. It took off fast, and Semrush acquired it.</p>
+          <ol class="arc" aria-label="The story so far">
+            <li><span class="arc-k">Built</span><span class="arc-v">For marketers who need answers fast</span></li>
+            <li><span class="arc-k">Ranked #2</span><span class="arc-v">In Research &amp; Analysis on the GPT Store</span></li>
+            <li class="arc-end"><span class="arc-k">Acquired</span><img class="arc-logo" src="/assets/logos/semrush.webp" alt="Semrush, an Adobe company" width="168" height="40" loading="lazy" decoding="async"></li>
+          </ol>
         </div>
       </div>
       <div class="patents">
@@ -867,7 +883,7 @@ form{display:grid;gap:16px;margin-top:22px}
         </details>
         <details>
           <summary>What&rsquo;s the track record behind Humanward Labs?</summary>
-          <p>Our principal&rsquo;s work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research &amp; Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services.</p>
+          <p>Our principal&rsquo;s work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, a GPT that ranked #2 in Research &amp; Analysis on the GPT Store and was acquired by Semrush, and hold three U.S. patents in financial services.</p>
         </details>
         <details>
           <summary>How do I start a project with Humanward Labs?</summary>
@@ -1230,6 +1246,13 @@ form{display:grid;gap:16px;margin-top:22px}
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(req);
     frame();
   })();
+
+  // GPT story: the line draws, then each beat lands
+  var arc = document.querySelector('.arc');
+  if (arc) {
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { arc.classList.add('in'); o.disconnect(); } }, { threshold: 0.5 }).observe(arc);
+    else arc.classList.add('in');
+  }
 
   // Patents: the figures sketch themselves once
   var pats = document.querySelector('.patents');
