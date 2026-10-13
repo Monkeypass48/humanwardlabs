@@ -372,7 +372,11 @@ a{color:inherit}
 @keyframes ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(3.4);opacity:0}}
 .impact-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-top:clamp(28px,3vw,44px)}
 .impact-sub{margin:0;font-weight:500;font-size:var(--fs-lead);line-height:1.12;letter-spacing:-.035em;max-width:17em}
-.impact .clients{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 32px;font-weight:600;font-size:clamp(18px,1.8vw,26px);letter-spacing:-.03em}
+.logos{list-style:none;margin:clamp(44px,5vw,72px) 0 0;padding:clamp(28px,3vw,40px) 0 0;border-top:1px solid #D9D9D9;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 40px;--ls:1}
+.logos li{display:flex;align-items:center}
+.logos img{display:block;width:calc(var(--w) * var(--ls) * 1px);height:auto;max-width:100%;opacity:.9}
+@media (max-width:1100px){.logos{--ls:.86;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px 16px}.logos li{justify-content:center;grid-column:span 3}.logos li:nth-child(n+5){grid-column:span 4}}
+@media (max-width:760px){.logos{--ls:.64;gap:26px 10px}}
 .gpt{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px clamp(32px,5vw,88px);align-items:end;margin-top:clamp(96px,11vw,176px);padding-top:clamp(28px,3vw,44px);border-top:1px solid var(--black)}
 .gpt-rank{margin:0;font-weight:700;font-size:clamp(104px,15vw,232px);line-height:.78;letter-spacing:-.07em}
 .gpt-kick{margin:0;font-size:var(--fs-body);color:var(--ink-2)}
@@ -582,8 +586,16 @@ form{display:grid;gap:16px;margin-top:22px}
       </div>
       <div class="impact-meta">
         <p class="impact-sub" aria-hidden="true">in impact delivered by our principal for the world&rsquo;s leading brands.</p>
-        <ul class="clients" aria-label="Selected clients"><li>Circuit City</li><li>Microsoft</li><li>Allianz</li><li>Intersections</li><li>Capital One</li></ul>
       </div>
+      <ul class="logos" aria-label="Brands our principal has worked with">
+          <li><img src="/assets/logos/microsoft.webp" alt="Microsoft" width="139" height="30" style="--w:139" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/capital-one.webp" alt="Capital One" width="121" height="43" style="--w:121" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/paypal.webp" alt="PayPal" width="101" height="34" style="--w:101" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/circuit-city.webp" alt="Circuit City" width="51" height="51" style="--w:51" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/allianz.webp" alt="Allianz" width="130" height="34" style="--w:130" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/dominion-energy.webp" alt="Dominion Energy" width="109" height="38" style="--w:109" loading="lazy" decoding="async"></li>
+          <li><img src="/assets/logos/blockfi.webp" alt="BlockFi" width="134" height="30" style="--w:134" loading="lazy" decoding="async"></li>
+      </ul>
       <div class="gpt">
         <p class="gpt-rank" aria-hidden="true">#2</p>
         <div>

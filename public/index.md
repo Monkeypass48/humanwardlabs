@@ -21,6 +21,8 @@ Behavioral science, research and craft, applied to every product and experience 
   - [Spending categories that learn](https://patents.google.com/patent/US20160125317A1/en): machine learning that sorts transactions the way each person thinks about their money, and gets sharper with their feedback. Granted 2020.
   - [Service that surfaces what people already have](https://patents.google.com/patent/US20150095130A1/en): automated customer service that brings forward benefits customers already hold. Granted 2019.
 
+Brands our principal has worked with: Microsoft, Capital One, PayPal, Circuit City, Allianz, Dominion Energy, BlockFi and Intersections.
+
 ## What we do
 
 Three disciplines. One direction: toward people.
