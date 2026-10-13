@@ -2,7 +2,7 @@
 
 > Humanward Labs is a human-centered product and experience design studio in Richmond, Virginia, grounded in behavioral economics and decision-making. Its principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Its principal created Marketing Research and Competitive Analysis, a GPT ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations.
 
-Humanward Labs offers three services: product design, experience design and design strategy. Behavioral economics and decision science shape every product and experience it designs.
+Humanward Labs offers three services: product design, experience design and design strategy. Its work is grounded in how people really think and act, drawing on behavioral science, research and design craft.
 
 ## Pages
 
@@ -17,7 +17,15 @@ Humanward Labs offers three services: product design, experience design and desi
 
 ## Approach
 
-Designed for how people actually decide: behavioral economics and decision science shape every product and experience Humanward Labs designs.
+Grounded in how people really think and act: behavioral science, research and craft, applied to every product and experience Humanward Labs designs. Every product should move toward the people who use it.
+
+## Patents
+
+The principal holds three U.S. patents in financial services:
+
+- Systems and methods for providing a financial discount or reward (granted 2020): https://patents.google.com/patent/US20150206167A1/en
+- System and method for transaction learning (granted 2020): https://patents.google.com/patent/US20160125317A1/en
+- Systems and methods for providing a customer service (granted 2019): https://patents.google.com/patent/US20150095130A1/en
 
 ## Principles
 
