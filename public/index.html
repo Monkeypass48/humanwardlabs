@@ -385,13 +385,24 @@ a{color:inherit}
 .patents-sub{margin:14px 0 0;font-size:var(--fs-body);color:var(--ink-2);max-width:22em}
 .patent-list{list-style:none;margin:0;padding:0}
 .patent-list li+li{border-top:1px solid #D9D9D9}
-.patent-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:clamp(18px,2vw,26px) 0;text-decoration:none;color:inherit}
+.patent-list a{display:grid;grid-template-columns:clamp(104px,9.5vw,140px) minmax(0,1fr) auto;gap:6px clamp(20px,2.2vw,32px);align-items:start;padding:clamp(18px,2vw,26px) 0;text-decoration:none;color:inherit}
 .patent-list li:first-child a{padding-top:0}
-.pt{grid-column:1;font-weight:700;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.03em;line-height:1.15;background:linear-gradient(var(--signal),var(--signal)) 0 100%/0 2px no-repeat;transition:background-size .45s var(--ease);justify-self:start;padding-bottom:2px}
-.pd{grid-column:1;font-size:var(--fs-body);line-height:1.45;color:var(--ink-2);max-width:34em}
-.py{grid-column:2;grid-row:1;font-size:15px;color:var(--ink-2);white-space:nowrap;padding-top:.35em;font-variant-numeric:tabular-nums}
+.pt{grid-column:2;font-weight:700;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.03em;line-height:1.15;background:linear-gradient(var(--signal),var(--signal)) 0 100%/0 2px no-repeat;transition:background-size .45s var(--ease);justify-self:start;padding-bottom:2px}
+.pd{grid-column:2;font-size:var(--fs-body);line-height:1.45;color:var(--ink-2);max-width:34em}
+.py{grid-column:3;grid-row:1;font-size:15px;color:var(--ink-2);white-space:nowrap;padding-top:.35em;font-variant-numeric:tabular-nums}
 .patent-list a:hover .pt,.patent-list a:focus-visible .pt{background-size:100% 2px}
-@media (max-width:760px){.patents{grid-template-columns:1fr}.patent-list a{grid-template-columns:1fr}.py{grid-column:1;grid-row:auto;padding-top:2px}}
+.pfig{grid-column:1;grid-row:1 / span 3;display:flex;flex-direction:column;gap:6px}
+.pfig-art{display:block;width:100%;height:auto;overflow:visible;fill:none;stroke:var(--black);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.pfig-art .ld{stroke-width:.8}
+.pfig-art .dash{stroke-dasharray:3 3}
+.pfig-art text{fill:var(--black);stroke:none;font-size:9px;font-weight:500;letter-spacing:.02em}
+.pfig-cap{font-size:12px;font-weight:600;letter-spacing:.04em}
+.js .pfig-art :is(path,rect,circle):not(.dash){stroke-dasharray:1;stroke-dashoffset:1}
+.js .pfig-art .dash{opacity:0}
+.js .pfig-art text,.js .pfig-cap{opacity:0}
+.patents.in .pfig-art :is(path,rect,circle):not(.dash){stroke-dashoffset:0;transition:stroke-dashoffset 1.6s cubic-bezier(.65,0,.35,1) var(--d,0ms)}
+.patents.in .pfig-art .dash,.patents.in .pfig-art text,.patents.in .pfig-cap{opacity:1;transition:opacity .6s ease calc(var(--d,0ms) + 1.2s)}
+@media (max-width:760px){.patents{grid-template-columns:1fr}.patent-list a{grid-template-columns:88px minmax(0,1fr)}.py{grid-column:2;grid-row:auto;padding-top:2px}.pfig{grid-row:1 / span 3}}
 @media (max-width:760px){.gpt{grid-template-columns:1fr}.impact-fig{font-size:25vw}}
 .seq-intro{position:absolute;left:var(--pad);right:var(--pad);top:clamp(76px,10svh,104px);color:var(--white);opacity:var(--to,1);transform:translateY(var(--ty,0px))}
 .seq-intro .h2{font-size:clamp(30px,4.2vw,64px);max-width:17em}
@@ -588,9 +599,27 @@ form{display:grid;gap:16px;margin-top:22px}
           <p class="patents-sub">Each one started with how people really handle money.</p>
         </div>
         <ul class="patent-list">
-          <li><a href="https://patents.google.com/patent/US20150206167A1/en" target="_blank" rel="noopener"><span class="pt">Rewards that apply themselves</span><span class="pd">Discounts and rewards applied automatically at checkout, with no extra step for the customer.</span><span class="py">Granted 2020</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
-          <li><a href="https://patents.google.com/patent/US20160125317A1/en" target="_blank" rel="noopener"><span class="pt">Spending categories that learn</span><span class="pd">Machine learning that sorts transactions the way each person thinks about their money, and gets sharper with their feedback.</span><span class="py">Granted 2020</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
-          <li><a href="https://patents.google.com/patent/US20150095130A1/en" target="_blank" rel="noopener"><span class="pt">Service that surfaces what people already have</span><span class="pd">Automated customer service that brings forward benefits customers already hold, like the perks on their card.</span><span class="py">Granted 2019</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20150206167A1/en" target="_blank" rel="noopener" style="--d:0ms"><span class="pfig"><svg class="pfig-art" viewBox="0 0 160 112" aria-hidden="true" focusable="false"><rect pathLength="1" x="94" y="12" width="46" height="80" rx="6"/><rect pathLength="1" x="101" y="20" width="32" height="20" rx="2"/><circle pathLength="1" cx="107" cy="54" r="2.4"/><circle pathLength="1" cx="117" cy="54" r="2.4"/><circle pathLength="1" cx="127" cy="54" r="2.4"/><circle pathLength="1" cx="107" cy="65" r="2.4"/><circle pathLength="1" cx="117" cy="65" r="2.4"/><circle pathLength="1" cx="127" cy="65" r="2.4"/><circle pathLength="1" cx="107" cy="76" r="2.4"/><circle pathLength="1" cx="117" cy="76" r="2.4"/><circle pathLength="1" cx="127" cy="76" r="2.4"/><g transform="rotate(-14 46 60)"><rect pathLength="1" x="20" y="42" width="54" height="36" rx="4"/><path pathLength="1" d="M20 52h54"/><path pathLength="1" d="M28 68h16"/></g>
+<path pathLength="1" d="M80 48a9 9 0 0 1 0 14"/><path pathLength="1" d="M85 43a15 15 0 0 1 0 24"/>
+<path pathLength="1" class="ld" d="M138 88l10 12"/><path pathLength="1" class="ld" d="M34 80l-10 16"/><path pathLength="1" class="ld" d="M85 43l-8-28"/>
+<text x="146" y="110">102</text><text x="10" y="106">104</text><text x="62" y="11">106</text></svg><span class="pfig-cap">FIG. 1</span></span><span class="pt">Rewards that apply themselves</span><span class="pd">Discounts and rewards applied automatically at checkout, with no extra step for the customer.</span><span class="py">Granted 2020</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20160125317A1/en" target="_blank" rel="noopener" style="--d:220ms"><span class="pfig"><svg class="pfig-art" viewBox="0 0 160 112" aria-hidden="true" focusable="false"><rect pathLength="1" x="8" y="14" width="60" height="16" rx="3"/><rect pathLength="1" x="8" y="38" width="60" height="16" rx="3"/><rect pathLength="1" x="8" y="62" width="60" height="16" rx="3"/>
+<path pathLength="1" d="M14 22h22M14 46h30M14 70h18"/>
+<path pathLength="1" d="M100 40v30h24v-30M130 40v30h24v-30"/>
+<path pathLength="1" d="M70 22C88 22 100 26 110 36"/><path pathLength="1" d="M106 31l4 5 1-6"/>
+<path pathLength="1" d="M70 46C92 46 118 40 140 36"/><path pathLength="1" d="M134 33l6 3-5 4"/>
+<path pathLength="1" d="M70 70C90 70 104 62 114 54"/><path pathLength="1" d="M108 54h6v-6"/>
+<path pathLength="1" d="M142 74C142 100 40 104 38 84"/><path pathLength="1" d="M34 89l4-6 4 6"/>
+<path pathLength="1" class="ld" d="M8 82l-2 14"/><path pathLength="1" class="ld" d="M154 40l4-14"/><path pathLength="1" class="ld" d="M92 98l2 8"/>
+<text x="0" y="108">202</text><text x="140" y="20">204</text><text x="86" y="112">206</text></svg><span class="pfig-cap">FIG. 2</span></span><span class="pt">Spending categories that learn</span><span class="pd">Machine learning that sorts transactions the way each person thinks about their money, and gets sharper with their feedback.</span><span class="py">Granted 2020</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
+          <li><a href="https://patents.google.com/patent/US20150095130A1/en" target="_blank" rel="noopener" style="--d:440ms"><span class="pfig"><svg class="pfig-art" viewBox="0 0 160 112" aria-hidden="true" focusable="false"><rect pathLength="1" x="10" y="10" width="98" height="92" rx="6"/><path pathLength="1" d="M10 24h98"/>
+<rect pathLength="1" x="18" y="32" width="54" height="16" rx="8"/><rect pathLength="1" x="48" y="54" width="52" height="14" rx="7"/>
+<rect pathLength="1" x="18" y="74" width="66" height="20" rx="6"/><rect pathLength="1" x="24" y="78" width="18" height="12" rx="2"/><path pathLength="1" d="M48 84h28"/>
+<path pathLength="1" d="M90 78l7-5M92 84h9M90 90l7 5"/>
+<rect pathLength="1" x="124" y="62" width="32" height="22" rx="3"/><path pathLength="1" d="M124 68h32"/>
+<path pathLength="1" class="dash" d="M108 84C116 84 116 76 124 76"/>
+<path pathLength="1" class="ld" d="M108 18l12-10"/><path pathLength="1" class="ld" d="M50 94l-6 12"/><path pathLength="1" class="ld" d="M150 84l2 12"/>
+<text x="120" y="10">302</text><text x="28" y="111">304</text><text x="140" y="108">306</text></svg><span class="pfig-cap">FIG. 3</span></span><span class="pt">Service that surfaces what people already have</span><span class="pd">Automated customer service that brings forward benefits customers already hold, like the perks on their card.</span><span class="py">Granted 2019</span><span class="sr"> (opens the patent on Google Patents)</span></a></li>
         </ul>
       </div>
     </div>
@@ -1184,6 +1213,13 @@ form{display:grid;gap:16px;margin-top:22px}
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(req);
     frame();
   })();
+
+  // Patents: the figures sketch themselves once
+  var pats = document.querySelector('.patents');
+  if (pats) {
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { pats.classList.add('in'); o.disconnect(); } }, { threshold: 0.3 }).observe(pats);
+    else pats.classList.add('in');
+  }
 
   // Impact: the growth line draws as the figure counts up
   var impact = document.querySelector('.impact');
