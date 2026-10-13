@@ -196,7 +196,7 @@
      "name": "How does behavioral economics shape your design?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Behavioral economics studies how people really think and act: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people really behave."
+      "text": "Behavioral economics studies how people think and act in everyday life: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people behave."
      }
     },
     {
@@ -212,7 +212,7 @@
      "name": "What's the track record behind Humanward Labs?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations. Our principal also holds three U.S. patents in financial services, for rewards applied automatically at checkout, machine-learning transaction categorization and automated customer service."
+      "text": "Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services."
      }
     },
     {
@@ -220,7 +220,7 @@
      "name": "How do I start a project with Humanward Labs?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Select “Let’s talk” on this page or email info@humanwardlabs.com. Share what you’re building and where people get stuck. Every message is read and answered personally."
+      "text": "Select “Let’s talk” on this page or email info@humanwardlabs.com. Share what you’re building and where people get stuck. Every message gets a personal reply."
      }
     }
    ]
@@ -282,6 +282,11 @@
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
 body{margin:0;background:var(--black);color:var(--white);font-family:'Host Grotesk','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 a{color:inherit}
+::selection{background:var(--signal);color:var(--black)}
+p,li,summary{text-wrap:pretty}
+.nav .cta:active,.send:active{transform:scale(.97)}
+.talk:active{opacity:.7}
+.nav .cta,.send{transition:transform .15s var(--ease),background-color .2s ease,color .2s ease,border-color .2s ease}
 :focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:2px}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip{position:absolute;left:16px;top:-100px;z-index:20;background:var(--white);color:var(--black);padding:12px 18px;border-radius:8px;font-weight:600;text-decoration:none}
@@ -290,7 +295,7 @@ a{color:inherit}
 .h2{margin:0;font-weight:700;font-size:var(--fs-h2);line-height:.94;letter-spacing:-.05em;text-wrap:balance}
 
 /* Header */
-.site-header{animation:hdrIn 1s var(--ease) .1s backwards;position:fixed;top:0;left:0;right:0;z-index:30;transition:transform .45s var(--ease),background-color .3s ease,padding .3s ease;padding:clamp(18px,2.6vw,32px) var(--pad);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.site-header{animation:hdrIn 1s var(--ease) .1s backwards;position:fixed;top:0;left:0;right:0;z-index:30;transition:transform .45s var(--ease),background-color .3s ease,padding .3s ease;padding:clamp(14px,1.3vw,18px) var(--pad);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:inline-flex;align-items:center;min-height:44px;gap:3px;text-decoration:none;color:var(--white)}
 .brand b{font-weight:700;font-size:22px;letter-spacing:-.045em}
 .brand small{font-weight:500;font-size:11px;letter-spacing:-.01em;align-self:flex-start;margin-top:10px}
@@ -505,7 +510,7 @@ form{display:grid;gap:16px;margin-top:22px}
 .field [aria-invalid="true"]{border-bottom-color:var(--white);box-shadow:0 1px 0 var(--white)}
 .field textarea{resize:vertical;min-height:96px}
 .trap{position:absolute;left:-9999px}
-.send{justify-self:start;margin-top:4px;border:0;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;background:var(--white);color:var(--black);transition:background-color .18s ease}
+.send{justify-self:start;margin-top:4px;border:0;cursor:pointer;font:inherit;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;background:var(--white);color:var(--black);transition:background-color .18s ease,transform .15s var(--ease)}
 .send:hover{background:#D9D9D9}
 .send[disabled]{opacity:.6;cursor:progress}
 .status{min-height:1.3em;margin:0;font-size:15px}
@@ -823,7 +828,7 @@ form{display:grid;gap:16px;margin-top:22px}
               </div>
               <div class="txt">
                 <p class="kicker">Design Strategy</p>
-                <p class="def">Where design creates the most value, and what to build first. Decisions grounded in how people really behave.</p>
+                <p class="def">Where design creates the most value, and what to build first. Grounded in research, not assumptions.</p>
                 <ul class="list">
                   <li>Customer research and insight</li>
                   <li>Opportunity mapping and priorities</li>
@@ -854,7 +859,7 @@ form{display:grid;gap:16px;margin-top:22px}
         </details>
         <details>
           <summary>How does behavioral economics shape your design?</summary>
-          <p>Behavioral economics studies how people really think and act: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people really behave.</p>
+          <p>Behavioral economics studies how people think and act in everyday life: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people behave.</p>
         </details>
         <details>
           <summary>How does Humanward Labs design for AI?</summary>
@@ -862,11 +867,11 @@ form{display:grid;gap:16px;margin-top:22px}
         </details>
         <details>
           <summary>What&rsquo;s the track record behind Humanward Labs?</summary>
-          <p>Our principal&rsquo;s work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research &amp; Analysis on the GPT Store with over 1.28 million conversations. Our principal also holds three U.S. patents in financial services, for rewards applied automatically at checkout, machine-learning transaction categorization and automated customer service.</p>
+          <p>Our principal&rsquo;s work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research &amp; Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services.</p>
         </details>
         <details>
           <summary>How do I start a project with Humanward Labs?</summary>
-          <p>Select &ldquo;Let&rsquo;s talk&rdquo; on this page or email info@humanwardlabs.com. Share what you&rsquo;re building and where people get stuck. Every message is read and answered personally.</p>
+          <p>Select &ldquo;Let&rsquo;s talk&rdquo; on this page or email info@humanwardlabs.com. Share what you&rsquo;re building and where people get stuck. Every message gets a personal reply.</p>
         </details>
       </div>
     </div>

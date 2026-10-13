@@ -43,7 +43,7 @@ Human-centered design starts with the people who will use a product. Research, p
 
 ### How does behavioral economics shape your design?
 
-Behavioral economics studies how people really think and act: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people really behave.
+Behavioral economics studies how people think and act in everyday life: through shortcuts, habits and emotion, not pure logic. We use it with research and testing to design products that fit the way people behave.
 
 ### How does Humanward Labs design for AI?
 
@@ -51,11 +51,11 @@ We design AI-powered products around the people who rely on them: clear interfac
 
 ### What's the track record behind Humanward Labs?
 
-Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. Our principal also created Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations. Our principal also holds three U.S. patents in financial services, for rewards applied automatically at checkout, machine-learning transaction categorization and automated customer service.
+Our principal's work has created over $1.3 billion in impact for brands including Circuit City, Microsoft, Allianz, Intersections and Capital One. They also built Marketing Research and Competitive Analysis, ranked #2 in Research & Analysis on the GPT Store with over 1.28 million conversations, and hold three U.S. patents in financial services.
 
 ### How do I start a project with Humanward Labs?
 
-Select “Let’s talk” on this page or email info@humanwardlabs.com. Share what you’re building and where people get stuck. Every message is read and answered personally.
+Select “Let’s talk” on this page or email info@humanwardlabs.com. Share what you’re building and where people get stuck. Every message gets a personal reply.
 
 ## Let's move it humanward
 
